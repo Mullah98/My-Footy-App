@@ -6,7 +6,7 @@ const HEADERS = {
 };
 
 export const getAllLeagues = async () => {
-    const url = `${BASE_URL}/leagues`;
+    const url = `${BASE_URL}/leagues?country=England`;
     const options = {
         method: 'GET',
         headers: HEADERS,
@@ -15,7 +15,7 @@ export const getAllLeagues = async () => {
     try {
         const response = await fetch(url, options);
         const result = await response.json();
-        console.log(result);
+        return result.response
     } catch(error) {
         console.log('Error fetching leagues', error);
         throw error;
