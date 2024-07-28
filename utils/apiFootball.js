@@ -6,7 +6,7 @@ const HEADERS = {
 };
 
 export const getAllLeagues = async () => {
-    const url = `${BASE_URL}/leagues?country=England`;
+    const url = `${BASE_URL}/leagues`;
     const options = {
         method: 'GET',
         headers: HEADERS,

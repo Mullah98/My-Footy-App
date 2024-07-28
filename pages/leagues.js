@@ -5,25 +5,28 @@ import { getAllLeagues } from "@/utils/apiFootball";
 
 export default function Leagues() {
     const [leagues, setLeagues] = useState([])
+    const countries = ['England', 'Spain', 'France', 'Germany', 'Italy']
+    const nameOfLeague = ['Premier League', 'La Liga', 'Ligue 1', 'Bundesliga', 'Serie A']
 
     useEffect(() => {
         const fetchLeagues = async () => {
             try {
                 const leaguesData = await getAllLeagues();
-                console.log(leaguesData);
-                setLeagues(leaguesData)
-
-                // if (Array.isArray(leaguesData)) {
-                //     setLeagues(leaguesData.response)
-                // } else {
-                //     console.error('Expected an array, but got:', leaguesData)
-                // }
+                filterLeagues(leaguesData)
+                console.log(leagues);
+                // const premierLeague = leaguesData
             } catch (error) {
                 console.log('Error fetching leagues', error);
             }
         };
         fetchLeagues();
     }, []);
+
+    const filterLeagues = (leaguesData) => {
+        const filterByCountry = leaguesData.filter(league => countries.includes(league.country.name));
+        const filterByLeague = filterByCountry.filter(country => nameOfLeague.includes(country.league.name));
+        setLeagues(filterByLeague)
+    }
 
     return (
         <>
