@@ -3,7 +3,7 @@
 import { useQuery } from "react-query";
 import { getAllLeagues } from "@/utils/apiFootball";
 import Image from 'next/image'
-import styles from '../app/page.module.css'
+import styles from '../pages/styling/leagues.css'
 
 export default function Leagues() {
     const countries = ['England', 'Spain', 'France', 'Germany', 'Italy']

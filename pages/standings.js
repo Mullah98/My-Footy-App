@@ -3,7 +3,7 @@
 import { getAllStandings } from "@/utils/apiFootball";
 import { useQuery } from "react-query";
 import Image from 'next/image';
-import styles from '../app/page.module.css'
+import '../pages/styling/standings.css'
 
 
 export default function Standings() {
@@ -38,10 +38,10 @@ export default function Standings() {
     const standings = filterStandings(standingsData)
 
     return (
-        <div className={styles.teams}>
-        <h1 className={styles.header}>League table</h1>
-            <table className={styles.data}>
-                <thead className={styles.head}>
+        <div className="container">
+        <h1>League table</h1>
+            <table>
+                <thead>
                     <th>Position</th>
                     <th>Team</th>
                     <th>Games played</th>
@@ -54,7 +54,7 @@ export default function Standings() {
                 </thead>
                 <tbody>
                 {standings.map((team, i) => (
-                    <tr key={i} className={styles.row}>
+                    <tr key={i}>
                     <td>{team.rank}</td>
                     <td><Image src={team.team.logo} alt="logo for team" height={45} width={45} /> {team.team.name}</td>
                     <td>{team.all.played}</td>
