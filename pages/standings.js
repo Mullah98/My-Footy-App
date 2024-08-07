@@ -50,6 +50,7 @@ export default function Standings({ leagueId }) {
         <h1>League table</h1>
             <table>
                 <thead>
+                <tr className="row-header">
                     <th>Position</th>
                     <th>Team</th>
                     <th>Games played</th>
@@ -59,6 +60,7 @@ export default function Standings({ leagueId }) {
                     <th>+/-</th>
                     <th>GD</th>
                     <th>Points</th>
+                </tr>
                 </thead>
                 <tbody>
                 {standings.map((team, i) => (
