@@ -1,3 +1,28 @@
-.item {
-    margin-top: 5vh;
+.leagues-container {
+    margin: 0 2em 0 4em;
+}
+
+ul {
+    display: flex;
+    padding: 2em;
+    position: relative;
+    justify-content: center;
+}
+
+li {
+    margin: 0 5em 0 2em;
+    list-style: none;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+img {
+    border-radius: 5%;
+}
+
+.selectedButton {
+    border: 5px solid green;
 }

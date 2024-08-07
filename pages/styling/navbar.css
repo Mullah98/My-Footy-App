@@ -1,0 +1,14 @@
+.navbar {
+    width: 100%;
+    max-width: 100%;
+    font-size: 2em;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    margin: 0 2em 0 1em;
+    
+}

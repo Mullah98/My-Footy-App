@@ -2,13 +2,18 @@
 
 import { getAllStandings } from "@/utils/apiFootball";
 import { useQuery } from "react-query";
+import { useState } from "react";
 import Image from 'next/image';
 import '../pages/styling/standings.css'
+import Dropdown from "./dropdown";
 
 
-export default function Standings() {
+export default function Standings({ leagueId }) {
+    const [year, setYear] = useState('2024')
 
-    const { data: standingsData, error, isLoading, dataUpdatedAt} = useQuery('standings', getAllStandings, {
+
+    const { data: standingsData, error, isLoading, dataUpdatedAt} = useQuery(
+        ['standings', leagueId, year], () => getAllStandings(leagueId, year), {
         staleTime: Infinity,//1000 * 60 * 60
         cacheTime: Infinity,//1000 * 60 * 60 * 24
         // onSuccess: (data) => {
@@ -29,16 +34,15 @@ export default function Standings() {
         if (!standingsData) {
             return [];
         }
-        const flattenedData = standingsData.flat(3);
-        console.log('----->', flattenedData);
-        
+        const flattenedData = standingsData.flat(3);        
         return flattenedData
     }
 
     const standings = filterStandings(standingsData)
 
     return (
-        <div className="container">
+        <div className="standings-container">
+        <Dropdown />
         <h1>League table</h1>
             <table>
                 <thead>

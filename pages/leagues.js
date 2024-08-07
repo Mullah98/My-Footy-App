@@ -3,9 +3,9 @@
 import { useQuery } from "react-query";
 import { getAllLeagues } from "@/utils/apiFootball";
 import Image from 'next/image'
-import styles from '../pages/styling/leagues.css'
+import '../pages/styling/leagues.css'
 
-export default function Leagues() {
+export default function Leagues({ handleSelectedLeague }) {
     const countries = ['England', 'Spain', 'France', 'Germany', 'Italy']
     const nameOfLeague = ['Premier League', 'La Liga', 'Ligue 1', 'Bundesliga', 'Serie A']
 
@@ -27,9 +27,9 @@ export default function Leagues() {
         if (!leaguesData) {
             return []
         }
-        const filterByCountry = leaguesData.filter(league => countries.includes(league.country.name))
+        const filterByCountry = leaguesData.filter(league => countries.includes(league.country.name))        
         const filterByLeague = filterByCountry.filter(league => nameOfLeague.includes(league.league.name))
-        console.log(filterByLeague);
+              
         return filterByLeague
     }
 
@@ -48,17 +48,19 @@ export default function Leagues() {
     }
 
     return (
-        <div className={styles.container}>
-            <h2>Leagues</h2>
+        <>
+        <div className="leagues-container">
             <ul>
                 {Array.isArray(leagues) && leagues.map((item, i) => (
-                    <li key={i} className={styles.item}>
-                    {/* {item.league.name} */}
+                    <li key={i} className={handleSelectedLeague ? '' : 'selectedButton'}>
+                    <button onClick={() => handleSelectedLeague(item.league.id)}>
                     <Image src={item.league.logo} alt="icons for leagues" height={100} width={100} />
+                    </button>
                     </li>
                 ))}
             </ul>
         </div>
+        </>
     )
 }
 

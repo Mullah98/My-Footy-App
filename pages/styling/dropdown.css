@@ -1,0 +1,13 @@
+
+.dropdown-container {
+    position:relative;
+    text-align: center;
+}
+
+label {
+    font-size: 1.6em;
+}
+
+#dropdown-menu {
+    font-size: 1.6em;
+}

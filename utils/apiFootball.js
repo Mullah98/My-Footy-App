@@ -22,8 +22,8 @@ export const getAllLeagues = async () => {
     }
 }
 
-export const getAllStandings = async () => {
-    const url = `${BASE_URL}/standings?league=39&season=2023`;
+export const getAllStandings = async (leagueId, year) => {
+    const url = `${BASE_URL}/standings?league=${leagueId}&season=${year}`;
     const options = {
         method: 'GET',
         headers: HEADERS,
@@ -38,9 +38,3 @@ export const getAllStandings = async () => {
         throw error;
     }
 }
-
-//EPL:39
-//SerieA:135
-//Bundesliga:78
-//Laliga:140
-//Ligue1:61
