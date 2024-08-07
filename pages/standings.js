@@ -9,11 +9,11 @@ import Dropdown from "./dropdown";
 
 
 export default function Standings({ leagueId }) {
-    const [year, setYear] = useState('2024')
+    const [selectSeason, setSelectSeason] = useState('2024')
 
 
     const { data: standingsData, error, isLoading, dataUpdatedAt} = useQuery(
-        ['standings', leagueId, year], () => getAllStandings(leagueId, year), {
+        ['standings', leagueId, selectSeason], () => getAllStandings(leagueId, selectSeason), {
         staleTime: Infinity,//1000 * 60 * 60
         cacheTime: Infinity,//1000 * 60 * 60 * 24
         // onSuccess: (data) => {
@@ -40,9 +40,13 @@ export default function Standings({ leagueId }) {
 
     const standings = filterStandings(standingsData)
 
+    const handleSeasonChange = (value) => {
+        setSelectSeason(value)
+    }
+
     return (
         <div className="standings-container">
-        <Dropdown />
+        <Dropdown changeSeason={handleSeasonChange} />
         <h1>League table</h1>
             <table>
                 <thead>
