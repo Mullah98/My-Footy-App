@@ -6,11 +6,11 @@ import { useState } from "react";
 import Image from 'next/image';
 import '../pages/styling/standings.css'
 import Dropdown from "./dropdown";
+import {Mosaic} from 'react-loading-indicators';
 
 
 export default function Standings({ leagueId }) {
     const [selectSeason, setSelectSeason] = useState('2024')
-
 
     const { data: standingsData, error, isLoading, dataUpdatedAt} = useQuery(
         ['standings', leagueId, selectSeason], () => getAllStandings(leagueId, selectSeason), {
@@ -44,10 +44,16 @@ export default function Standings({ leagueId }) {
         setSelectSeason(value)
     }
 
+
     return (
         <div className="standings-container">
-        <Dropdown changeSeason={handleSeasonChange} />
-        <h1>League table</h1>
+            <Dropdown changeSeason={handleSeasonChange} />
+            <h1>League table</h1>
+            {isLoading ? (
+                <div className="loading">
+                    <Mosaic color="#32cd32" size="large" text="Loading" textColor="" />
+                </div>
+            ) : (
             <table>
                 <thead>
                 <tr className="row-header">
@@ -78,6 +84,7 @@ export default function Standings({ leagueId }) {
                 ))}
                 </tbody>
             </table>
+        )}
         </div>
     )
   

@@ -27,3 +27,8 @@ tr {
     color: white;
 }
 
+.loading {
+    position: relative;
+    text-align: center;
+    margin: 5vh 0 0 0;
+}

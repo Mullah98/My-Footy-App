@@ -35,11 +35,6 @@ export default function Leagues({ handleSelectedLeague }) {
 
     const leagues = filterLeagues(leaguesData)
 
-    if (isLoading) {
-        return (
-            <h1>Loading contents...</h1>
-        )
-    }
 
     if (error) {
         return (
