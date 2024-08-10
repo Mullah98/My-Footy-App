@@ -1,5 +1,7 @@
 .leagues-container {
-    margin: 0 2em 0 4em;
+    margin: 10em 2em 0 4em;
+    background-color: rgb(52, 50, 50);
+    
 }
 
 ul {
@@ -17,6 +19,7 @@ li {
 button {
     border: none;
     cursor: pointer;
+    background-color: rgb(52, 50, 50);
 }
 
 img {

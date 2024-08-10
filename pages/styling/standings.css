@@ -14,21 +14,30 @@ h1 {
     font-size: 1.4em;
 }
 
+th {
+    border: 3px solid;
+    background-color: green;
+}
+
 td {
     text-align: center;
     padding: 0.5vh 0.5vh;
     font-size: 22px;
+    border: 1px solid;
 }
 
 tr {
-    border: 1px solid rgb(1, 1, 1);
-    border-radius: 10px;
-    background-color: rgb(141, 140, 140);
-    color: white;
+    border-radius: solid;
+    background-color: rgb(52, 50, 50);
+    /* color: white; */
 }
 
 .loading {
     position: relative;
     text-align: center;
     margin: 5vh 0 0 0;
+}
+
+table {
+    background-color: green;
 }

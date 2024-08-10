@@ -1,7 +1,10 @@
 .navbar {
     width: 100%;
     max-width: 100%;
-    font-size: 2em;
+    font-size: 1.5em;
+    position: absolute;
+    top: 0;
+    background-color: grey;
 }
 
 ul {

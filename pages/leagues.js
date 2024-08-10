@@ -2,8 +2,9 @@
 
 import { useQuery } from "react-query";
 import { getAllLeagues } from "@/utils/apiFootball";
-import Image from 'next/image'
-import '../pages/styling/leagues.css'
+import Image from 'next/image';
+import '../pages/styling/leagues.css';
+import { BlinkBlur } from "react-loading-indicators";
 
 export default function Leagues({ handleSelectedLeague }) {
     const countries = ['England', 'Spain', 'France', 'Germany', 'Italy']
@@ -45,6 +46,11 @@ export default function Leagues({ handleSelectedLeague }) {
     return (
         <>
         <div className="leagues-container">
+        {isLoading ? (
+            <div className="loading">
+                <BlinkBlur color="#32cd32" size="medium" text="" textColor="" />
+            </div>
+        ) : (
             <ul>
                 {Array.isArray(leagues) && leagues.map((item, i) => (
                     <li key={i} className={handleSelectedLeague ? '' : 'selectedButton'}>
@@ -54,6 +60,7 @@ export default function Leagues({ handleSelectedLeague }) {
                     </li>
                 ))}
             </ul>
+        )}
         </div>
         </>
     )
