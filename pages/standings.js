@@ -4,8 +4,8 @@ import { getAllStandings } from "@/utils/apiFootball";
 import { useQuery } from "react-query";
 import { useState } from "react";
 import Image from 'next/image';
-import '../pages/styling/standings.css'
-import Dropdown from "./dropdown";
+import '../styling/standings.css';
+import Dropdown from "../components/dropdown";
 import {Mosaic} from 'react-loading-indicators';
 
 

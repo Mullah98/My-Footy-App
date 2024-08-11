@@ -3,7 +3,7 @@
 import { useQuery } from "react-query";
 import { getAllLeagues } from "@/utils/apiFootball";
 import Image from 'next/image';
-import '../pages/styling/leagues.css';
+import '../styling/leagues.css'
 import { BlinkBlur } from "react-loading-indicators";
 
 export default function Leagues({ handleSelectedLeague }) {

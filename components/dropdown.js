@@ -1,5 +1,5 @@
 import { useState } from "react"
-import '../pages/styling/dropdown.css'
+import '../styling/dropdown.css'
 
 export default function Dropdown({changeSeason}) {
     const [selectedValue, setSelectedValue] = useState('')

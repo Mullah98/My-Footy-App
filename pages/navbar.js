@@ -1,4 +1,4 @@
-import '../pages/styling/navbar.css';
+import '../styling/navbar.css';
 import Link from 'next/link';
 
 export default function Navbar() {
