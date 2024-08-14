@@ -5,7 +5,7 @@ const HEADERS = {
 	'x-rapidapi-host': 'api-football-v1.p.rapidapi.com'
 };
 
-export const getAllLeagues = async () => {
+export const getLeagues = async () => {
     const url = `${BASE_URL}/leagues`;
     const options = {
         method: 'GET',
@@ -22,7 +22,7 @@ export const getAllLeagues = async () => {
     }
 }
 
-export const getAllStandings = async (leagueId, year) => {
+export const getStandings = async (leagueId, year) => {
     const url = `${BASE_URL}/standings?league=${leagueId}&season=${year}`;
     const options = {
         method: 'GET',
@@ -35,6 +35,23 @@ export const getAllStandings = async (leagueId, year) => {
         return result.response[0].league.standings
     } catch(error) {
         console.log('Error fetching standings', error);
+        throw error;
+    }
+}
+
+export const getFixtures = async (leagueId) => {
+    const url = `${BASE_URL}/fixtures?league=${leagueId}&season=2024`;
+    const options = {
+        method: 'GET',
+        headers: HEADERS,
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result  = await response.json();
+        return result.response;
+    } catch(error) {
+        console.log('Error fetching fixtures', error);
         throw error;
     }
 }

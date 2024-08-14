@@ -1,6 +1,6 @@
 'use client'
 
-import { getAllStandings } from "@/utils/apiFootball";
+import { getStandings } from "@/utils/apiFootball";
 import { useQuery } from "react-query";
 import { useState } from "react";
 import Image from 'next/image';
@@ -13,7 +13,7 @@ export default function Standings({ leagueId }) {
     const [selectSeason, setSelectSeason] = useState('2024')
 
     const { data: standingsData, error, isLoading, dataUpdatedAt} = useQuery(
-        ['standings', leagueId, selectSeason], () => getAllStandings(leagueId, selectSeason), {
+        ['standings', leagueId, selectSeason], () => getStandings(leagueId, selectSeason), {
         staleTime: Infinity,//1000 * 60 * 60
         cacheTime: Infinity,//1000 * 60 * 60 * 24
         // onSuccess: (data) => {

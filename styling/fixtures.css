@@ -1,0 +1,9 @@
+.fixtures-container {
+    color: black;
+    background-color: white;
+}
+
+.matches {
+    background-color: grey;
+    /* display: ; */
+}
