@@ -72,7 +72,7 @@ export default function Standings({ leagueId }) {
                 {standings.map((team, i) => (
                     <tr key={i}>
                     <td>{team.rank}</td>
-                    <td><Image src={team.team.logo} alt="logo for team" height={45} width={45} /> {team.team.name}</td>
+                    <td><Image src={team.team.logo} alt="logo for team" height={45} width={45} priority={true} /> {team.team.name}</td>
                     <td>{team.all.played}</td>
                     <td>{team.all.win}</td>
                     <td>{team.all.draw}</td>

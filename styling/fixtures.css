@@ -1,14 +1,39 @@
-.fixtures-container {
-    color: black;
-    background-color: white;
-    text-align: center;
+.card-slider {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 100px;
 }
 
 .matches {
-    background-color: rgb(197, 193, 193);
-    padding: 50px;
-    margin: 10px auto;
-    width: 50%;
-    height: 100%;
-    border-radius: 30px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.matches h4 {
+    margin: 10px 0;
+}
+
+.matches h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.matches img {
+    margin: 0 10px;
 }

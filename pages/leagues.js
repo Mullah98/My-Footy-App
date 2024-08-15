@@ -54,7 +54,7 @@ export default function Leagues({ handleSelectedLeague }) {
                 {Array.isArray(leagues) && leagues.map((item, i) => (
                     <li key={i} className={handleSelectedLeague ? '' : 'selectedButton'}>
                     <button onClick={() => handleSelectedLeague(item.league.id)}>
-                    <Image src={item.league.logo} alt="icons for leagues" height={100} width={100} />
+                    <Image src={item.league.logo} alt="icons for leagues" height={100} width={100} priority={true} />
                     </button>
                     </li>
                 ))}
