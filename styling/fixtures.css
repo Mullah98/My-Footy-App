@@ -1,9 +1,14 @@
 .fixtures-container {
     color: black;
     background-color: white;
+    text-align: center;
 }
 
 .matches {
-    background-color: grey;
-    /* display: ; */
+    background-color: rgb(197, 193, 193);
+    padding: 50px;
+    margin: 10px auto;
+    width: 50%;
+    height: 100%;
+    border-radius: 30px;
 }
