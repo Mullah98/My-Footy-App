@@ -29,7 +29,7 @@ export default function CardSlider({ fixtures }) {
     };
 
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
@@ -47,9 +47,9 @@ export default function CardSlider({ fixtures }) {
           <h4>{fixture.formattedDate}</h4>
           <h4>Venue: {fixture.fixture.venue.name}</h4>  
           <h3>
-           <Image src={fixture.teams.home.logo} alt="icon for home team" height={150} width={140} priority={true} />
-            {fixture.teams.home.name} vs {fixture.teams.away.name}
-           <Image src={fixture.teams.away.logo} alt="icon for away team" height={150} width={140} priority={true} />
+           <Image src={fixture.teams.home.logo} className="home-log" alt="icon for home team" height={150} width={140} priority={true} />
+            {fixture.teams.home.name}<br /> vs <br /> {fixture.teams.away.name}
+           <Image src={fixture.teams.away.logo} className="away-logo" alt="icon for away team" height={150} width={140} priority={true} />
            </h3>
           </div>
         ))}
