@@ -32,7 +32,7 @@ export default function CardSlider({ fixtures }) {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 2,
         slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
@@ -43,14 +43,19 @@ export default function CardSlider({ fixtures }) {
         <div className="card-slider">
          <Slider {...settings}>
           {fixtures.map((fixture, i) => (
-          <div className="matches" key={i}>
-          <h4>{fixture.formattedDate}</h4>
-          <h4>Venue: {fixture.fixture.venue.name}</h4>  
-          <h3>
-           <Image src={fixture.teams.home.logo} className="home-log" alt="icon for home team" height={150} width={140} priority={true} />
-            {fixture.teams.home.name}<br /> vs <br /> {fixture.teams.away.name}
-           <Image src={fixture.teams.away.logo} className="away-logo" alt="icon for away team" height={150} width={140} priority={true} />
-           </h3>
+          <div className="cards" key={i}>
+            <span className="information">Venue: {fixture.fixture.venue.name}</span>
+            <span className="information">Referee: {fixture.fixture.referee}</span>  
+            <h3>{fixture.teams.home.name}<br /> vs <br /> {fixture.teams.away.name}</h3>
+            <Image src={fixture.teams.home.logo} className="home-log" alt="icon for home team" height={150} width={140} priority={true} />
+            {fixture.goals.home !== null && fixture.goals.away !== null ? (
+                <div className="scores">
+                <span>{fixture.goals.home}</span> - <span>{fixture.goals.away}</span>
+                </div>
+            ) : (
+                <h4>{fixture.formattedDate}</h4>
+            )}
+            <Image src={fixture.teams.away.logo} className="away-logo" alt="icon for away team" height={150} width={140} priority={true} />
           </div>
         ))}
         </Slider>

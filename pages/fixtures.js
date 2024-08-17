@@ -26,14 +26,17 @@ export default function Fixtures({ leagueId }) {
         const result = fixturesData.map(fixtures => {
             const fixturesDate = new Date(fixtures.fixture.date);
             const formattedDate = formatter.format(fixturesDate);
-        
             return {...fixtures, formattedDate}
-        });
+        });        
             return result;
+            
     }
 
     const fixtures = filterFixtures(fixturesData);
-    console.log(fixtures[1]);
+
+    if(isLoading) {
+        return (<div>Loading...</div>)
+    }
     
     
     return (
