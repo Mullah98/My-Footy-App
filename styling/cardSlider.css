@@ -47,7 +47,7 @@
     text-align: center;
     box-sizing: border-box;
     width: 100%;
-    height: 350px; /* Adjust height as needed */
+    height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,14 +56,14 @@
 
 
 .cards h3 {
-    font-size: 20px; /* Slightly larger font size for better readability */
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     margin: 10px 0;
 }
 
 .cards h4 {
-    margin: 60px 0; /* Increase margin to move it down */
+    margin: 60px 0;
     font-size: 20px;
 }
 
@@ -80,16 +80,43 @@
 
 .cards .home-log {
     left: 20px;
-    margin-top: 10px; /* Adjust margin to move the logo lower */
+    margin-top: 10px;
 }
 
 .cards .away-logo {
     right: 20px;
-    margin-top: 10px; /* Adjust margin to move the logo lower */
+    margin-top: 10px;
 }
 
 .scores {
     margin: 10% 0;
     font-size: 36px;
     font-weight: 600;
+}
+
+.goals {
+    border: 1px solid none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(224, 216, 216, 0.655);
+}
+
+.finished {
+    color: red;
+}
+
+.live {
+    color: green;
+    animation: blink 1s infinite; /* Adjust the duration (1s) as needed */
+}
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 2;
+    }
 }

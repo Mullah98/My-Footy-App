@@ -41,24 +41,50 @@ export default function CardSlider({ fixtures }) {
 
     return (
         <div className="card-slider">
+
          <Slider {...settings}>
+
           {fixtures.map((fixture, i) => (
-          <div className="cards" key={i}>
-            <span className="information">Venue: {fixture.fixture.venue.name}</span>
-            <span className="information">Referee: {fixture.fixture.referee}</span>  
+            <div className="cards" key={i}>
+                <span className="information">
+                Venue: {fixture.fixture.venue.name}
+                </span>
+                <span className="information">
+                Referee: {fixture.fixture.referee}
+                </span>  
+
             <h3>{fixture.teams.home.name}<br /> vs <br /> {fixture.teams.away.name}</h3>
-            <Image src={fixture.teams.home.logo} className="home-log" alt="icon for home team" height={150} width={140} priority={true} />
+                <Image src={fixture.teams.home.logo}
+                 className="home-log"
+                 alt="icon for home team" 
+                 height={150} 
+                 width={140} 
+                 priority={true} />
+
             {fixture.goals.home !== null && fixture.goals.away !== null ? (
                 <div className="scores">
-                <span>{fixture.goals.home}</span> - <span>{fixture.goals.away}</span>
+                <span className="goals">{fixture.goals.home}</span> - <span className="goals">{fixture.goals.away}</span>
                 </div>
             ) : (
                 <h4>{fixture.formattedDate}</h4>
             )}
-            <Image src={fixture.teams.away.logo} className="away-logo" alt="icon for away team" height={150} width={140} priority={true} />
-          </div>
+
+            {fixture.fixture.status.elapsed >= 90 ? (
+                <h3 className="finished">FT</h3>
+            ) : fixture.fixture.status.short === 'HT' ? (
+                <h3>HT</h3>
+            ) : fixture.fixture.status.elapsed !== null ? (
+                <h3 className="live">{fixture.fixture.status.elapsed}{"'"}</h3>
+            ) : null}
+                 <Image src={fixture.teams.away.logo} 
+                 className="away-logo" 
+                 alt="icon for away team" 
+                 height={150} 
+                 width={140} 
+                 priority={true} />
+            </div>
         ))}
-        </Slider>
+         </Slider>
         </div>
     )
 
