@@ -1,1 +1,1 @@
-const { fetchLeagues } = require("../pages/leagues.js")
+const { fetchLeagues } = require("../components/leagues.js")
