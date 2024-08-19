@@ -1,0 +1,15 @@
+.clubs-container {
+    border: 1px solid red;
+    padding: 10px;
+    margin: 10vh auto;
+}
+
+.form {
+    border: 1px solid blue;
+    text-align: center;
+    padding: 20px;
+}
+
+input {
+    font-size: 28px;
+}

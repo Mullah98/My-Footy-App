@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { useState } from "react";
 import Image from 'next/image';
 import '../styling/standings.css';
-import Dropdown from "../components/dropdown";
+import Dropdown from "./dropdown";
 import {Mosaic} from 'react-loading-indicators';
 
 
