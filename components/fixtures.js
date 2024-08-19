@@ -29,8 +29,6 @@ export default function Fixtures({ leagueId }) {
             const formattedDate = formatter.format(fixturesDate);
             return {...fixtures, formattedDate}
         });
-        console.log(result);
-        
             return result;
     }
 

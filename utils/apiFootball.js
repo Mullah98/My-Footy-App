@@ -55,3 +55,45 @@ export const getFixtures = async (leagueId) => {
         throw error;
     }
 }
+
+// export const getTeams = async (leagueId, year, teamId) => {
+//     const url1 = `${BASE_URL}/teams/statistics?league=${leagueId}&season=${year}&team=${teamId}`;
+//     const url2 = `${BASE_URL}/teams?id=${teamId}`;
+
+//     const options = {
+//         method: 'GET',
+//         headers: HEADERS,
+//     };
+
+//     try {
+//         const allResponses = await Promise.all([fetch(url1), fetch(url2)]);
+//         const response1 = await allResponses[0].json();
+//         const response2 = await allResponses[1].json();
+//         console.log(response2);
+        
+//         return response2;
+
+//     } catch(error) {
+//         console.log('Error fetching teams', error);
+//         throw error;
+//     }
+// }
+
+export const searchTeam = async (team) => {
+    const url = `${BASE_URL}/teams?search=${team}`;
+    const options = {
+        method: 'GET',
+        headers: HEADERS,
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        return result.response;
+        
+        
+    } catch(error) {
+        console.log('Error fetch teams', error);
+        throw error;
+    }
+}
