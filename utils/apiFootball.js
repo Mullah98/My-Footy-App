@@ -40,7 +40,7 @@ export const getStandings = async (leagueId, year) => {
 }
 
 export const getFixtures = async (leagueId, round) => {
-    const url = `${BASE_URL}/fixtures?league=39&season=2024&round=Regular%20Season%20-%20${round}`;
+    const url = `${BASE_URL}/fixtures?league=${leagueId}&season=2024&round=Regular%20Season%20-%20${round}`;
     const options = {
         method: 'GET',
         headers: HEADERS,
