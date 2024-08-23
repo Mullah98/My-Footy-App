@@ -7,11 +7,15 @@
     background-color: grey;
 }
 
-ul {
+.navbar ul {
     display: flex;
+    justify-content: center;
+    padding: 15px;
+    font-size: 28px;
+    list-style: none;
 }
 
-li {
+.navbar li {
     margin: 0 2em 0 1em;
     
 }
