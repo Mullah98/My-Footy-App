@@ -1,8 +1,9 @@
 .clubs-container {
-    /* border: 1px solid red; */
     padding: 10px;
     margin: 10vh auto;
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .form {
@@ -31,6 +32,10 @@ input {
     cursor: pointer;
 }
 
+.hide-li {
+    display: none;
+}
+
 .form-li:hover {
     background-color: rgb(72, 71, 71);
     color: white;
@@ -38,4 +43,28 @@ input {
 
 .form-ul {
     display: inline;
+}
+
+.selected {
+    border: 2px solid red;
+    text-align: center;
+    padding: 10px;
+    margin: 10px 20px;
+}
+
+.club-main {
+    display: inline-flex;
+}
+
+.bottom {
+    display: flex;
+}
+
+.club-venue {
+    flex: 1;
+    border: 5px solid grey;
+}  
+
+.club-current {
+    flex: 1;
 }
