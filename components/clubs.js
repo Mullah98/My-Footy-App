@@ -5,6 +5,7 @@ import "../styling/clubs.css"
 import { useQuery } from "react-query";
 import { searchTeam } from "@/utils/apiFootball";
 import Image from "next/image";
+import FixturesByCount from "./fixturesByCount";
 
 
 export default function Clubs({team}) {
@@ -38,16 +39,20 @@ export default function Clubs({team}) {
     }
 
     const clubs = filterData(teamsData);
-    console.log(clubs);
+    // console.log(clubs);
     
     
 
     return (
         <div className="clubs-container">
             <div className="form">
-                <input type="text" placeholder="search for team..." value={club} onChange={handleChange} onClick={handleClick}></input>
+                <input type="text"
+                placeholder="search for team..." 
+                value={club} 
+                onChange={handleChange} 
+                onClick={handleClick}>
+                </input>
             {clubs && Array.isArray(clubs) && (
-                <>
                 <ul className="form-ul">
                     {clubs.map((club) => (
                         <li className={isClicked ? "hide-li" : "form-li"} key={club.team.id} onClick={() => setSelectedClub(club) & setIsClicked(true)}>
@@ -55,37 +60,39 @@ export default function Clubs({team}) {
                         </li>
                     ))}
                 </ul>
-                </>
             )}
+            </div>
+
             
             {selectedClub && (
             <div className="selected">
+            
                 <div className="club-main">
-                <div className="logo">
-                <Image src={selectedClub.team.logo} alt="icon for club" height={200} width={200} priority={true} />
+                    <div className="logo">
+                    <Image src={selectedClub.team.logo} alt="icon for club" height={200} width={200} priority={true} />
+                    </div>
+                    <div>
+                    <h1>{selectedClub.team.name}</h1>
+                    <h4>{selectedClub.team.country}</h4>
+                    <h4>Founded {selectedClub.team.founded}</h4>
+                    </div>
                 </div>
-                <div>
-                <h1>{selectedClub.team.name}</h1>
-                <h4>{selectedClub.team.country}</h4>
-                <h4>Founded {selectedClub.team.founded}</h4>
-                </div>
-                </div>
+
                 <div className="bottom">
-                <div className="club-venue">
-                <h2>Stadium: {selectedClub.venue.name}</h2>
-                <h4>Capacity: {selectedClub.venue.capacity}</h4>
-                <h4>Surface: {selectedClub.venue.surface}</h4>
-                <Image src={selectedClub.venue.image} alt="stadium for club" height={350} width={400} priority={true} />
-                </div>
-                <div className="club-current">
-                <h1>FOrm will go here</h1>
-                </div>
+                    <div className="club-venue">
+                    <h2>Stadium: {selectedClub.venue.name}</h2>
+                    <h4>Capacity: {selectedClub.venue.capacity}</h4>
+                    <h4>Surface: {selectedClub.venue.surface}</h4>
+                    <Image src={selectedClub.venue.image} alt="stadium for club" height={350} width={400} priority={true} />
+                    </div>
+                    <div className="club-current">
+                    <h1>Team form</h1>
+                    <FixturesByCount teamId={selectedClub.team.id}/>
+                    </div>
                 </div>
             </div>
             )}
 
-
-            </div>
         </div>
     )
 }

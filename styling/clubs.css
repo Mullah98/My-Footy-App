@@ -49,22 +49,35 @@ input {
     border: 2px solid red;
     text-align: center;
     padding: 10px;
-    margin: 10px 20px;
 }
 
 .club-main {
     display: inline-flex;
+    margin-right: 10%;
+    font-size: larger;
+    padding: 20px;
+}
+
+.club-main h4{
+    color: rgb(119, 118, 118);
+    margin: 10px auto;
+}
+
+.club-main img {
+    margin: 0 20px;
 }
 
 .bottom {
+    /* border: 5px solid purple; */
     display: flex;
 }
 
 .club-venue {
     flex: 1;
-    border: 5px solid grey;
+    /* border: 5px solid grey; */
 }  
 
 .club-current {
     flex: 1;
+    border: 5px solid grey;
 }
