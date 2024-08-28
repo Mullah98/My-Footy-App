@@ -52,8 +52,7 @@ input {
 }
 
 .club-main {
-    display: inline-flex;
-    margin-right: 10%;
+    display: flex;
     font-size: larger;
     padding: 20px;
 }
@@ -67,17 +66,26 @@ input {
     margin: 0 20px;
 }
 
+.club-venue, .logo {
+    flex: 1;
+    text-align: end;
+}  
+
+.club-venue span {
+    color: grey
+}
+
+.club-venue img {
+    margin: 0 auto;
+}
+
 .bottom {
-    /* border: 5px solid purple; */
     display: flex;
 }
 
-.club-venue {
-    flex: 1;
-    /* border: 5px solid grey; */
-}  
 
 .club-current {
     flex: 1;
     border: 5px solid grey;
+    border-radius: 20px;
 }

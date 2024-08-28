@@ -76,14 +76,19 @@ export default function Clubs({team}) {
                     <h4>{selectedClub.team.country}</h4>
                     <h4>Founded {selectedClub.team.founded}</h4>
                     </div>
+                    <div className="club-venue">
+                    <h3><span>Stadium:</span>{selectedClub.venue.name}</h3>
+                    <h4>Capacity: {selectedClub.venue.capacity}</h4>
+                    <h4>Surface: {selectedClub.venue.surface}</h4>
+                    <Image src={selectedClub.venue.image} alt="stadium for club" height={150} width={250} priority={true} />
+                    </div>
                 </div>
 
                 <div className="bottom">
-                    <div className="club-venue">
-                    <h2>Stadium: {selectedClub.venue.name}</h2>
-                    <h4>Capacity: {selectedClub.venue.capacity}</h4>
-                    <h4>Surface: {selectedClub.venue.surface}</h4>
-                    <Image src={selectedClub.venue.image} alt="stadium for club" height={350} width={400} priority={true} />
+                    <div>
+                    <h1>More info going here....</h1>
+                    <h2>And here...</h2>
+                    <h2>And a whole lot more here///////</h2>
                     </div>
                     <div className="club-current">
                     <h1>Team form</h1>
