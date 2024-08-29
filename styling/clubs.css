@@ -88,4 +88,5 @@ input {
     flex: 1;
     border: 5px solid grey;
     border-radius: 20px;
+    width: auto;
 }

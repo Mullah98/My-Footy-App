@@ -1,6 +1,7 @@
 import { getClubFixtures } from "@/utils/apiFootball";
 import { useQuery } from "react-query";
 import "../styling/fixturesByCount.css"
+import Image from "next/image";
 
 export default function FixturesByCount({teamId}) {
 
@@ -12,8 +13,8 @@ export default function FixturesByCount({teamId}) {
     );
     
     const lastFive = fixtures?.last5Games;
-    const nextFive = fixtures?.next5Games;
-    console.log(lastFive);
+    const nextGame = fixtures?.nextGame[0];
+    console.log(nextGame);
 
     if (isLoading) {
         return (
@@ -65,16 +66,16 @@ export default function FixturesByCount({teamId}) {
 
             <div className="next-fixture">
             <h3>Upcoming fixtures</h3>
-            {nextFive && Array.isArray(nextFive) && (
+            {nextGame && (
                 <>
-                    {nextFive.map((fixture, i) => (
-                        <div className="fixture" key={i}>
-                        <p>{fixture.teams.home.name} <span>{fixture.goals.home} </span>
-                        <br />
-                        {fixture.teams.away.name} <span>{fixture.goals.away} </span>
-                        </p>
-                        </div>
-            ))}
+                    <div className="fixture">
+                    <Image src={nextGame.teams.home.logo} alt="stadium for club" height={200} width={200} priority={true} />
+                    <p>{nextGame.teams.home.name} <span>{nextGame.goals.home} </span>
+                    <br /> vs <br />
+                    {nextGame.teams.away.name} <span>{nextGame.goals.away} </span>
+                    <Image src={nextGame.teams.away.logo} alt="stadium for club" height={200} width={200} priority={true} />
+                    </p>
+                    </div>
                 </>
             )}
             </div>

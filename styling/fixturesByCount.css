@@ -12,8 +12,13 @@
 
 
 .next-fixture .fixture {
-    border-top: 7px solid rgb(55, 53, 53);
+    /* border-top: 7px solid rgb(55, 53, 53); */
+    display: flex-end;
+    border: 5px solid black;
+    padding: 40px;
+    font-size: 32px;
 }
+
 
 .fixture-loss {
     border-top: 7px solid red;

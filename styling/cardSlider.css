@@ -107,7 +107,7 @@
 
 .live {
     color: green;
-    animation: blink 1s infinite; /* Adjust the duration (1s) as needed */
+    animation: blink 1s infinite;
 }
 @keyframes blink {
     0% {

@@ -96,10 +96,10 @@ export const getClubFixtures = async (teamId) => {
         }
 
         const last5Games = await lastResp.json();
-        const next5Games = await nextResp.json();
+        const nextGame = await nextResp.json();
         return {
             last5Games: last5Games.response.reverse(), 
-            next5Games: next5Games.response
+            nextGame: nextGame.response
         }
     } catch (error) {
         console.log('Error fetching fixtures', error);
