@@ -51,31 +51,38 @@ export default function FixturesByCount({teamId}) {
             <div className="previous-fixture">
             <h3>Previous fixtures</h3>
             {lastFive && Array.isArray(lastFive) && (
-                <>
-                    {lastFive.map((fixture, i) => (
-                        <div className={findWinner(fixture)} key={i}>
-                        <p>{fixture.teams.home.name} <span>{fixture.goals.home} </span>
-                        <br />
-                        {fixture.teams.away.name} <span>{fixture.goals.away}</span>
-                        </p>
-                        </div>
+            <>
+            {lastFive.map((fixture, i) => (
+                <div className={findWinner(fixture)} key={i}>
+                    <Image src={fixture.teams.home.logo} alt="stadium for club" height={50} width={50} priority={true} />
+                    <span className="fixture-goals">{fixture.goals.home}</span>
+                    <p>-</p>
+                    <span className="fixture-goals">{fixture.goals.away}</span>
+                    <Image src={fixture.teams.away.logo} alt="stadium for club" height={50} width={50} priority={true} />
+                </div>
             ))}
-                </>
+            </>
             )}
             </div>
 
             <div className="next-fixture">
             <h3>Upcoming fixtures</h3>
             {nextGame && (
-                <>
-                    <div className="fixture">
-                    <Image src={nextGame.teams.home.logo} alt="stadium for club" height={200} width={200} priority={true} />
-                    <p>{nextGame.teams.home.name} <span>{nextGame.goals.home} </span>
-                    <br /> vs <br />
-                    {nextGame.teams.away.name} <span>{nextGame.goals.away} </span>
-                    <Image src={nextGame.teams.away.logo} alt="stadium for club" height={200} width={200} priority={true} />
-                    </p>
-                    </div>
+            <>
+                <div className="fixture">
+                <div className="team">
+                    <Image src={nextGame.teams.home.logo} alt="stadium for club" height={100} width={100} priority={true} />
+                    <span className="team-name">{nextGame.teams.home.name}</span>
+                </div>
+                <div className="fixture-date">
+                <p className="fixture-time">Time here</p>
+                <p className="fixture-date">Date here</p>
+                </div>
+                <div className="team">
+                    <Image src={nextGame.teams.away.logo} alt="stadium for club" height={100} width={100} priority={true} />
+                    <span className="team-name">{nextGame.teams.away.name}</span>
+                </div>
+                </div>
                 </>
             )}
             </div>

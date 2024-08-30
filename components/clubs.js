@@ -86,9 +86,6 @@ export default function Clubs({team}) {
 
                 <div className="bottom">
                     <div>
-                    <h1>More info going here....</h1>
-                    <h2>And here...</h2>
-                    <h2>And a whole lot more here///////</h2>
                     </div>
                     <div className="club-current">
                     <h1>Team form</h1>
