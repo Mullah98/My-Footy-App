@@ -86,17 +86,17 @@ export const getClubFixtures = async (teamId) => {
     };
 
     try {
-        const [lastResp, nextResp] = await Promise.all([
+        const [firstResp, secondResp] = await Promise.all([
             fetch(url1, options), 
             fetch(url2, options)
         ]);
 
-        if (!lastResp.ok || !nextResp.ok) {
+        if (!firstResp.ok || !secondResp.ok) {
             throw new Error('Failed to fetch data')
         }
 
-        const last5Games = await lastResp.json();
-        const nextGame = await nextResp.json();
+        const last5Games = await firstResp.json();
+        const nextGame = await secondResp.json();
         return {
             last5Games: last5Games.response.reverse(), 
             nextGame: nextGame.response
@@ -104,5 +104,23 @@ export const getClubFixtures = async (teamId) => {
     } catch (error) {
         console.log('Error fetching fixtures', error);
         throw error;
+    }
+}
+
+export const getTeamsheet = async (teamId) => {
+    const url = `${BASE_URL}/players/squads?team=${teamId}`
+
+    const options = {
+        method: 'GET',
+        headers: HEADERS,
+    };
+
+    try {
+            const response = await fetch(url, options);
+            const result  = await response.json();
+            return result.response[0];
+        } catch(error) {
+            console.log('Error fetching fixtures', error);
+            throw error;
     }
 }

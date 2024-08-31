@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { searchTeam } from "@/utils/apiFootball";
 import Image from "next/image";
 import FixturesByCount from "./fixturesByCount";
+import Teamsheet from "./teamsheet";
 
 
 export default function Clubs({team}) {
@@ -89,6 +90,7 @@ export default function Clubs({team}) {
                 <button>Squad</button>
                 </div>
 
+                <Teamsheet teamId={selectedClub.team.id}/>
                 <div className="bottom">
                     <div>
                     </div>
