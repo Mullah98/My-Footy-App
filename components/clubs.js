@@ -68,20 +68,25 @@ export default function Clubs({team}) {
             <div className="selected">
             
                 <div className="club-main">
-                    <div className="logo">
+                    <div className="club-logo">
                     <Image src={selectedClub.team.logo} alt="icon for club" height={200} width={200} priority={true} />
                     </div>
-                    <div>
+                    <div className="club-info">
                     <h1>{selectedClub.team.name}</h1>
                     <h4>{selectedClub.team.country}</h4>
                     <h4>Founded {selectedClub.team.founded}</h4>
                     </div>
                     <div className="club-venue">
-                    <h3><span>Stadium:</span>{selectedClub.venue.name}</h3>
-                    <h4>Capacity: {selectedClub.venue.capacity}</h4>
-                    <h4>Surface: {selectedClub.venue.surface}</h4>
+                    <h3><span>Stadium: </span>{selectedClub.venue.name}</h3>
+                    <h4><span>Capacity: </span>{selectedClub.venue.capacity}</h4>
+                    <h4><span>Surface: </span>{selectedClub.venue.surface}</h4>
                     <Image src={selectedClub.venue.image} alt="stadium for club" height={150} width={250} priority={true} />
                     </div>
+                </div>
+
+                <div className="button-container">
+                <button>Overview</button>
+                <button>Squad</button>
                 </div>
 
                 <div className="bottom">

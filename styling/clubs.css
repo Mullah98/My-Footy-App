@@ -1,15 +1,16 @@
 .clubs-container {
     padding: 10px;
-    margin: 10vh auto;
+    margin: 0 auto;
     text-align: center;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
 }
 
 .form {
-    /* border: 1px solid blue; */
     text-align: center;
     padding: 20px;
+    margin-top: 80px;
 }
 
 input {
@@ -46,7 +47,6 @@ input {
 }
 
 .selected {
-    border: 2px solid red;
     text-align: center;
     padding: 10px;
 }
@@ -55,10 +55,16 @@ input {
     display: flex;
     font-size: larger;
     padding: 20px;
+    border: 6px solid grey;
+    border-radius: 20px;
+}
+
+.club-main h1 {
+    font-size: 45px;
 }
 
 .club-main h4{
-    color: rgb(119, 118, 118);
+    color: rgb(52, 52, 52);
     margin: 10px auto;
 }
 
@@ -66,7 +72,11 @@ input {
     margin: 0 20px;
 }
 
-.club-venue, .logo {
+.club-logo, .club-info {
+    margin: 30px 0;
+}
+
+.club-venue, .club-logo {
     flex: 1;
     text-align: end;
 }  
@@ -77,16 +87,26 @@ input {
 
 .club-venue img {
     margin: 0 auto;
+    border-radius: 20px;
 }
 
 .bottom {
     display: flex;
 }
 
-
 .club-current {
     flex: 1;
     border: 5px solid grey;
+    padding: 20px;
     border-radius: 20px;
     width: auto;
+}
+
+.button-container {
+    padding: 10px;
+}
+
+button {
+    font-size: 20px;
+    padding: 5px;
 }

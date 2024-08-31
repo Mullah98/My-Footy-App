@@ -12,17 +12,23 @@ export default function FixturesByCount({teamId}) {
         }
     );
     
+    const dateFormatter = new Intl.DateTimeFormat("en-GB", {
+        month: 'short',
+        day: 'numeric',
+    });
+    
+    const timeFormatter = new Intl.DateTimeFormat("en-GB", {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true, 
+    });
+
     const lastFive = fixtures?.last5Games;
     const nextGame = fixtures?.nextGame[0];
-    console.log(nextGame);
 
-    if (isLoading) {
-        return (
-            <div>
-                <p>Loading</p>
-            </div>
-        )
-    }
+    const fixtureDate = nextGame?.fixture?.date ? dateFormatter.format(new Date(nextGame.fixture.date)) : 'Date not available'
+    const fixtureTime = nextGame?.fixture.date ? timeFormatter.format(new Date(nextGame.fixture.date)) : 'Time not available'
+    
 
     const findWinner = (fixture) => {
         const isHome = fixture.teams.home.id === teamId;
@@ -43,9 +49,6 @@ export default function FixturesByCount({teamId}) {
         }
     }
 
-    
-    
-    
     return (
         <div className="fixtures-container">
             <div className="previous-fixture">
@@ -65,25 +68,27 @@ export default function FixturesByCount({teamId}) {
             )}
             </div>
 
-            <div className="next-fixture">
+            <div className="upcoming-fixture">
             <h3>Upcoming fixtures</h3>
-            {nextGame && (
+            {nextGame ? (
             <>
-                <div className="fixture">
+                <div className="next-fixture">
                 <div className="team">
-                    <Image src={nextGame.teams.home.logo} alt="stadium for club" height={100} width={100} priority={true} />
+                    <Image src={nextGame.teams.home.logo} alt="stadium for club" height={150} width={150} priority={true} />
                     <span className="team-name">{nextGame.teams.home.name}</span>
                 </div>
-                <div className="fixture-date">
-                <p className="fixture-time">Time here</p>
-                <p className="fixture-date">Date here</p>
+                <div className="fixture-date-time">
+                <p className="fixture-time">{fixtureTime}</p>
+                <p className="fixture-date">{fixtureDate}</p>
                 </div>
                 <div className="team">
-                    <Image src={nextGame.teams.away.logo} alt="stadium for club" height={100} width={100} priority={true} />
+                    <Image src={nextGame.teams.away.logo} alt="stadium for club" height={150} width={150} priority={true} />
                     <span className="team-name">{nextGame.teams.away.name}</span>
                 </div>
                 </div>
                 </>
+            ) : (
+                <div>No upcoming fixtures</div>
             )}
             </div>
         </div>
