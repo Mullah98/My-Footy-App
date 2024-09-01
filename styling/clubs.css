@@ -106,10 +106,12 @@ input {
     padding: 10px;
 }
 
-button {
-    font-size: 20px;
-    font-weight: 800;
-    padding: 5px;
-    border: 4px solid green;
+.button-container button {
+    padding: 10px;
     margin: 0 10px;
+    background-color: green;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
 }

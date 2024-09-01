@@ -4,6 +4,7 @@
     margin: 0 auto;
     padding: 10px;
     position: relative;
+    cursor: grab;
 }
 
 .slick-slide {

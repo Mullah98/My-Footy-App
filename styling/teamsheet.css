@@ -1,41 +1,58 @@
+.hide-teamsheet {
+    display: none;
+}
+
 .teamsheet-container {
-    border: 3px solid red;
-    padding: 100px;
+    border: 5px solid grey;
+    margin: 10px;
+    background-color: rgb(243, 241, 241);
+    border-radius: 20px;
+    padding: 20px;
 }
 
 .goalkeeper,
-.defenders {
-    display: flex;
-    flex-wrap: wrap;
+.defenders,
+.midfielders,
+.attackers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-}   
+    border: 2px solid grey;
+    border-radius: 20px;
+
+    padding: 10px;
+    margin: 20px;
+    background-color: white;
+}
 
 .players {
-    margin: 20px;
     padding: 20px;
     border: 1px solid grey;
     border-radius: 20px;
     display: flex;
     gap: 20px;
-    width: 20%;
+    align-items: center;
     font-size: 18px;
     text-align: start;
 }
 
+.players img {
+    border-radius: 50px;
+}
 
 .player-number {
     margin-left: auto;
     border: 3px solid grey;
     border-radius: 50%;
     padding: 10px;
-
 }
 
 .player-name {
-    margin: 30px;
     font-weight: 700;
 }
 
 h2 {
-    padding: 10px;
+    margin: 50px 0 0 0;
+    grid-column: 1 / -1;
+    text-align: left;
 }

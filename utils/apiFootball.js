@@ -119,8 +119,27 @@ export const getTeamsheet = async (teamId) => {
             const response = await fetch(url, options);
             const result  = await response.json();
             return result.response[0];
-        } catch(error) {
+        } catch (error) {
             console.log('Error fetching fixtures', error);
             throw error;
+    }
+}
+
+export const getTransfers = async (teamId) => {
+    const url = `${BASE_URL}/transfers?team=${teamId}`
+
+    const options = {
+        method: 'GET',
+        headers: HEADERS
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        return result.response;
+    } catch (error) {
+        console.log('Error fetching transfers', error);
+        throw error
+        
     }
 }

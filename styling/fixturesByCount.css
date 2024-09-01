@@ -37,7 +37,8 @@
   border-radius: 20px;
 }
 
-.upcoming-fixture h3 {
+.upcoming-fixture h3,
+.previous-fixture h3 {
   color: grey;
 }
 
