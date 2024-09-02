@@ -14,8 +14,9 @@ export default function Clubs({team}) {
     const [club, setClub] = useState('Manchester United');
     const [selectedClub, setSelectedClub] = useState(null);
     const [isClicked, setIsClicked] = useState(false);
-    const [showOverview, setShowOverview] = useState(true)
-    const [showTeamsheet, setShowTeamsheet] = useState(false)
+    const [showOverview, setShowOverview] = useState(true);
+    const [showTeamsheet, setShowTeamsheet] = useState(false);
+    const [showTransfers, setShowTransfers] = useState(false);
     const countries = ['England', 'Spain', 'France', 'Germany', 'Italy'];
 
 
@@ -34,12 +35,20 @@ export default function Clubs({team}) {
     }
 
     const handleOverviewButton = (e) => {
-        setShowTeamsheet(false)
-        setShowOverview(true)
+        setShowOverview(true);
+        setShowTeamsheet(false);
+        setShowTransfers(false);
     }
     const handleTeamsheetButton = (e) => {
-        setShowTeamsheet(true)
-        setShowOverview(false)
+        setShowTeamsheet(true);
+        setShowOverview(false);
+        setShowTransfers(false);
+    }
+
+    const handleTransfersButton = (e) => {
+        setShowTransfers(true);
+        setShowOverview(false);
+        setShowTeamsheet(false);
     }
 
     const filterData = (teamsData) => {
@@ -110,6 +119,7 @@ export default function Clubs({team}) {
                 <div className="button-container">
                 <button onClick={handleOverviewButton}>Overview</button>
                 <button onClick={handleTeamsheetButton}>Squad</button>
+                <button onClick={handleTransfersButton}>Transfers</button>
                 </div>
 
                 {showTeamsheet && (
@@ -124,8 +134,9 @@ export default function Clubs({team}) {
                     </div>
                 </div>
                 )}
-
-                <Transfers teamId={selectedClub.team.id} />
+                {showTransfers && (
+                    <Transfers teamId={selectedClub.team.id} />
+                )}
             </div>
             )}
 

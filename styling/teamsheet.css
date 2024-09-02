@@ -41,9 +41,10 @@
 
 .player-number {
     margin-left: auto;
-    border: 3px solid grey;
-    border-radius: 50%;
+    border: 3px solid rgb(56, 56, 56);
+    border-radius: 50px;
     padding: 10px;
+    font-weight: 700;
 }
 
 .player-name {

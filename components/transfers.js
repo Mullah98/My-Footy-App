@@ -35,25 +35,22 @@ export default function Transfers({teamId}) {
     
     const playersIn = filterPlayersIn(transferData)
     const playersOut = filterPlayersOut(transferData)
-    console.log('These are the additions', playersIn);
-    console.log('These are the outgoing', playersOut)
 
     return (
         <div className="transfers-container">
             <div className="transfers">
-                <h2>Transfers In</h2>
+                <h2>Players In</h2>
                 {playersIn.map((player, i) => (
                     <div className="players-in" key={i}>
                         <h3>{player.player.name}</h3>
-                        <p>
-                        {player.transfers[0].type}</p>
+                        <p>{player.transfers[0].type}</p>
                         <div className="transfer-logo">
                         <Image src={player.transfers[0].teams.out.logo} 
                         alt="image for players" 
                         height={75} 
                         width={75} 
                         priority={true} />
-                        <FaArrowRight style={{color: 'green', fontSize:'24px', transform:'scaleX(1.5)'}}/>
+                        <FaArrowRight className="arrow-icon-right" />
                         <Image src={player.transfers[0].teams.in.logo} 
                         alt="image for players" 
                         height={75} 
@@ -64,7 +61,7 @@ export default function Transfers({teamId}) {
                 ))}
             </div>
             <div className="transfers">
-                <h2>Transfers Out</h2>
+                <h2>Players Out</h2>
                 {playersOut.map((player, i) => (
                     <div className="players-out" key={i}>
                         <h3>{player.player.name}</h3>
@@ -75,7 +72,7 @@ export default function Transfers({teamId}) {
                         height={75}
                         width={75}
                         priority={true} />
-                        <FaArrowRight style={{color: 'red', fontSize:'24px', transform:'scaleX(1.5)'}}/>
+                        <FaArrowRight className="arrow-icon-left" />
                         <Image src={player.transfers[0].teams.in.logo}
                         alt="image for players"
                         height={75}
