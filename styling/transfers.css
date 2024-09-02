@@ -1,0 +1,34 @@
+.transfers-container {
+    border: 5px solid grey;
+    margin: 10px;
+    background-color: rgb(243, 241, 241);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.transfers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    border: 2px solid grey;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 20px;
+    background-color: white;
+}
+
+.players-in, .players-out {
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    width: 40%;
+    margin: 30px;
+}
+
+.transfer-logo {
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
