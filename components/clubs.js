@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../styling/clubs.css"
 import { useQuery } from "react-query";
 import { searchTeam } from "@/utils/apiFootball";
@@ -19,12 +19,11 @@ export default function Clubs({team}) {
     const [showTransfers, setShowTransfers] = useState(false);
     const countries = ['England', 'Spain', 'France', 'Germany', 'Italy'];
 
-
     const { data: teamsData, isLoading } = useQuery(['teams', team, club], () => searchTeam(club), {
         cacheTime: Infinity,
         staleTime: Infinity,
     })
-    
+
     const handleChange = (e) => {
         setClub(e.target.value);
     }

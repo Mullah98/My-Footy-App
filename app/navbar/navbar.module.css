@@ -4,7 +4,8 @@
     font-size: 1.5em;
     position: absolute;
     top: 0;
-    background-color: grey;
+    left: 0;
+    background-color: green;
 }
 
 .navbar ul {
@@ -13,9 +14,19 @@
     padding: 15px;
     font-size: 28px;
     list-style: none;
+    color: white;
 }
 
 .navbar li {
-    margin: 0 2em 0 1em;
-    
+    margin: 0 2em 0 1em;    
+}
+
+.li a {
+    color: white;
+    text-decoration:underline;
+    font-weight: 700;
+}
+
+.li a:hover {
+    font-style: italic;
 }

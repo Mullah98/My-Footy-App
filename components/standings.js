@@ -8,9 +8,8 @@ import '../styling/standings.css';
 import Dropdown from "./dropdown";
 import {Mosaic} from 'react-loading-indicators';
 
-
 export default function Standings({ leagueId }) {
-    const [selectSeason, setSelectSeason] = useState('2024')
+    const [selectSeason, setSelectSeason] = useState('2024');
 
     const { data: standingsData, error, isLoading, dataUpdatedAt} = useQuery(
         ['standings', leagueId, selectSeason], () => getStandings(leagueId, selectSeason), {
