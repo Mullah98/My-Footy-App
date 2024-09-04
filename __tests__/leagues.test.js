@@ -1,1 +1,0 @@
-const { fetchLeagues } = require("../components/leagues.js")

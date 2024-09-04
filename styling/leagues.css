@@ -21,9 +21,5 @@ button {
 }
 
 img {
-    border-radius: 5%;
-}
-
-.selectedButton {
-    border: 5px solid green;
+    border-radius: 3%;
 }

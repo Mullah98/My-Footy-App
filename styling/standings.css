@@ -1,5 +1,5 @@
 .standings-container {
-    margin-top: 5vh;
+    margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr;
 }
@@ -11,33 +11,110 @@ h1 {
 .row-header {
     background-color: rgb(55, 54, 54);
     color: white;
-    font-size: 1.4em;
+    font-size: 22px;
 }
 
 th {
     border: 3px solid;
     background-color: green;
+    font-size: 20px;
+    padding: 8px;
+    width: 100px;
 }
 
 td {
     text-align: center;
-    padding: 0.5vh 0.5vh;
-    font-size: 22px;
+    padding: 8px;
+    font-size: 18px;
+    font-weight: 700;
     border: 1px solid;
     color: rgb(206, 197, 197);
+    overflow-wrap: break-word;
 }
 
 tr {
-    border-radius: solid;
     background-color: rgb(52, 50, 50);
 }
 
 .loading {
     position: relative;
     text-align: center;
-    margin: 5vh 0 0 0;
+    margin: 40px 0 0 0;
 }
 
 table {
     background-color: green;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+td.team-cell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 8px;
+    font-size: 20px;
+}
+
+td.team-cell img {
+    margin-right: 10px;
+}
+
+td.team-cell span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+}
+
+.team-head {
+    width: 300px;
+}
+
+.form-head {
+    width: 200px;
+}
+
+.team-form {
+    font-size: larger;
+    font-weight: 800;
+    margin: 0 10px;
+    white-space: nowrap;
+    width: 300px;
+}
+
+.form-result {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+    border: 2px solid;
+    font-size: 18px;
+    padding: 0;
+    color: white;
+}
+
+.form-result.W {
+    background-color: rgb(36, 208, 36);
+    border: 2px solid rgb(36, 208, 36);
+
+}
+
+.form-result.D {
+    background-color: grey;
+    border: 2px solid grey;
+
+    color: white;
+}
+
+.form-result.L {
+    background-color: rgb(254, 30, 30);
+    border: 2px solid rgb(254, 30, 30);
 }

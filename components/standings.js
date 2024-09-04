@@ -11,22 +11,13 @@ import {Mosaic} from 'react-loading-indicators';
 export default function Standings({ leagueId }) {
     const [selectSeason, setSelectSeason] = useState('2024');
 
-    const { data: standingsData, error, isLoading, dataUpdatedAt} = useQuery(
+    const { data: standingsData, error, isLoading } = useQuery(
         ['standings', leagueId, selectSeason], () => getStandings(leagueId, selectSeason), {
         staleTime: Infinity,//1000 * 60 * 60
         cacheTime: Infinity,//1000 * 60 * 60 * 24
         // onSuccess: (data) => {
         //     console.log('Data from api', data);
         // },
-        onSettled: (data, error) => {
-            const now = Date.now()
-            const oneMin = 1000 * 60
-            if (now - dataUpdatedAt < oneMin) {
-                console.log("Fetching data from API");
-            } else {
-                console.log("Using cached data");
-            }
-        }
     });
 
     const filterStandings = (standingsData) => {
@@ -43,21 +34,32 @@ export default function Standings({ leagueId }) {
         setSelectSeason(value)
     }
 
-
+    const renderTeamForm = (form) => {
+        return form.split('').map((result, index) => (
+            <span key={index} className={`form-result ${result}`}>
+                {result}
+            </span>
+        ));
+    }
+    
     return (
         <div className="standings-container">
             <Dropdown changeSeason={handleSeasonChange} />
             <h1>League table</h1>
             {isLoading ? (
                 <div className="loading">
-                    <Mosaic color="#32cd32" size="large" text="Loading" textColor="" />
+                    <Mosaic 
+                    color="#32cd32" 
+                    size="large" 
+                    text="Loading" 
+                    textColor="" />
                 </div>
             ) : (
             <table>
                 <thead>
                 <tr className="row-header">
                     <th>Position</th>
-                    <th>Team</th>
+                    <th className="team-head">Team</th>
                     <th>Games played</th>
                     <th>W</th>
                     <th>D</th>
@@ -65,13 +67,14 @@ export default function Standings({ leagueId }) {
                     <th>+/-</th>
                     <th>GD</th>
                     <th>Points</th>
+                    <th className="form-head">Form</th>
                 </tr>
                 </thead>
                 <tbody>
                 {standings.map((team, i) => (
                     <tr key={i}>
                     <td>{team.rank}</td>
-                    <td><Image src={team.team.logo} alt="logo for team" height={45} width={45} priority={true} /> {team.team.name}</td>
+                    <td className="team-cell"><Image src={team.team.logo} alt="logo for team" height={45} width={45} priority={true} /> {team.team.name}</td>
                     <td>{team.all.played}</td>
                     <td>{team.all.win}</td>
                     <td>{team.all.draw}</td>
@@ -79,6 +82,7 @@ export default function Standings({ leagueId }) {
                     <td>{team.all.goals.for}-{team.all.goals.against}</td>
                     <td>{team.goalsDiff}</td>
                     <td>{team.points}</td>
+                    <td className="team-form">{renderTeamForm(team.form)}</td>
                     </tr>
                 ))}
                 </tbody>
