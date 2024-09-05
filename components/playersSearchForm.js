@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "../styling/playersSearchForm.css"
 
 export default function PlayersSearchForm() {
     const [query, setQuery] = useState('')
@@ -18,7 +19,7 @@ export default function PlayersSearchForm() {
 
     return (
         <div className="form-container">
-            <form>
+            <form className="players-form">
                 <select value={league} onChange={handleDropdown}>
                 <option value={39}>Premier League</option>
                 <option value={61}>Ligue 1</option>
@@ -27,7 +28,8 @@ export default function PlayersSearchForm() {
                 <option value={140}>La Liga</option>
                 </select>
 
-                <input type="text" 
+                <input 
+                type="text" 
                 value={query} 
                 onChange={handleSearchQuery} 
                 placeholder="search for player...">
