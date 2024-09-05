@@ -2,8 +2,7 @@ import { useState } from "react"
 import "../styling/playersSearchForm.css"
 import Image from "next/image"
 
-export default function PlayersSearchForm({ query, setQuery, league, setLeague, playersData }) {
-    const [selectPlayer, setSelectPlayer] = useState(null)
+export default function PlayersSearchForm({ query, setQuery, league, setLeague, playersData, selectedPlayer }) {
     const [isClicked, setIsClicked] = useState(false)
 
     const handleSearchQuery = (e) => {
@@ -14,23 +13,14 @@ export default function PlayersSearchForm({ query, setQuery, league, setLeague, 
         setLeague(e.target.value)
     }
 
-    const filterNames = (playersData) => {
-        if (!playersData) {
-            return []
-        }
-        return playersData
-    }
-
     const handleClick = (player) => {
-        setSelectPlayer(player)
-        setIsClicked(true)
+        selectedPlayer(player)
         setQuery('')
+        setIsClicked(true)
     }
 
-    const playersList = filterNames(playersData);
-    
-    console.log(selectPlayer);
-    
+    const playersList = playersData || [];
+        
     
 
     return (
@@ -50,7 +40,7 @@ export default function PlayersSearchForm({ query, setQuery, league, setLeague, 
                 onChange={handleSearchQuery} 
                 placeholder="search for player...">
                 </input>
-                {playersList && Array.isArray(playersList) && (
+                {playersList && (
                     <ul className="form-ul">
                         {playersList.map((player, i) => (
                             <li key={player.id || i} className="form-li" onClick={() => handleClick(player)}>
