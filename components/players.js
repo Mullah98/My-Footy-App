@@ -7,26 +7,45 @@ import { useQuery } from "react-query";
 import { searchPlayer } from "@/utils/apiFootball";
 
 export default function Players() {
-    const [player, setPlayer] = useState('')
-    const [selectedPlayer, setSelectedPlayer] = useState(null)
+    const [query, setQuery] = useState('')
     const [selectedLeague, setSelectedLeague] = useState(39)
 
-    const { data: playerData, isLoading } = useQuery(['players', selectedLeague, player], () => searchPlayer(selectedLeague, player), {
+    const { data: playersData, isLoading } = useQuery(['players', selectedLeague, query], () => searchPlayer(selectedLeague, query), {
         cacheTime: Infinity,
         staleTime: Infinity
     });
 
-    console.log(player);
-    console.log(playerData);
+    const filterPlayersData = (playersData) => {
+        if (!playersData) {
+            return []
+        }
+        const player = playersData
+        return player
+    }
+
+    const players = filterPlayersData(playersData)
+
+
+    // console.log('from players.js' , player);
+    
+    
+    
+
     
     
 
     return (
         <div className="players-container">
             <div className="form">
-            <PlayersSearchForm query={player} />
+            <PlayersSearchForm 
+            query={query} 
+            setQuery={setQuery} 
+            league={selectedLeague} 
+            setLeague={setSelectedLeague} 
+            playersData={players} 
+            />
             </div>
-            <div className="results">
+            <div className="players-main">
             </div>
         </div>
     )
