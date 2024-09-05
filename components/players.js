@@ -7,26 +7,52 @@ import { useQuery } from "react-query";
 import { searchPlayer } from "@/utils/apiFootball";
 
 export default function Players() {
-    const [player, setPlayer] = useState('')
-    const [selectedPlayer, setSelectedPlayer] = useState(null)
+    const [query, setQuery] = useState('')
     const [selectedLeague, setSelectedLeague] = useState(39)
+    const [selectedPlayer, setSelectedPlayer] = useState(null)
+    // const [isClicked, setIsClicked] = useState(false)
 
-    const { data: playerData, isLoading } = useQuery(['players', selectedLeague, player], () => searchPlayer(selectedLeague, player), {
+
+    const { data: playersData, isLoading } = useQuery(['players', selectedLeague, query], () => searchPlayer(selectedLeague, query), {
         cacheTime: Infinity,
         staleTime: Infinity
     });
 
-    console.log(player);
-    console.log(playerData);
+    const players = playersData || [];
+    
+    const handleSelectedPlayer = (player) => {
+        setSelectedPlayer(player)
+        // setIsClicked(true)
+    }
+
+    console.log(selectedPlayer);
+    
+    
+    
+    
+
     
     
 
     return (
         <div className="players-container">
             <div className="form">
-            <PlayersSearchForm query={player} />
+            <PlayersSearchForm 
+            query={query} 
+            setQuery={setQuery} 
+            league={selectedLeague} 
+            setLeague={setSelectedLeague} 
+            playersData={players} 
+            selectedPlayer={handleSelectedPlayer}
+            />
             </div>
-            <div className="results">
+            <div className="players-main">
+            {selectedPlayer && isClicked && (
+                <div>
+            <h1>{selectedPlayer.player.name}</h1>
+            <h1>{selectedPlayer.player.height}</h1>
+                </div>
+            )}
             </div>
         </div>
     )
