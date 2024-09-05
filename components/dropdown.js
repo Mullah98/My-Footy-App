@@ -8,7 +8,6 @@ export default function Dropdown({changeSeason}) {
         const newValue = e.target.value
         setSelectedValue(newValue)
         changeSeason(newValue)
-        
     }
 
     return (

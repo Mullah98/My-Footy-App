@@ -35,7 +35,7 @@ export default function Standings({ leagueId }) {
     }
 
     const renderTeamForm = (form) => {
-        return form.split('').map((result, index) => (
+        return form.split('').reverse().map((result, index) => (
             <span key={index} className={`form-result ${result}`}>
                 {result}
             </span>

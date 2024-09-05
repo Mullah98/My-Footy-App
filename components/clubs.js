@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../styling/clubs.css"
 import { useQuery } from "react-query";
 import { searchTeam } from "@/utils/apiFootball";

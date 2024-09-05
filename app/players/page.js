@@ -1,5 +1,9 @@
+import Players from "@/components/players";
+
 export default function PlayersPage() {
     return (
-        <div>Players info</div>
+        <div>
+            <Players />
+        </div>
     )
 }

@@ -16,8 +16,8 @@ export default function Teamsheet({teamId}) {
     const goalkeepers = fullSquad?.filter(player => player.position === 'Goalkeeper')
     const defenders = fullSquad?.filter(player => player.position === 'Defender')
     const midfielders = fullSquad?.filter(player => player.position === 'Midfielder')
-    const attackers = fullSquad?.filter(player => player.position === 'Attacker')    
-    
+    const attackers = fullSquad?.filter(player => player.position === 'Attacker')
+         
     return (
         <div className="teamsheet-container">
             <div className="goalkeeper">

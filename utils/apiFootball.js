@@ -140,6 +140,23 @@ export const getTransfers = async (teamId) => {
     } catch (error) {
         console.log('Error fetching transfers', error);
         throw error
-        
+    }
+}
+
+export const searchPlayer = async (leagueId, player) => {
+    const url = `${BASE_URL}/players?league=${leagueId}&season=2024&search=${player}`
+
+    const options = {
+        method: 'GET',
+        headers: HEADERS
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        return result.response;
+    } catch(error) {
+        console.log('Error fetching player'. error);
+        throw error
     }
 }

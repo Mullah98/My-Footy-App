@@ -26,7 +26,6 @@ export default function Leagues({ handleSelectedLeague }) {
 
     const leagues = filterLeagues(leaguesData)
 
-
     if (error) {
         return (
             <h1>Error occured...</h1>
