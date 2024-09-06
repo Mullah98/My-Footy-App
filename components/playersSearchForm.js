@@ -3,7 +3,6 @@ import "../styling/playersSearchForm.css"
 import Image from "next/image"
 
 export default function PlayersSearchForm({ query, setQuery, league, setLeague, playersData, selectedPlayer }) {
-    const [isClicked, setIsClicked] = useState(false)
 
     const handleSearchQuery = (e) => {
         setQuery(e.target.value)
@@ -16,7 +15,6 @@ export default function PlayersSearchForm({ query, setQuery, league, setLeague, 
     const handleClick = (player) => {
         selectedPlayer(player)
         setQuery('')
-        setIsClicked(true)
     }
 
     const playersList = playersData || [];

@@ -13,11 +13,8 @@ export default function Standings({ leagueId }) {
 
     const { data: standingsData, error, isLoading } = useQuery(
         ['standings', leagueId, selectSeason], () => getStandings(leagueId, selectSeason), {
-        staleTime: Infinity,//1000 * 60 * 60
-        cacheTime: Infinity,//1000 * 60 * 60 * 24
-        // onSuccess: (data) => {
-        //     console.log('Data from api', data);
-        // },
+        staleTime: 1000 * 60 * 60,
+        cacheTime: 1000 * 60 * 60 * 24
     });
 
     const filterStandings = (standingsData) => {
