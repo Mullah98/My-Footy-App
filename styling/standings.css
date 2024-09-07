@@ -76,7 +76,7 @@ td.team-cell span {
 }
 
 .form-head {
-    width: 200px;
+    width: 250px;
 }
 
 .team-form {
@@ -110,8 +110,6 @@ td.team-cell span {
 .form-result.D {
     background-color: grey;
     border: 2px solid grey;
-
-    color: white;
 }
 
 .form-result.L {

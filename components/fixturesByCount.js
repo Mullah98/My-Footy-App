@@ -74,7 +74,7 @@ export default function FixturesByCount({teamId}) {
             <>
                 <div className="next-fixture">
                 <div className="team">
-                    <Image src={nextGame.teams.home.logo} alt="stadium for club" height={150} width={150} priority={true} />
+                    <Image src={nextGame.teams.home.logo} alt="stadium for club" height={120} width={120} priority={true} />
                     <span className="team-name">{nextGame.teams.home.name}</span>
                 </div>
                 <div className="fixture-date-time">
@@ -82,7 +82,7 @@ export default function FixturesByCount({teamId}) {
                 <p className="fixture-date">{fixtureDate}</p>
                 </div>
                 <div className="team">
-                    <Image src={nextGame.teams.away.logo} alt="stadium for club" height={150} width={150} priority={true} />
+                    <Image src={nextGame.teams.away.logo} alt="stadium for club" height={120} width={120} priority={true} />
                     <span className="team-name">{nextGame.teams.away.name}</span>
                 </div>
                 </div>
