@@ -26,24 +26,9 @@ export default function Leagues({ handleSelectedLeague }) {
 
     const leagues = filterLeagues(leaguesData)
 
-    if (error) {
-        return (
-            <h1>Error occured...</h1>
-        )
-    }
-
     return (
         <>
         <div className="leagues-container">
-        {isLoading ? (
-            <div className="loading">
-                <BlinkBlur 
-                color="#32cd32" 
-                size="medium" 
-                text="" 
-                textColor="" />
-            </div>
-        ) : (
             <ul>
                 {Array.isArray(leagues) && leagues.map((item, i) => (
                     <li key={i}>
@@ -57,7 +42,6 @@ export default function Leagues({ handleSelectedLeague }) {
                     </li>
                 ))}
             </ul>
-        )}
         </div>
         </>
     )

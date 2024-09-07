@@ -2,21 +2,38 @@
 
 import Standings from "@/components/standings";
 import Leagues from "@/components/leagues";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Fixtures from "@/components/fixtures";
+import LoadingScreen from "../components/loadingScreen";
 
 export default function Home() {
-  const [selectedLeague, setSelectedLeague] = useState(39)
+  const [selectedLeague, setSelectedLeague] = useState(39);
+  const [loading, setLoading] = useState(true);
 
   const handleSelectedLeague = (leagueId) => {
     setSelectedLeague(leagueId)
   }
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); 
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
+
   return (
     <div className="main">
+    {loading && <LoadingScreen />}
+    {!loading && (
+      <>
     <Leagues handleSelectedLeague={handleSelectedLeague} />
     {selectedLeague && <Standings leagueId={selectedLeague} />}
     {selectedLeague && <Fixtures leagueId={selectedLeague} />}
+      </>
+    )}
     </div>
   );
 }
