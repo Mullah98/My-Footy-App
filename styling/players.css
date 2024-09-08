@@ -1,7 +1,7 @@
 .players-container {
     padding: 10px;
     margin: 0 auto;
-    text-align: center;
+    /* text-align: center; */
     display: flex;
     flex-direction: column;
 }
@@ -9,4 +9,71 @@
 .form {
     margin-top: 120px;
     margin-right: 30px;
+}
+
+.players-main {
+    border: 4px solid grey;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.players-name {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 2px solid grey;
+    background-color: grey;
+}
+
+.players-name img {
+    bottom: 0;
+}
+
+.players-name h1 {
+    /* bottom: 0; */
+    margin: 25px 0 0 50px;
+    color: rgb(235, 230, 230);
+    font-size: 40px;
+}
+
+.players-name h2 {
+    bottom: 0;
+    margin: 0 0 0 40px;
+    color: rgb(235, 230, 230);
+}
+
+.players-heading {
+    text-align: start;
+    margin: 5px 0;
+}
+
+.players-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.box {
+    flex: 1 1 calc(20% - 20px); 
+    box-sizing: border-box;
+    padding: 20px;
+    border: 1px solid #ddd;
+    /* background-color: #f9f9f9; */
+}
+
+.box span {
+    font-weight: 250;
+}
+
+.players-league {
+    display: inline-flex;
+    align-items: flex-end;
+    text-align: start;
+    justify-content: start;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.players-league span {
+    color: rgb(141, 139, 139);
 }

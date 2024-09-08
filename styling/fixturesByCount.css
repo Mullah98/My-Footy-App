@@ -82,4 +82,5 @@
 
 .fixture-time {
   margin: 15px 0;
+  white-space: nowrap;
 }
