@@ -30,7 +30,6 @@
 }
 
 .players-name h1 {
-    /* bottom: 0; */
     margin: 25px 0 0 50px;
     color: rgb(235, 230, 230);
     font-size: 40px;
@@ -48,20 +47,17 @@
 }
 
 .players-info {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
-.box {
-    flex: 1 1 calc(20% - 20px); 
-    box-sizing: border-box;
+.players-info .box {
     padding: 20px;
     border: 1px solid #ddd;
-    /* background-color: #f9f9f9; */
+    text-align: start;
 }
 
-.box span {
+.players-info .box span {
     font-weight: 250;
 }
 
@@ -76,4 +72,23 @@
 
 .players-league span {
     color: rgb(141, 139, 139);
+}
+
+.players-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.players-stats .box {
+    padding: 20px;
+    border: 1px solid #ddd;
+    text-align: start;
+}
+
+.players-stats .box span {
+    font-weight: 250;
+}
+
+.players-more-stats {
+    border: 2px solid green;
 }

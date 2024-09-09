@@ -60,6 +60,7 @@ export default function Players() {
             </div>
             <div className="players-info">
             <div className="box"><h3>{selectedPlayer.player.nationality}</h3><span>Nationality</span></div>
+            <div className="box"><h3>{selectedPlayer.statistics[0].games.position}</h3><span>Position</span></div>
             <div className="box"><h3>{selectedPlayer.player.height}</h3><span>Height</span></div>
             <div className="box"><h3>{selectedPlayer.player.weight}</h3><span>Weight</span></div>
             <div className="box"><h3>{selectedPlayer.player.age}</h3><span>Age</span></div>
@@ -76,12 +77,15 @@ export default function Players() {
             <div className="players-stats">
             <div className="box"><h3>{selectedPlayer.statistics[0].goals.total}</h3><span>Goals</span></div>
             <div className="box"><h3>{selectedPlayer.statistics[0].goals.assists}</h3><span>Assists</span></div>
-            <div className="box"><h3></h3><span>Appereances</span></div>
-            <div className="box"><h3></h3><span>Minutes</span></div>
-            <div className="box"><h3></h3><span>Rating</span></div>
-            <div className="box"><h3></h3><span>Yellow cards</span></div>
-            <div className="box"><h3></h3><span>Red cards</span></div>
-
+            <div className="box"><h3>{selectedPlayer.statistics[0].games.appearences}</h3><span>Appereances</span></div>
+            <div className="box"><h3>{selectedPlayer.statistics[0].games.lineups}</h3><span>Started</span></div>
+            <div className="box"><h3>{selectedPlayer.statistics[0].games.minutes}</h3><span>Minutes</span></div>
+            <div className="box"><h3>{parseFloat(selectedPlayer.statistics[0].games.rating).toFixed(2)}</h3><span>Rating</span></div>
+            <div className="box"><h3>{selectedPlayer.statistics[0].cards.yellow}</h3><span>Yellow cards</span></div>
+            <div className="box"><h3>{selectedPlayer.statistics[0].cards.red}</h3><span>Red cards</span></div>
+            </div>
+            <div className="players-more-stats">
+            <h2>More stats here</h2>
             </div>
             </div>
             )}
