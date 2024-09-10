@@ -89,6 +89,56 @@
     font-weight: 250;
 }
 
-.players-more-stats {
+.rating-good {
+    color: white;
     border: 2px solid green;
+    border-radius: 25px;
+    background-color: green;
+    width: 45px;
+    padding: 2.5px;
 }
+
+.rating-average {
+    color: white;
+    border: 2px solid orange;
+    border-radius: 25px;
+    background-color: orange;
+    width: 45px;
+    padding: 2.5px;
+}
+
+.rating-bad {
+    color: white;
+    border: 2px solid red;
+    border-radius: 25px;
+    background-color: red;
+    width: 45px;
+    padding: 2.5px;
+}
+
+.players-more-stats {
+    display: flex;
+    flex-direction: column;
+    /* gap: 10px; */
+    margin: 20px 0;
+  }
+  
+.players-more-stats .box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    /* width: 300px; */
+    width: 100%;
+    box-sizing: border-box; /* Includes padding and border in width */
+  }
+  
+.players-more-stats h3 {
+    margin: 0 5px;
+  }
+  
+.players-more-stats span {
+    text-align: right;
+  }
+  
