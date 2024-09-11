@@ -21,12 +21,31 @@
     margin: 0 2em 0 1em;    
 }
 
-.li a {
+.navbar a {
     color: white;
-    text-decoration:underline;
+    text-decoration: none;
     font-weight: 700;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.li a:hover {
-    font-style: italic;
+.navbar a::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffcc00;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.navbar a:hover::before {
+    transform: scaleX(1);
+}
+
+.navbar a:hover {
+    color: #ffcc00; 
+    transform: skewY(-10deg);
 }

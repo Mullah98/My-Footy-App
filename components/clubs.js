@@ -11,7 +11,7 @@ import Transfers from "./transfers";
 
 
 export default function Clubs({team}) {
-    const [club, setClub] = useState('Manchester United');
+    const [club, setClub] = useState('');
     const [selectedClub, setSelectedClub] = useState(null);
     const [isClicked, setIsClicked] = useState(false);
     const [showOverview, setShowOverview] = useState(true);
@@ -59,6 +59,7 @@ export default function Clubs({team}) {
     }
 
     const clubs = filterData(teamsData);
+    
 
     return (
         <div className="clubs-container">
@@ -79,7 +80,12 @@ export default function Clubs({team}) {
                         setIsClicked(true) & 
                         setShowOverview(true) & 
                         setShowTeamsheet(false)}>
-                            {club.team.name}
+                        <Image src={club.team.logo} 
+                        alt="logo for club" 
+                        height={50} 
+                        width={50} 
+                        priority={true} />
+                        {club.team.name}
                         </li>
                     ))}
                 </ul>

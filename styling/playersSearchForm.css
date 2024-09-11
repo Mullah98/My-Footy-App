@@ -14,6 +14,10 @@ select {
     margin: 10px 0;
 }
 
+select:hover {
+    cursor: pointer;
+}
+
 input {
     font-size: 26px;
     border-radius: 10px;
@@ -26,7 +30,7 @@ input {
 .form-li {
     list-style: none;
     font-size: 23px;
-    padding: 10px 0;
+    padding: 5px 0;
     margin: 5px auto;
     border: 2px solid black;
     width: 75%;
@@ -46,6 +50,7 @@ input {
     margin: 0;
     list-style-type: none; 
     width: 100%; 
+    display: block;
 }
 
 .form-li img {
