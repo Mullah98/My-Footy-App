@@ -1,0 +1,51 @@
+.box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+.trophies-container ul {
+  display: inline-flex;
+  padding: 0;
+  margin: 0;
+}
+
+.trophies-container li {
+  list-style: none;
+  display: flex;
+  margin-right: 0px;
+}
+
+.trophy-info {
+  display: flex;
+  align-items: center;
+}
+
+.trophy-count {
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 5px;
+  background-color: green;
+  font-size: 18px;
+  padding: 0;
+}
+
+.trophy-name {
+  margin: 0 10px;
+  font-weight: 600;
+}
+
+.trophies-container span {
+  font-weight: 400;
+  margin: 0 5px;
+}

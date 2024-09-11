@@ -2,24 +2,44 @@
     margin: 10em 2em 0 4em;
 }
 
-ul {
+.leagues-container ul {
     display: flex;
     padding: 2em;
     position: relative;
     justify-content: center;
 }
 
-li {
+.leagues-container li {
     margin: 0 5em 0 2em;
     list-style: none;
+    position: relative;
 }
 
-button {
+.leagues-container button {
     border: none;
     cursor: pointer;
     background-color: white;
+    position: relative;
+    padding: 0;
 }
 
-img {
+.leagues-container button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 3px;
+    background-color: green;
+    transition: width 0.2s ease-in-out;
+}
+
+.leagues-container button:hover::after {
+    width: 100%;
+}
+
+.leagues-container img {
     border-radius: 3%;
+    display: block;
+    transition: transform 0.3s ease-in-out;
 }

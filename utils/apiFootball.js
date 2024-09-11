@@ -160,3 +160,21 @@ export const searchPlayer = async (leagueId, player) => {
         throw error
     }
 }
+
+export const getTrophies = async (playerId) => {
+    const url = `${BASE_URL}/trophies?player=${playerId}`
+
+    const options = {
+        method: 'GET',
+        headers: HEADERS
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        return result.response;
+    } catch(error) {
+        console.log('Error fetching trophies', error);
+        throw error
+    }
+}

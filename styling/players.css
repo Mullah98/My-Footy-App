@@ -12,7 +12,8 @@
 }
 
 .players-main {
-    border: 4px solid grey;
+    border: 6px solid grey;
+    border-radius: 20px;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
@@ -27,6 +28,7 @@
 
 .players-name img {
     bottom: 0;
+    border-radius: 10px;
 }
 
 .players-name h1 {
@@ -65,12 +67,17 @@
     display: inline-flex;
     align-items: flex-end;
     text-align: start;
-    justify-content: start;
+    justify-content: flex-start;
     width: 100%;
-    margin: 20px 0;
+    margin: 20px 10px;
+}
+
+.players-league h1 {
+    margin: 0 20px;
 }
 
 .players-league span {
+    margin: 0 2px;
     color: rgb(141, 139, 139);
 }
 
@@ -119,7 +126,6 @@
 .players-more-stats {
     display: flex;
     flex-direction: column;
-    /* gap: 10px; */
     margin: 20px 0;
   }
   
@@ -129,9 +135,8 @@
     align-items: center;
     padding: 5px 10px;
     border: 1px solid #ccc;
-    /* width: 300px; */
     width: 100%;
-    box-sizing: border-box; /* Includes padding and border in width */
+    box-sizing: border-box; 
   }
   
 .players-more-stats h3 {
@@ -142,3 +147,22 @@
     text-align: right;
   }
   
+.players-trophies h1 {
+    margin: 15px 10px;
+    text-align: start;
+}
+
+.trophy-icon {
+    color: rgb(169, 169, 14);
+    margin: 0 2px;
+}
+
+.yellow-card {
+    color: rgb(255, 255, 0);
+    font-size: 30px;
+}
+
+.red-card {
+    color: red;
+    font-size: 30px;
+}

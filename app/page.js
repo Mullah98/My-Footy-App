@@ -26,14 +26,15 @@ export default function Home() {
 
   return (
     <div className="main">
-    {loading && <LoadingScreen />}
-    {!loading && (
+    {loading ? (
+      <LoadingScreen />
+    ) : (
       <>
-    <Leagues handleSelectedLeague={handleSelectedLeague} />
-    {selectedLeague && <Standings leagueId={selectedLeague} />}
-    {selectedLeague && <Fixtures leagueId={selectedLeague} />}
+        <Leagues handleSelectedLeague={handleSelectedLeague} />
+        <Standings leagueId={selectedLeague} />
+        <Fixtures leagueId={selectedLeague} />
       </>
     )}
-    </div>
+  </div>
   );
 }
