@@ -3,7 +3,6 @@
 import Standings from "@/components/standings";
 import Leagues from "@/components/leagues";
 import { useState, useEffect } from "react";
-import Fixtures from "@/components/fixtures";
 import LoadingScreen from "../components/loadingScreen";
 
 export default function Home() {
@@ -32,7 +31,6 @@ export default function Home() {
       <>
         <Leagues handleSelectedLeague={handleSelectedLeague} />
         <Standings leagueId={selectedLeague} />
-        {/* <Fixtures leagueId={selectedLeague} /> */}
       </>
     )}
   </div>

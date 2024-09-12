@@ -25,6 +25,8 @@ export default function FixturesByCount({teamId}) {
 
     const lastFive = fixtures?.last5Games;
     const nextGame = fixtures?.nextGame[0];
+    console.log(nextGame);
+    
 
     const fixtureDate = nextGame?.fixture?.date ? dateFormatter.format(new Date(nextGame.fixture.date)) : 'Date not available'
     const fixtureTime = nextGame?.fixture.date ? timeFormatter.format(new Date(nextGame.fixture.date)) : 'Time not available'

@@ -43,40 +43,42 @@ export default function Fixtures({ leagueId }) {
         return fixturesData && fixturesData.every(fixture => fixture.fixture.status.short === 'FT')
     }
 
-    const fixtures = filterFixtures(fixturesData);
-
+    
     useEffect(() => {
         if (isRoundComplete(fixturesData) && !manualChangeRound) {
             setRound(prevRound => prevRound + 1)
         }
     }, [fixturesData, manualChangeRound])
-
+    
     const handlePrevRound = (e) => {
         setManualChangeRound(true);
         setRound(currentRound => currentRound - 1, 1);
     }
-
+    
     const handleNextRound = (e) => {
         setManualChangeRound(true);
         setRound(currentRound => currentRound + 1, maxRounds);
     }
-        
+    
+    const fixtures = filterFixtures(fixturesData);
+    
+
     return (
         <div className="fixtures-container">
           <h1>Fixtures</h1>
-          
-          <div className="round-bar">
-            <button className="round-btn" onClick={handlePrevRound} disabled={round === 1}>Prev</button>
-                <span className="round-text">Round {round}</span>
-            <button className="round-btn" onClick={handleNextRound} disabled={round === maxRounds}>Next</button>
-          </div>
-
           {isLoading ? (
-            <div className="loading">
+          <div className="loading">
             <Mosaic color="#32cd32" size="large" text="Loading" textColor="" />
-            </div>
+          </div>
           ) : (
-            <CardSlider fixtures={fixtures} />
+          <>
+           <div className="round-bar">
+            <button className="round-btn" onClick={handlePrevRound} disabled={round === 1}>Prev</button>
+             <span className="round-text">Round {round}</span>
+            <button className="round-btn" onClick={handleNextRound} disabled={round === maxRounds}>Next</button>
+            </div>
+             <CardSlider fixtures={fixtures} />
+           </>
           )}
         </div>
     )

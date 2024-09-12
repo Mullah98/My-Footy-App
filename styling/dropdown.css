@@ -1,4 +1,3 @@
-
 .dropdown-container {
     position:relative;
     text-align: center;
@@ -8,6 +7,10 @@ label {
     font-size: 1.6em;
 }
 
-#dropdown-menu {
+.dropdown-menu {
     font-size: 1.6em;
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+    cursor: pointer;
 }

@@ -13,7 +13,7 @@ export default function Dropdown({changeSeason}) {
     return (
         <div className="dropdown-container">
             <label>Season: </label>
-            <select id="dropdown-menu" value={selectedValue} onChange={handleChange}>
+            <select className="dropdown-menu" value={selectedValue} onChange={handleChange}>
                 <option value={2024}>2024/25</option>
                 <option value={2023}>2023/24</option>
                 <option value={2022}>2022/23</option>

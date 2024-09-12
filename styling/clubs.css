@@ -23,7 +23,7 @@ input {
 .form-li {
     list-style: none;
     font-size: 23px;
-    padding: 10px 0;
+    padding: 5px 0;
     margin: 5px auto;
     border: 2px solid black;
     width: 50%;
@@ -110,6 +110,7 @@ input {
     margin: 0 10px;
     background-color: green;
     border: none;
+    border-radius: 10px;
     color: white;
     font-size: 20px;
     cursor: pointer;
