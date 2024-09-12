@@ -32,7 +32,7 @@ export default function Home() {
       <>
         <Leagues handleSelectedLeague={handleSelectedLeague} />
         <Standings leagueId={selectedLeague} />
-        <Fixtures leagueId={selectedLeague} />
+        {/* <Fixtures leagueId={selectedLeague} /> */}
       </>
     )}
   </div>
