@@ -7,7 +7,7 @@ import LoadingScreen from "../components/loadingScreen";
 
 export default function Home() {
   const [selectedLeague, setSelectedLeague] = useState(39);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); //change this later
 
   const handleSelectedLeague = (leagueId) => {
     setSelectedLeague(leagueId)

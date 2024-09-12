@@ -116,3 +116,44 @@ td.team-cell span {
     background-color: rgb(254, 30, 30);
     border: 2px solid rgb(254, 30, 30);
 }
+
+@media (max-width: 768px) {
+    .form-head, .team-form {
+        display: none;
+    }
+
+    table {
+        width: 100%;
+        max-width: 100%;
+        table-layout: auto;
+        padding: 0; 
+    }
+
+
+    th, td {
+        padding: 2px;
+        font-size: 8px;
+    }
+
+    td.team-cell {
+        font-size: 7px;
+        padding: 3px; 
+    }
+
+    td.team-cell img {
+        width: 20px; 
+        height: auto;
+        margin: 0 2px;
+    }
+
+    td.team-cell span {
+        max-width: 60px;
+    }
+
+    .form-result {
+        width: 15px; 
+        height: 15px; 
+        font-size: 10px; 
+        margin: 0 1px;
+    }
+}
