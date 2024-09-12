@@ -24,8 +24,10 @@ export default function Fixtures({ leagueId }) {
     }
 
         const formatter = new Intl.DateTimeFormat("en-GB", {
-            dateStyle: "medium",
-            timeStyle: "short",
+            hour: 'numeric',
+            minute: 'numeric',
+            month: 'short',
+            day: 'numeric',
             hour12: true,
         })    
 

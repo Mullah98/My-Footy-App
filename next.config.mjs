@@ -7,8 +7,9 @@ const nextConfig = {
                 hostname: 'media.api-sports.io',
                 port: '',
                 pathname: '/football/**',
-            }
-        ]
+            },
+        ],
+        minimumCacheTTL: 60 * 60 * 24,
     }
 };
 

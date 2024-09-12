@@ -16,8 +16,8 @@ export default function StandingsPage() {
       return (
         <div className="main">
         <Leagues handleSelectedLeague={handleSelectedLeague} />
-        {selectedLeague && <Standings leagueId={selectedLeague} />}
         {selectedLeague && <Fixtures leagueId={selectedLeague} />}
+        {selectedLeague && <Standings leagueId={selectedLeague} />}
         </div>
       );
 }
