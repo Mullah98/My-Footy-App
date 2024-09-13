@@ -84,3 +84,65 @@
   margin: 15px 0;
   white-space: nowrap;
 }
+
+@media (max-width: 768px) {
+  .upcoming-fixture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+  }
+
+  .upcoming-fixture h3 {
+    white-space: nowrap;
+    padding: 0 0 10px 0;
+  }
+
+  .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .team-logo {
+    width: 60px;
+    height: auto;
+  }
+
+  .team-name {
+    margin: 0px 0;
+    padding: 15px 0;
+    font-size: 18px; 
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .next-fixture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fixture-date-time {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .fixture-date,
+  .fixture-time {
+    margin: 0; 
+    padding: 0; 
+  }
+
+  .fixture-date {
+    padding-bottom: 25px;
+  }
+
+  .fixture-time {
+    padding: 15px 0;
+  }
+}
+

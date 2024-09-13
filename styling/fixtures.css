@@ -31,3 +31,13 @@ h1 {
     display: inline-flex;
     align-items: center;
 }
+
+@media (max-width: 768px) {
+    .round-text {
+        font-size: 12px;
+    }
+
+    .round-btn {
+        font-size: 12px;
+    }
+}

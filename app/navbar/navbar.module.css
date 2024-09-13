@@ -49,3 +49,14 @@
     color: #ffcc00; 
     transform: skewY(-10deg);
 }
+
+
+@media (max-width: 768px) {
+    .navbar {
+        width: 100%;
+    }
+
+    .navbar ul {
+        font-size: 14px;
+    }
+}

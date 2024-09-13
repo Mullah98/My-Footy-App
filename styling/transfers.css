@@ -61,3 +61,67 @@
 .arrow-icon-left {
     color: red;
 }
+
+@media (max-width: 768px) {
+    .transfers {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px; 
+        margin: 10px;
+        padding: 0; 
+    }
+
+    .transfers h2 {
+        margin: 0 5px;
+        padding: 10px;
+    }
+
+    .players-in, .players-out {
+        width: 100%;
+        margin: 15px auto;
+    }
+
+    .players-in h3,
+    .players-out h3 {
+        font-size: 1.2em; 
+    }
+
+    .players-in p,
+    .players-out p {
+        font-size: 1em;
+    }
+
+    .arrow-icon-right, 
+    .arrow-icon-left {
+        font-size: 20px;
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .transfers {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .players-in, .players-out {
+        width: 75%;
+        margin: 10px auto; 
+        padding: 6px; 
+    }
+
+    .players-in h3,
+    .players-out h3 {
+        font-size: 1em;
+    }
+
+    .players-in p,
+    .players-out p {
+        font-size: 0.9em; 
+    }
+
+    .arrow-icon-right, 
+    .arrow-icon-left {
+        font-size: 18px; 
+        margin: 0 8px; 
+    }
+}

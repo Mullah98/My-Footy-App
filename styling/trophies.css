@@ -49,3 +49,34 @@
   font-weight: 400;
   margin: 0 5px;
 }
+
+@media (max-width: 768px) {
+.box {
+  padding: 5px;
+  margin: 2px 0;
+}
+
+  .trophies-container h3 {
+    font-size: 15px;
+    white-space: nowrap;
+    margin: 0 2px;
+  }
+
+  .trophies-container .trophy-name {
+    margin: 0 2px;
+  }
+
+  .trophies-container span {
+    font-size: 11px;
+  }
+
+  .trophy-count {
+    padding: 0;
+    margin: 0 20px;
+  }
+
+  .trophies-container ul {
+    display: block;
+    overflow-y: scroll;
+  }
+}

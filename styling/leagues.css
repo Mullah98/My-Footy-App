@@ -43,3 +43,27 @@
     display: block;
     transition: transform 0.3s ease-in-out;
 }
+
+@media (max-width: 768px) {
+    .leagues-container {
+        margin: 5em 1em;
+        overflow-x: auto; 
+        white-space: nowrap;
+    }
+
+    .leagues-container ul {
+        display: inline-flex; 
+        padding: 1em;
+        gap: 1em;
+    }
+
+    .leagues-container li {
+        margin: 0 1em;
+        display: inline-flex;
+    }
+
+    .leagues-container img {
+        width: 50px; 
+        height: auto;
+    }
+}

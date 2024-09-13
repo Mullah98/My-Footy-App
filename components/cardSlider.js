@@ -55,7 +55,7 @@ export default function CardSlider({ fixtures }) {
 
             <h3>{fixture.teams.home.name}<br /> vs <br /> {fixture.teams.away.name}</h3>
                 <Image src={fixture.teams.home.logo}
-                 className="home-log"
+                 className="home-logo"
                  alt="icon for home team" 
                  height={150} 
                  width={140} 
