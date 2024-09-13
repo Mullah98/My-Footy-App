@@ -124,7 +124,7 @@
 
 @media (max-width: 768px) {
     .card-slider {
-        padding: 5px; /* Adjust padding for mobile */
+        padding: 5px;
     }
 
     .slick-prev, .slick-next {
@@ -138,6 +138,10 @@
         align-items: center;
         position: relative;
         min-height: 250px;
+    }
+
+    .finished {
+        font-size: 12px !important;
     }
 
     .cards h3 {
@@ -177,9 +181,5 @@
     .scores {
         font-size: 14px; 
         margin: 15px 0;
-    }
-
-    .finished {
-        margin-top: 20px;
     }
 }

@@ -117,7 +117,6 @@ input {
 }
 
 @media (max-width: 768px) {
-    /* Adjust clubs-container padding and text alignment */
     .clubs-container {
         padding: 5px;
         margin: 0 auto;
@@ -126,80 +125,78 @@ input {
         flex-direction: column;
     }
 
-    /* Adjust form styling */
     .form {
         text-align: center;
         padding: 15px;
-        margin-top: 40px; /* Reduced margin-top */
+        margin-top: 50px; 
     }
 
-    /* Adjust input fields */
     input {
-        font-size: 20px; /* Smaller font size */
+        font-size: 20px;
         border-radius: 8px;
         box-shadow: 0px 0px 6px rgb(162, 159, 159);
         padding: 8px 4px;
         margin: 8px 0;
     }
 
-    /* Adjust form-li styling */
     .form-li {
-        font-size: 18px; /* Smaller font size */
+        font-size: 18px; 
         padding: 4px 0;
         margin: 4px auto;
-        width: 80%; /* Adjust width */
+        width: 80%; 
+        align-items: center;
+        font-weight: 700;
     }
 
-    /* Adjust club-main styling */
     .club-main {
-        flex-direction: column; /* Stack items vertically */
-        font-size: 1.2em; /* Smaller font size */
+        flex-direction: column; 
+        font-size: 1.2em; 
         padding: 10px;
-        border: 4px solid grey; /* Thinner border */
+        border: 4px solid grey; 
     }
 
     .club-main h1 {
-        font-size: 30px; /* Smaller font size */
+        font-size: 30px; 
     }
 
     .club-main h4 {
-        font-size: 16px; /* Smaller font size */
+        font-size: 16px; 
     }
 
     .club-main img {
-        margin: 10px 30px; /* Adjust margin */
-        width: 200px; /* Make image responsive */
-        height: auto; /* Maintain aspect ratio */
+        margin: 10px 30px; 
+        width: 200px; 
+        height: auto; 
     }
 
     .club-logo, .club-info {
-        margin: 15px 0; /* Adjust margin */
+        margin: 15px 0; 
     }
 
     .club-venue {
-        text-align: center; /* Center text for smaller screens */
+        text-align: center; 
     }
 
     .club-venue img {
-        width: 150px; /* Make image responsive */
-        border-radius: 10px; /* Smaller border-radius */
+        width: 150px; 
+        border-radius: 10px; 
     }
 
     .bottom {
-        flex-direction: column; /* Stack items vertically */
+        flex-direction: column; 
     }
 
     .club-current {
-        border: 3px solid grey; /* Thinner border */
+        border: 3px solid grey; 
         padding: 15px;
-        border-radius: 10px; /* Smaller border-radius */
+        border-radius: 10px; 
     }
 
     .button-container {
         padding: 10px;
         display: flex;
-        justify-content: center; /* Center buttons horizontally */
-        gap: 10px; /* Space between buttons */
+        justify-content: center; 
+        gap: 10px; 
     }
     
     .button-container button {
@@ -210,8 +207,8 @@ input {
         color: white;
         font-size: 10px;
         cursor: pointer;
-        flex: 1; /* Ensure buttons take up equal space */
-        text-align: center; /* Center text in the button */
-        min-width: 80px; /* Minimum width for buttons */
+        flex: 1; 
+        text-align: center; 
+        min-width: 80px; 
     }
 }

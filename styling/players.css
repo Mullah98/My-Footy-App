@@ -1,7 +1,6 @@
 .players-container {
     padding: 10px;
     margin: 0 auto;
-    /* text-align: center; */
     display: flex;
     flex-direction: column;
 }
@@ -166,3 +165,119 @@
     color: red;
     font-size: 30px;
 }
+
+@media (max-width: 768px) {
+    .players-container {
+      padding: 5px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .form {
+      margin-top: 60px; 
+      margin-right: 10px; 
+    }
+  
+    .players-main {
+      border: 4px solid grey; 
+      border-radius: 15px;
+      max-width: 100%; 
+      width: auto; 
+      margin: 0 auto;
+    }
+  
+    .players-name {
+      flex-direction: column; 
+      align-items: center; 
+      border-bottom: 1px solid grey;
+      background-color: grey;
+      padding: 10px;
+    }
+  
+    .players-name img {
+      margin-bottom: 10px; 
+      width: 90px;
+      height: auto;
+    }
+  
+    .players-name h1 {
+      margin: 10px 0 0 0;
+      font-size: 24px;
+    }
+  
+    .players-name h2 {
+      margin: 5px 0 0 0;
+      font-size: 18px; 
+    }
+  
+    .players-heading {
+      text-align: center;
+      margin: 5px 0;
+    }
+
+    .players-heading h2 {
+        display: flex;
+        align-items: center;
+    }
+  
+    .players-info {
+      display: grid;
+      grid-template-columns: 1fr; 
+      gap: 5px; 
+    }
+  
+    .players-info .box {
+      padding: 2px;
+      border: 1;
+    }
+
+    .rating-bad, .rating-good, .rating-average {
+        height: 14px;
+        width: 30px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .players-league {
+        font-size: 12px;
+        padding: 15px auto;
+        width: 80%;
+    }
+     
+    .players-league img {
+        width: 60px;
+        height: auto;
+    }
+
+    .players-stats {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px; 
+      }
+    
+      .players-stats .box {
+        padding: 2px;
+      }
+
+    .players-info, .players-stats h3 {
+        font-size: 13px;
+        margin: 0 5px;
+    }
+
+      .players-more-stats .box {
+        padding: 0 5px;
+        margin: 3px 0;
+      }
+
+      .players-more-stats h3 {
+        font-size: 12px;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .players-trophies h1 {
+        font-size: 22px;
+      }
+}  

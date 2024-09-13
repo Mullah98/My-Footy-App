@@ -10,6 +10,11 @@
     padding: 20px;
 }
 
+.teamsheet-container h2 {
+    margin: 0 5px;
+    padding: 10px;
+}
+
 .goalkeeper,
 .defenders,
 .midfielders,
@@ -62,9 +67,9 @@ h2 {
     .defenders,
     .midfielders,
     .attackers {
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 15px; 
-        margin: 10px;    }
+        grid-template-columns: repeat(2, 1fr);  
+        margin: 12px 0; 
+    }
 
     .players {
         font-size: 16px; 
@@ -84,27 +89,57 @@ h2 {
 }
 
 @media (max-width: 480px) {
-    .goalkeeper,
-    .defenders,
-    .midfielders,
-    .attackers {
-        grid-template-columns: 1fr; 
-        gap: 10px; 
-    }
-
-    .players {
-        font-size: 14px; 
-        gap: 5px; 
-        padding: 10px;
-    }
-
-    .players img {
-        width: 30px; 
-        height: 30px; 
-    }
-
-    .player-number {
-        padding: 5px; 
-        font-size: 12px;
+    @media (max-width: 480px) {
+        .goalkeeper,
+        .defenders,
+        .midfielders,
+        .attackers {
+            grid-template-columns: 1fr; 
+            gap: 10px; 
+            padding: 0 10px 5px 5px;
+        }
+    
+        .players {
+            font-size: 14px; 
+            gap: 5px; 
+            padding: 0 10px;
+            margin: 0;
+            width: 80%;
+            overflow: hidden; 
+        }
+    
+        .players img {
+            width: 30px; 
+            height: 30px; 
+        }
+    
+        .player-name {
+            font-size: 15px;
+            padding: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    
+        .player-number {
+            padding: 5px; 
+            font-size: 12px;
+        }
+    
+        .player {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            box-sizing: border-box; 
+        }
+    
+        .player-name,
+        .player-number {
+            text-align: center;
+        }
     }
 }
+    

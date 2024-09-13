@@ -122,6 +122,10 @@ td.team-cell span {
         display: none;
     }
 
+    h1 {
+        font-size: 20px;
+    }
+
     table {
         width: 100%;
         max-width: 100%;
