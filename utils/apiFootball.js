@@ -178,3 +178,33 @@ export const getTrophies = async (playerId) => {
         throw error
     }
 }
+
+export const getLeaguePlayerStats = async (leagueId) => {
+    const url1 = `${BASE_URL}/players/topscorers?league=${leagueId}&season=2024`
+    const url2 = `${BASE_URL}/players/topassists?league=${leagueId}&season=2024`
+
+    const options = {
+        method: 'GET',
+        headers: HEADERS,
+    };
+
+    try {
+        const [firstResp, secondResp] = await Promise.all([
+            fetch(url1, options), 
+            fetch(url2, options)
+        ]);
+
+        if (!firstResp.ok || !secondResp.ok) {
+            throw new Error('Failed to fetch data')
+        }
+        const leagueTopScorer = await firstResp.json();
+        const leagueTopAssist = await secondResp.json();        
+        return {
+            topScorer: leagueTopScorer.response, 
+            topAssist: leagueTopAssist.response
+        }
+    } catch (error) {
+        console.log('Error fetching data', error);
+        throw error;
+    }
+}

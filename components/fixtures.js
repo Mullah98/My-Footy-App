@@ -62,7 +62,6 @@ export default function Fixtures({ leagueId }) {
     
     const fixtures = filterFixtures(fixturesData);
     
-
     return (
         <div className="fixtures-container">
           <h1>Fixtures</h1>
