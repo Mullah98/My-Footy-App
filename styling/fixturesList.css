@@ -1,0 +1,46 @@
+.fixtures-list {
+    border: 2px solid black;
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.fixture {
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    width: 100%; 
+    max-width: 600px; 
+    justify-content: center;
+}
+
+.fixture-fulldate {
+    flex: 1;
+    text-align: center;
+}
+
+.fixture-teams {
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex: 3;
+}
+
+.fixture-team {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+}
+
+.fixture-team img {
+    display: block; 
+}
+
+.fixture-time {
+    flex: 0 0 30px;
+    text-align: center;
+    font-size: 1rem;
+}

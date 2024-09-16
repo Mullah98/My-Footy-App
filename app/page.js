@@ -34,7 +34,6 @@ export default function Home() {
       <div className={styles.main}>
         <Leagues handleSelectedLeague={handleSelectedLeague} />
         <LeagueDashboard league={selectedLeague} />
-        {/* <Standings leagueId={selectedLeague} /> */}
       </div>
     )}
   </>
