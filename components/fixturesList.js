@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import "../styling/fixturesList.css"
 import Image from "next/image";
+import { PiArrowSquareLeftFill } from "react-icons/pi";
+import { PiArrowSquareRightFill } from "react-icons/pi";
+
+
 
 export default function FixturesList({leagueId}) {
     const [round, setRound] = useState(1);
@@ -21,8 +25,8 @@ export default function FixturesList({leagueId}) {
     }
 
     const dateFormatter = new Intl.DateTimeFormat("en-GB", {
-        month: 'short',
-        day: 'numeric',
+        weekday: 'short',
+        day: '2-digit'
     });
     
     const timeFormatter = new Intl.DateTimeFormat("en-GB", {
@@ -35,8 +39,9 @@ export default function FixturesList({leagueId}) {
             const fixturesDate = new Date(fixtures.fixture.date);
             const formattedDate = dateFormatter.format(fixturesDate);
             const formattedTime = timeFormatter.format(fixturesDate)
-            return {...fixtures, formattedDate, formattedTime}
+            return {...fixtures, fixturesDate, formattedDate, formattedTime}
         });
+            result.sort((dateA, dateB) => dateA.fixturesDate - dateB.fixturesDate)
             return result;
     }
 
@@ -45,13 +50,17 @@ export default function FixturesList({leagueId}) {
     }
 
     const handlePrevRound = (e) => {
+        if (round > 1) {
         setManualChangeRound(true);
         setRound(currentRound => currentRound - 1, 1);
+        }
     }
     
     const handleNextRound = (e) => {
+        if (round < 38 ) {
         setManualChangeRound(true);
         setRound(currentRound => currentRound + 1, maxRounds);
+        }
     }
 
     
@@ -69,10 +78,15 @@ export default function FixturesList({leagueId}) {
         <>
             {fixtureList && (
                 <div className="fixtures-list">
-                <div className="buttons">
-                    <button onClick={handlePrevRound} disabled={round === 1}>previous</button>
-                    <h2>Round {round}</h2>
-                    <button onClick={handleNextRound} disabled={round === maxRounds}>next</button>
+                <div className="fixtures-round">
+                 <PiArrowSquareLeftFill 
+                 onClick={handlePrevRound} 
+                 className="arrow-left"
+                 />
+                 <h2 className="round-counter">Round {round}</h2>
+                 <PiArrowSquareRightFill
+                 onClick={handleNextRound} 
+                 className="arrow-right" />
                 </div>
                     {fixtureList.map((fixture, i) => (
                         <li key={i} className="fixture">
@@ -87,7 +101,10 @@ export default function FixturesList({leagueId}) {
                                         priority={true} 
                                     />
                                     {fixture.fixture.status.elapsed === null ? (
-                                    <h4>{fixture.formattedTime}</h4>
+                                    <div className="fixture-date">
+                                        <h4 className="date">{fixture.formattedDate}</h4>
+                                        <h4>{fixture.formattedTime}</h4>
+                                    </div>
                                     ) : 
                                     <h4>{fixture.goals.home} - {fixture.goals.away}</h4>}
                                     <Image 

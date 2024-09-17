@@ -3,16 +3,24 @@
     text-align: center;
 }
 
-.buttons{
+.fixtures-round {
     display: flex;
     justify-content: center;
 }
 
-.buttons button {
-    width: auto;
-    height: 20px;
-    margin: 0;
-    padding: 0;
+.round-counter {
+    margin: 0 15px;
+    text-align: center;
+}
+
+.arrow-left, .arrow-right {
+    font-size: 30px;
+    color: green;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+    cursor: pointer;
 }
 
 .fixture {
@@ -51,3 +59,8 @@
 .center-content img {
     margin: 0 5px;
 }
+
+.date {
+    font-size: 10px;
+}
+
