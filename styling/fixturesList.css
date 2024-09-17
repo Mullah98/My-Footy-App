@@ -1,46 +1,53 @@
 .fixtures-list {
-    border: 2px solid black;
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    justify-content: center;
+    text-align: center;
 }
 
-.fixture {
-    border: 2px solid black;
+.buttons{
     display: flex;
-    align-items: center;
-    width: 100%; 
-    max-width: 600px; 
     justify-content: center;
 }
 
-.fixture-fulldate {
+.buttons button {
+    width: auto;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.fixture {
+    border: 1px solid rgba(0, 0, 0, 0.324);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.fixture-teams {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.team-name {
+    margin: 0 20px; 
     flex: 1;
     text-align: center;
 }
 
-.fixture-teams {
-    border: 1px solid red;
+.center-content {
     display: flex;
     align-items: center;
-    gap: 5px;
-    flex: 3;
+    justify-content: center;
+    gap: 10px;
 }
 
-.fixture-team {
-    display: flex;
-    align-items: center;
-    gap: 5px; 
+.center-content h4 {
+    margin: 0;
 }
 
-.fixture-team img {
-    display: block; 
-}
-
-.fixture-time {
-    flex: 0 0 30px;
-    text-align: center;
-    font-size: 1rem;
+.center-content img {
+    margin: 0 5px;
 }
