@@ -1,0 +1,40 @@
+table {
+    width: 50%;
+    border-collapse: collapse;
+}
+
+.row-header {
+    background-color: #f4f4f4;
+}
+
+th, td {
+    padding: 4px 8px; 
+    font-size: 12px;  
+}
+
+th {
+    text-align: center;
+    width: 20px;
+}
+
+.team-cell {
+    display: flex;
+    align-items: center;
+}
+
+td.team-cell {
+    font-size: 14px;
+}
+
+.team-cell img {
+    margin-right: 5px; 
+}
+
+td {
+    text-align: center;
+    font-weight: 500;
+}
+
+td.team-points, td.team-rank {
+    font-weight: 800;
+}
