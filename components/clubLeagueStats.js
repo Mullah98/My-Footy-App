@@ -18,8 +18,6 @@ export default function ClubLeagueStats({leagueId}) {
         return flattenedData
     }
 
-    console.log(filterStandings(clubStats));
-
     const findClubWithMostGoals = (standings) => {
         const clubs = standings.sort((a, b) => b.all.goals.for - a.all.goals.for).slice(0, 3)
         return clubs

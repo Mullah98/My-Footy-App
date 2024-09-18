@@ -70,9 +70,7 @@ export default function FixturesList({leagueId}) {
         }
     }, [fixturesList, manualChangeRound])
 
-    const fixtureList = filterFixtures(fixturesList)
-    // console.log(fixtureList);
-    
+    const fixtureList = filterFixtures(fixturesList)    
 
     return (
         <>

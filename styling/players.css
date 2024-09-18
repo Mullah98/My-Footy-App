@@ -88,6 +88,7 @@
 .players-stats .box {
     padding: 20px;
     border: 1px solid #ddd;
+    border-radius: 6px;
     text-align: start;
 }
 
@@ -134,6 +135,7 @@
     align-items: center;
     padding: 5px 10px;
     border: 1px solid #ccc;
+    border-radius: 6px;
     width: 100%;
     box-sizing: border-box; 
   }
@@ -225,12 +227,13 @@
     .players-info {
       display: grid;
       grid-template-columns: 1fr; 
-      gap: 5px; 
+      gap: 1px; 
     }
-  
+    
     .players-info .box {
       padding: 2px;
       border: 1;
+      font-size: 10px;
     }
 
     .rating-bad, .rating-good, .rating-average {
@@ -254,21 +257,26 @@
     .players-stats {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 10px; 
+        gap: 2px; 
+        border-radius: ;
       }
     
       .players-stats .box {
         padding: 2px;
       }
 
-    .players-info, .players-stats h3 {
-        font-size: 13px;
+    .players-info, .players-stats h3, .players-stats span {
+        font-size: 12px;
         margin: 0 5px;
     }
 
       .players-more-stats .box {
         padding: 0 5px;
         margin: 3px 0;
+      }
+
+      .players-more-stats span {
+        font-size: 12px;
       }
 
       .players-more-stats h3 {
@@ -279,5 +287,9 @@
       
       .players-trophies h1 {
         font-size: 22px;
+      }
+
+      .red-card, .yellow-card {
+        font-size: 14px;
       }
 }  

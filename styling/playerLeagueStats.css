@@ -61,3 +61,65 @@
     font-weight: 600;
     padding: 0;
 }
+
+@media (max-width: 768px) {
+    .leagueStats-container {
+        flex-direction: column;
+        gap: 8px;
+        padding: 5px;
+    }
+
+    .player {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.25rem; /* Reduced padding for a shorter div */
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .player img {
+        width: 45px; /* Slightly smaller image to reduce height */
+        height: 45px;
+        margin-right: 10px;
+    }
+
+    .player-details {
+        flex: 1;
+        margin-right: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .team-info {
+        display: flex;
+        align-items: center;
+        margin-top: -10px;
+    }
+
+    .team-info img {
+        width: 15px; 
+        height: 15px;
+        margin-right: 5px;
+        border-radius: 0;
+    }
+
+    .team-info h4 {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .player-stats {
+        font-size: 14px;
+        width: 28px; /* Slightly smaller stat circle */
+        height: 28px;
+        margin-left: auto;
+        background-color: green;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+    }
+}

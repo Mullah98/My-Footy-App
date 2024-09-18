@@ -68,3 +68,65 @@
     font-size: 10px;
 }
 
+
+@media (max-width: 768px) {
+    .fixtures-list {
+        padding: 5px;
+        border-radius: 6px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .fixtures-round {
+        display: flex;
+        padding-bottom: 10px;
+    }
+
+    .fixture {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px;
+        white-space: nowrap;
+        border-radius: 6px;
+    }
+
+    .fixture-teams {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%; 
+    }
+
+    .team-name {
+        margin: 0 9px;
+        font-size: 10px;
+        text-align: center;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 110px; 
+    }
+
+    .center-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        margin: 0 auto;
+    }
+
+    .center-content h4 {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .center-content img {
+        width: 20px;
+        height: auto;
+    }
+
+    .date {
+        font-size: 9px;
+        margin-left: auto;
+    }
+}

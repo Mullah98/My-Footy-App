@@ -33,3 +33,26 @@
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .dashboard-left, .dashboard-middle, .dashboard-right {
+        flex: none;
+        width: 100%;
+        padding: 5px;
+    }
+
+    .dashboard-right {
+        flex-direction: column;
+    }
+
+    .dashboard-right-top, .dashboard-right-bottom {
+        padding: 5px;
+        box-shadow: none; /* Optional: remove box-shadow on smaller screens */
+    }
+}

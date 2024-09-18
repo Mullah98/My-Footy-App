@@ -28,9 +28,7 @@ export default function Players() {
     const handleSelectedPlayer = (player) => {
         setSelectedPlayer(player)
     }
-
-    // console.log(selectedPlayer);
-    
+        
     return (
         <div className="players-container">
             <div className="form">

@@ -43,3 +43,43 @@
     padding: 0;
 }
 
+@media (max-width: 768px) {
+    .clubLeagueStats-container {
+        grid-template-columns: 1fr; /* Single column layout for mobile */
+        gap: 8px;
+        padding: 5px;
+    }
+
+    .club {
+        display: flex;
+        justify-content: space-between; /* Space between the name and stat */
+        align-items: center;
+        padding: 0.5rem;
+        border-radius: 6px;
+    }
+
+    .club img {
+        width: 40px; /* Slightly bigger image for clarity */
+        height: 40px;
+        margin-right: 10px; /* Spacing between image and name */
+    }
+
+    .club h3 {
+        font-size: 14px; /* Keep the club name readable */
+        margin: 0;
+        flex: 1; /* Allow the name to take up the remaining space */
+    }
+
+    .club-stat {
+        font-size: 14px; /* Larger stat size */
+        width: 30px;
+        height: 30px; /* Bigger circle for the stat */
+        margin-left: auto; /* Push stat to the end */
+        background-color: green;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700; /* Make the stat bold */
+    }
+}
