@@ -3,7 +3,7 @@
     justify-content: space-between;
     gap: 0;
     font-size: x-small;
-    background-color: white;
+    padding: 10px;
 }
 
 .goals,
