@@ -14,6 +14,20 @@
     margin: 0;
 }
 
+.first-club {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.324);
+}
+
+.first-club .club-stat {
+    color: white;
+    background-color: green;
+}
+
 .club {
     display: flex;
     align-items: center;
@@ -28,7 +42,7 @@
 }
 
 .club-stat {
-    color: white;
+    color: black;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -36,7 +50,7 @@
     height: 24px;
     border-radius: 50%;
     margin: 5px 2px 0 auto;
-    background-color: green;
+    /* background-color: green; */
     font-size: 14px;
     font-weight: 600;
     white-space: nowrap;
@@ -45,41 +59,41 @@
 
 @media (max-width: 768px) {
     .clubLeagueStats-container {
-        grid-template-columns: 1fr; /* Single column layout for mobile */
+        grid-template-columns: 1fr;
         gap: 8px;
         padding: 5px;
     }
 
     .club {
         display: flex;
-        justify-content: space-between; /* Space between the name and stat */
+        justify-content: space-between;
         align-items: center;
         padding: 0.5rem;
         border-radius: 6px;
     }
 
     .club img {
-        width: 40px; /* Slightly bigger image for clarity */
+        width: 40px;
         height: 40px;
-        margin-right: 10px; /* Spacing between image and name */
+        margin-right: 10px; 
     }
 
     .club h3 {
-        font-size: 14px; /* Keep the club name readable */
+        font-size: 14px;
         margin: 0;
-        flex: 1; /* Allow the name to take up the remaining space */
+        flex: 1; 
     }
 
     .club-stat {
-        font-size: 14px; /* Larger stat size */
+        font-size: 14px;
         width: 30px;
-        height: 30px; /* Bigger circle for the stat */
-        margin-left: auto; /* Push stat to the end */
+        height: 30px;
+        margin-left: auto;
         background-color: green;
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        font-weight: 700; /* Make the stat bold */
+        font-weight: 700;
     }
 }

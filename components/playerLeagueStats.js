@@ -26,8 +26,8 @@ export default function PlayerLeagueStats({leagueId}) {
                     <div className="goals">
                     <h2>Most goals</h2>
                     {mostGoals.map((player, i) => (
-                        <li key={i} className="player">
-                            <Image src={player.player.photo}
+                        <li key={i} className={i === 0 ? 'first-player' : 'player'}>
+                        <Image src={player.player.photo}
                             alt="player photo"
                             width={50}
                             height={50}
@@ -52,7 +52,7 @@ export default function PlayerLeagueStats({leagueId}) {
                     <div className="assists">
                     <h2>Most Assists</h2>
                     {mostAssists.map((player, i) => (
-                        <li key={i} className="player">
+                        <li key={i} className={i === 0 ? 'first-player' : 'player'}>
                             <Image src={player.player.photo}
                             alt="player photo"
                             width={50}

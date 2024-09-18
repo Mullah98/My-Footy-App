@@ -51,7 +51,7 @@ export default function ClubLeagueStats({leagueId}) {
                     <div className="most-goals">
                         <h2>Most goals</h2>
                         {mostGoals.map((club, i) => (
-                            <li key={i} className="club">
+                            <li key={i} className={i === 0 ? 'first-club' : 'club'}>
                                 <Image src={club.team.logo}
                                 alt="club logo"
                                 width={50}
@@ -68,7 +68,7 @@ export default function ClubLeagueStats({leagueId}) {
                     <div className="most-conceded">
                         <h2>Most conceded</h2>
                         {mostConceded.map((club, i) => (
-                            <li key={i} className="club">
+                            <li key={i} className={i === 0 ? 'first-club' : 'club'}>
                                 <Image src={club.team.logo}
                                 alt="club logo"
                                 width={50}
@@ -85,7 +85,7 @@ export default function ClubLeagueStats({leagueId}) {
                     <div className="most-wins">
                         <h2>Most wins</h2>
                         {mostWins.map((club, i) => (
-                            <li key={i} className="club">
+                            <li key={i} className={i === 0 ? 'first-club' : 'club'}>
                                 <Image src={club.team.logo}
                                 alt="club logo"
                                 width={50}
@@ -102,7 +102,7 @@ export default function ClubLeagueStats({leagueId}) {
                     <div className="most-losses">
                         <h2>Most losses</h2>
                         {mostLosses.map((club, i) => (
-                            <li key={i} className="club">
+                            <li key={i} className={i === 0 ? 'first-club' : 'club'}>
                                 <Image src={club.team.logo}
                                 alt="club logo"
                                 width={50}

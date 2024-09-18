@@ -14,7 +14,8 @@
     margin: 0; 
 }
 
-.player {
+
+.player, .first-player {
     display: flex;
     align-items: flex-start;
     border: 1px solid rgba(0, 0, 0, 0.324);
@@ -48,7 +49,7 @@
 }
 
 .player-stats {
-    color: white;
+    color: black;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -56,10 +57,14 @@
     height: 24px;
     border-radius: 50%;
     margin: 5px 5px;
-    background-color: green;
     font-size: 14px;
     font-weight: 600;
     padding: 0;
+}
+
+.first-player .player-stats {
+    color: white;
+    background-color: green;
 }
 
 @media (max-width: 768px) {
@@ -73,13 +78,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.25rem; /* Reduced padding for a shorter div */
+        padding: 0.25rem;
         border-radius: 6px;
         font-size: 14px;
     }
 
     .player img {
-        width: 45px; /* Slightly smaller image to reduce height */
+        width: 45px; 
         height: 45px;
         margin-right: 10px;
     }
@@ -112,7 +117,7 @@
 
     .player-stats {
         font-size: 14px;
-        width: 28px; /* Slightly smaller stat circle */
+        width: 28px;
         height: 28px;
         margin-left: auto;
         background-color: green;

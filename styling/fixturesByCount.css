@@ -29,32 +29,35 @@
 }
 
 .upcoming-fixture {
-  width: 45%;
-  display: flex;
-  padding: 10px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 800px; 
+  margin: 20px auto;
+  padding: 22px 40px;
   border: 3px solid grey;
   border-radius: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
 }
 
-.upcoming-fixture h3,
-.previous-fixture h3 {
+.upcoming-fixture h3 {
   color: grey;
+  margin-bottom: 20px;
 }
 
 .next-fixture {
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
-  padding: 0 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 40px;
 }
 
 .team {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   flex-grow: 1;
+  margin-left: 20px; 
 }
 
 .team-name {
@@ -62,48 +65,41 @@
   font-size: 28px;
   text-align: center;
   white-space: normal;
-  word-wrap: break-word; 
-  white-space: nowrap;
+  word-wrap: break-word;
 }
 
 .fixture-date-time {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 50px; 
+  padding-left: 40px;
   font-weight: 700;
   font-size: 28px;
 }
 
-.fixture-date {
-  font-size: 20px;
-  margin: 10px auto;
-}
-
-.fixture-time {
-  margin: 15px 0;
-  white-space: nowrap;
+.fixture-time, .fixture-date {
+  margin: 5px 0;
 }
 
 @media (max-width: 768px) {
   .upcoming-fixture {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 4px; 
     border: none;
   }
 
   .upcoming-fixture h3 {
-    white-space: nowrap;
-    padding: 0 0 10px 0;
+    margin-bottom: 10px; 
+  }
+
+  .next-fixture {
+    flex-direction: column;
+    padding-left: 0;
+    align-items: center;
   }
 
   .team {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
+    margin-left: 0;
+    margin-bottom: 15px;
   }
 
   .team-logo {
@@ -112,37 +108,20 @@
   }
 
   .team-name {
-    margin: 0px 0;
-    padding: 15px 0;
-    font-size: 18px; 
-    font-weight: bold;
-    text-align: center;
-  }
-
-  .next-fixture {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    font-size: 14px;
+    margin: 0;
+    padding: 10px 0;
   }
 
   .fixture-date-time {
-    padding: 0;
-    margin: 0;
+    padding: 0 0 20px 0;
+    margin: 12px 0;
     text-align: center;
   }
 
   .fixture-date,
   .fixture-time {
-    margin: 0; 
-    padding: 0; 
-  }
-
-  .fixture-date {
-    padding-bottom: 25px;
-  }
-
-  .fixture-time {
-    padding: 15px 0;
+    font-size: 20px;
+    margin: 5px 0;
   }
 }
-
