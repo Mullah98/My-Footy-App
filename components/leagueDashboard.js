@@ -1,4 +1,5 @@
 import "../styling/leagueDashboard.css"
+import ClubLeagueStats from "./clubLeagueStats";
 import FixturesList from "./fixturesList";
 import MiniStandings from "./miniStandings";
 import PlayerLeagueStats from "./playerLeagueStats";
@@ -13,7 +14,9 @@ export default function LeagueDashboard({league}) {
                 <FixturesList leagueId={league} />
             </div>
             <div className="dashboard-right">
-            <div className="dashboard-right-top">Top right</div>
+            <div className="dashboard-right-top">
+                <ClubLeagueStats leagueId={league} />
+            </div>
             <div className="dashboard-right-bottom">
             <PlayerLeagueStats leagueId={league}/>
             </div>

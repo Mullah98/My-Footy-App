@@ -1,0 +1,50 @@
+/* .clubLeagueStats-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 0;
+    font-size: x-small;
+    background-color: white;
+} */
+
+.clubLeagueStats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: x-small;
+    gap: 12px;
+    background-color: rgb(233, 231, 231);
+    padding: 10px;
+
+}
+
+.most-goals, .most-conceded, .most-wins, .most-losses {
+    flex: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+}
+
+.club {
+    border: 1px solid red;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.324);
+
+}
+
+.club-stat {
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin: 5px 5px;
+    background-color: green;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0;
+}

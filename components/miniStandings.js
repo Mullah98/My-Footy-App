@@ -6,9 +6,9 @@ import "../styling/miniStandings.css"
 
 
 export default function MiniStandings({leagueId}) {
-    const [currentSeason, setCurrentSeason] = useState('2024')
+    // const [currentSeason, setCurrentSeason] = useState('2024')
     const { data: standingsData, error, isLoading } = useQuery(
-        ['miniStandings', leagueId, currentSeason], () => getStandings(leagueId, currentSeason), {
+        ['miniStandings', leagueId], () => getStandings(leagueId, '2024'), {
         staleTime: 1000 * 60 * 60,
         cacheTime: 1000 * 60 * 60 * 24
     });
@@ -22,7 +22,6 @@ export default function MiniStandings({leagueId}) {
     }
 
     const miniStandings = filterStandings(standingsData)
-    console.log(miniStandings);
     
     return (
         <table>
