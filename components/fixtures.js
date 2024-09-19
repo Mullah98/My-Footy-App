@@ -43,7 +43,6 @@ export default function Fixtures({ leagueId }) {
         return fixturesData && fixturesData.every(fixture => fixture.fixture.status.short === 'FT')
     }
 
-    
     useEffect(() => {
         if (isRoundComplete(fixturesData) && !manualChangeRound) {
             setRound(prevRound => prevRound + 1)
@@ -52,12 +51,12 @@ export default function Fixtures({ leagueId }) {
     
     const handlePrevRound = (e) => {
         setManualChangeRound(true);
-        setRound(currentRound => currentRound - 1, 1);
+        setRound(currentRound => currentRound - 1);
     }
     
     const handleNextRound = (e) => {
         setManualChangeRound(true);
-        setRound(currentRound => currentRound + 1, maxRounds);
+        setRound(currentRound => currentRound + 1);
     }
     
     const fixtures = filterFixtures(fixturesData);

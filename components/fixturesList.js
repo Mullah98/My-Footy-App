@@ -5,13 +5,12 @@ import "../styling/fixturesList.css"
 import Image from "next/image";
 import { PiArrowSquareLeftFill } from "react-icons/pi";
 import { PiArrowSquareRightFill } from "react-icons/pi";
-
-
-
+import {Mosaic} from 'react-loading-indicators';
 
 export default function FixturesList({leagueId}) {
     const [round, setRound] = useState(1);
     const [manualChangeRound, setManualChangeRound] = useState(false);
+    const [loading, setLoading] = useState(true)
     const maxRounds = 38;
 
     const {data: fixturesList, isLoading} = useQuery(
@@ -50,26 +49,39 @@ export default function FixturesList({leagueId}) {
         return fixturesList && fixturesList.every(fixture => fixture.fixture.status.short === 'FT')
     }
 
-    const handlePrevRound = (e) => {
-        if (round > 1) {
-        setManualChangeRound(true);
-        setRound(currentRound => currentRound - 1, 1);
-        }
-    }
-    
-    const handleNextRound = (e) => {
-        if (round < 38 ) {
-        setManualChangeRound(true);
-        setRound(currentRound => currentRound + 1, maxRounds);
-        }
-    }
     
     useEffect(() => {
         if (isRoundComplete(fixturesList) && !manualChangeRound) {
             setRound(prevRound => prevRound + 1)
         }
     }, [fixturesList, manualChangeRound])
+    
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1000)
 
+        return () => clearTimeout(timer)
+    }, [])
+
+    if (loading) {
+        return <div className="loading"><Mosaic color="#32cd32" size="large" textColor="" /></div>
+    }
+
+    const handlePrevRound = (e) => {
+        if (round > 1) {
+        setManualChangeRound(true);
+        setRound(currentRound => currentRound - 1);
+        }
+    }
+    
+    const handleNextRound = (e) => {
+        if (round < 38 ) {
+        setManualChangeRound(true);
+        setRound(currentRound => currentRound + 1);
+        }
+    }
+    
     const fixtureList = filterFixtures(fixturesList);
 
     return (
@@ -118,7 +130,7 @@ export default function FixturesList({leagueId}) {
                         </li>
                     ))}
                 </div>
-            )}
-        </>
-    )
-}
+                )}
+            </>
+            )
+    }
