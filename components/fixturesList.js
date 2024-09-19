@@ -8,6 +8,7 @@ import { PiArrowSquareRightFill } from "react-icons/pi";
 
 
 
+
 export default function FixturesList({leagueId}) {
     const [round, setRound] = useState(1);
     const [manualChangeRound, setManualChangeRound] = useState(false);
@@ -62,7 +63,6 @@ export default function FixturesList({leagueId}) {
         setRound(currentRound => currentRound + 1, maxRounds);
         }
     }
-
     
     useEffect(() => {
         if (isRoundComplete(fixturesList) && !manualChangeRound) {
@@ -70,7 +70,7 @@ export default function FixturesList({leagueId}) {
         }
     }, [fixturesList, manualChangeRound])
 
-    const fixtureList = filterFixtures(fixturesList)    
+    const fixtureList = filterFixtures(fixturesList);
 
     return (
         <>

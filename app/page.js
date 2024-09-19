@@ -1,16 +1,14 @@
 'use client';
 
-import Standings from "@/components/standings";
 import Leagues from "@/components/leagues";
 import { useState, useEffect } from "react";
 import LoadingScreen from "../components/loadingScreen";
-import LeagueStats from "@/components/playerLeagueStats";
 import styles from "./page.module.css"
 import LeagueDashboard from "@/components/leagueDashboard";
 
 export default function Home() {
   const [selectedLeague, setSelectedLeague] = useState(39);
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(true); 
 
   const handleSelectedLeague = (leagueId) => {
     setSelectedLeague(leagueId)

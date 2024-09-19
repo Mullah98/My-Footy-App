@@ -36,6 +36,12 @@
     padding: 10px;
 }
 
+
+.fixture:hover {
+    background-color: rgb(202, 202, 202);
+    cursor: pointer;
+}
+
 .fixture-teams {
     display: flex;
     justify-content: space-between;

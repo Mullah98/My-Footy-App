@@ -1,5 +1,5 @@
 table {
-    width: 50%;
+    width: 100%;
     border-collapse: collapse;
     padding: 10px;
     background-color: #f9f9f9;
@@ -29,6 +29,7 @@ th {
 td.team-cell {
     font-size: 14px;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 .team-cell img {
@@ -42,6 +43,15 @@ td {
 
 td.team-points, td.team-rank {
     font-weight: 800;
+}
+
+tr {
+    border-bottom: 1px solid black;
+}
+
+tr:hover {
+    background-color: rgb(202, 202, 202);
+    cursor: pointer;
 }
 
 

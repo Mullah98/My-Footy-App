@@ -3,8 +3,6 @@
     justify-content: space-between;
     padding: 20px;
     gap: 20px;
-    /* background-color: #f9f9f9; */
-
 }
 
 /* Left, Middle, and Right columns */
@@ -53,6 +51,6 @@
 
     .dashboard-right-top, .dashboard-right-bottom {
         padding: 5px;
-        box-shadow: none; /* Optional: remove box-shadow on smaller screens */
+        box-shadow: none;
     }
 }
