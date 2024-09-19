@@ -8,7 +8,7 @@ import LeagueDashboard from "@/components/leagueDashboard";
 
 export default function Home() {
   const [selectedLeague, setSelectedLeague] = useState(39);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(false); 
 
   const handleSelectedLeague = (leagueId) => {
     setSelectedLeague(leagueId)
@@ -17,7 +17,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false); 
-    }, 2000);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
