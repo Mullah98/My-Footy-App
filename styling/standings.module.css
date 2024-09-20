@@ -37,7 +37,7 @@
 }
 
 .tr:hover {
-    background-color: rgb(87, 87, 87);
+    background-color: rgb(202, 202, 202);
     cursor: pointer;
 }
 
@@ -123,7 +123,7 @@
 }
 
 @media (max-width: 768px) {
-    .formHead, .teamForm {
+    .formHead, .td.teamForm {
         display: none;
     }
 
@@ -151,7 +151,7 @@
 
     .td.teamCell img {
         width: 20px; 
-        height: auto;
+        height: 20px;
         margin: 0 2px;
     }
 
