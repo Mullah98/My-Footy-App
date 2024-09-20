@@ -10,7 +10,7 @@ const nextConfig = {
             },
         ],
         minimumCacheTTL: 60 * 60 * 24,
-    }
+    },
 };
 
 export default nextConfig;

@@ -1,20 +1,20 @@
-.standings-container {
+.standingsContainer {
     margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr;
 }
 
-h1 {
+.h1 {
     text-align: center;
 }
 
-.row-header {
+.rowHeader {
     background-color: rgb(55, 54, 54);
     color: white;
     font-size: 22px;
 }
 
-th {
+.th {
     border: 3px solid;
     background-color: green;
     font-size: 20px;
@@ -22,7 +22,7 @@ th {
     width: 100px;
 }
 
-td {
+.td {
     text-align: center;
     padding: 8px;
     font-size: 20px;
@@ -32,8 +32,13 @@ td {
     overflow-wrap: break-word;
 }
 
-tr {
+.tr {
     background-color: rgb(52, 50, 50);
+}
+
+.tr:hover {
+    background-color: rgb(87, 87, 87);
+    cursor: pointer;
 }
 
 .loading {
@@ -42,7 +47,7 @@ tr {
     margin: 40px 0 0 0;
 }
 
-table {
+.table {
     background-color: green;
     width: 100%;
     max-width: 1200px;
@@ -51,7 +56,7 @@ table {
     border-collapse: collapse;
 }
 
-td.team-cell {
+.td.teamCell {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -60,26 +65,26 @@ td.team-cell {
     font-size: 20px;
 }
 
-td.team-cell img {
+.td.teamCell img {
     margin-right: 10px;
 }
 
-td.team-cell span {
+.td.teamCell span {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 250px;
 }
 
-.team-head {
+.teamHead {
     width: 300px;
 }
 
-.form-head {
+.formHead {
     width: 250px;
 }
 
-.team-form {
+.teamForm {
     font-size: larger;
     font-weight: 800;
     margin: 0 10px;
@@ -87,7 +92,7 @@ td.team-cell span {
     width: 300px;
 }
 
-.form-result {
+.formResult {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -101,32 +106,32 @@ td.team-cell span {
     color: white;
 }
 
-.form-result.W {
+.formResult.W {
     background-color: rgb(36, 208, 36);
     border: 2px solid rgb(36, 208, 36);
 
 }
 
-.form-result.D {
+.formResult.D {
     background-color: grey;
     border: 2px solid grey;
 }
 
-.form-result.L {
+.formResult.L {
     background-color: rgb(254, 30, 30);
     border: 2px solid rgb(254, 30, 30);
 }
 
 @media (max-width: 768px) {
-    .form-head, .team-form {
+    .formHead, .teamForm {
         display: none;
     }
 
-    h1 {
+    .h1 {
         font-size: 20px;
     }
 
-    table {
+    .table {
         width: 100%;
         max-width: 100%;
         table-layout: auto;
@@ -134,27 +139,27 @@ td.team-cell span {
     }
 
 
-    th, td {
+    .th, .td {
         padding: 2px;
         font-size: 8px;
     }
 
-    td.team-cell {
+    .td.teamCell {
         font-size: 7px;
         padding: 3px; 
     }
 
-    td.team-cell img {
+    .td.teamCell img {
         width: 20px; 
         height: auto;
         margin: 0 2px;
     }
 
-    td.team-cell span {
+    .td.teamCell span {
         max-width: 60px;
     }
 
-    .form-result {
+    .formResult {
         width: 15px; 
         height: 15px; 
         font-size: 10px; 

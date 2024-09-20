@@ -1,15 +1,21 @@
-h1 {
+.fixturesContainer {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.h1 {
     color: black;
 }
 
-.round-bar {
+.roundBar {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-.round-btn {
+.roundBtn {
     padding: 10px;
     background-color: green;
     border: none;
@@ -19,12 +25,12 @@ h1 {
     cursor: pointer;
 }
 
-.round-btn:disabled {
+.roundBtn:disabled {
     background-color: gray;
     cursor: not-allowed;
 }
 
-.round-text {
+.roundText {
     border: 2px solid black;
     font-size: 20px;
     padding: 10px;
@@ -33,11 +39,11 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    .round-text {
+    .roundText {
         font-size: 12px;
     }
 
-    .round-btn {
+    .roundBtn {
         font-size: 12px;
     }
 }
