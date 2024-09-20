@@ -238,7 +238,7 @@
 
     .rating-bad, .rating-good, .rating-average {
         height: 14px;
-        width: 30px;
+        width: 25px;
         align-items: center;
         text-align: center;
     }
@@ -258,8 +258,7 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 2px; 
-        border-radius: ;
-      }
+    }
     
       .players-stats .box {
         padding: 2px;
