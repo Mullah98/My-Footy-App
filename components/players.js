@@ -26,8 +26,21 @@ export default function Players() {
     const players = playersData || [];
     
     const handleSelectedPlayer = (player) => {
-        setSelectedPlayer(player)
-    }
+        const updatedStatistics = updateCardCounts(player.statistics);
+        setSelectedPlayer({
+            ...player,
+            statistics: [updatedStatistics]
+        });
+    };
+
+    const updateCardCounts = (statistics) => {
+        const stats = statistics[0];
+        if (stats.cards.yellowred > stats.cards.red) {
+            stats.cards.yellow = Math.max(stats.cards.yellow - 1, 0);
+            stats.cards.red = stats.cards.red + 1;
+        }
+        return stats;
+    };
         
     return (
         <div className="players-container">
