@@ -1,4 +1,4 @@
-.leagueStats-container {
+.leagueStatsContainer {
     display: flex;
     justify-content: space-between;
     gap: 0;
@@ -15,7 +15,7 @@
 }
 
 
-.player, .first-player {
+.player, .firstPlayer {
     display: flex;
     align-items: flex-start;
     border: 1px solid rgba(0, 0, 0, 0.324);
@@ -28,27 +28,27 @@
     border-radius: 50%;
 }
 
-.player-details {
+.playerDetails {
     flex: 1;
     display: flex;
     flex-direction: column;
     margin-right: 5px;
 }
 
-.team-info {
+.teamInfo {
     display: flex;
     align-items: center;
 }
 
-.team-info img {
+.teamInfo img {
     margin-right: 2px;
 }
 
-.team-info h4 {
+.teamInfo h4 {
     margin: 0;
 }
 
-.player-stats {
+.playerStats {
     color: black;
     display: inline-flex;
     align-items: center;
@@ -62,13 +62,13 @@
     padding: 0;
 }
 
-.first-player .player-stats {
+.firstPlayer .playerStats {
     color: white;
     background-color: green;
 }
 
 @media (max-width: 768px) {
-    .leagueStats-container {
+    .leagueStatsContainer {
         flex-direction: column;
         gap: 8px;
         padding: 5px;
@@ -89,7 +89,7 @@
         margin-right: 10px;
     }
 
-    .player-details {
+    .playerDetails {
         flex: 1;
         margin-right: 5px;
         display: flex;
@@ -97,25 +97,25 @@
         justify-content: center;
     }
 
-    .team-info {
+    .teamInfo {
         display: flex;
         align-items: center;
         margin-top: -10px;
     }
 
-    .team-info img {
+    .teamInfo img {
         width: 15px; 
         height: 15px;
         margin-right: 5px;
         border-radius: 0;
     }
 
-    .team-info h4 {
+    .teamInfo h4 {
         font-size: 12px;
         margin: 0;
     }
 
-    .player-stats {
+    .playerStats {
         font-size: 14px;
         width: 28px;
         height: 28px;

@@ -1,4 +1,4 @@
-.fixtures-list {
+.fixturesList {
     justify-content: center;
     text-align: center;
     padding: 10px;
@@ -11,23 +11,23 @@
     text-align: center;
 }
 
-.fixtures-round {
+.fixturesRound {
     display: flex;
     justify-content: center;
 }
 
-.round-counter {
+.roundCounter {
     margin: 0 15px;
     text-align: center;
 }
 
-.arrow-left, .arrow-right {
+.arrowLeft, .arrowRight {
     font-size: 30px;
     color: green;
 }
 
-.arrow-left:hover,
-.arrow-right:hover {
+.arrowLeft:hover,
+.arrowRight:hover {
     cursor: pointer;
 }
 
@@ -46,31 +46,31 @@
     cursor: pointer;
 }
 
-.fixture-teams {
+.fixtureTeams {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
-.team-name {
+.teamName {
     margin: 0 20px; 
     flex: 1;
     text-align: center;
 }
 
-.center-content {
+.centerContent {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
 
-.center-content h4 {
+.centerContent h4 {
     margin: 0;
 }
 
-.center-content img {
+.centerContent img {
     margin: 0 5px;
 }
 
@@ -80,13 +80,13 @@
 
 
 @media (max-width: 768px) {
-    .fixtures-list {
+    .fixturesList {
         padding: 5px;
         border-radius: 6px;
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     }
 
-    .fixtures-round {
+    .fixturesRound {
         display: flex;
         padding-bottom: 10px;
     }
@@ -100,14 +100,14 @@
         border-radius: 6px;
     }
 
-    .fixture-teams {
+    .fixtureTeams {
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 100%; 
     }
 
-    .team-name {
+    .teamName {
         margin: 0 9px;
         font-size: 10px;
         text-align: center;
@@ -117,7 +117,7 @@
         max-width: 110px; 
     }
 
-    .center-content {
+    .centerContent {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -125,12 +125,12 @@
         margin: 0 auto;
     }
 
-    .center-content h4 {
+    .centerContent h4 {
         font-size: 12px;
         margin: 0;
     }
 
-    .center-content img {
+    .centerContent img {
         width: 20px;
         height: auto;
     }

@@ -1,6 +1,6 @@
 import { getLeaguePlayerStats } from "@/utils/apiFootball";
 import { useQuery } from "react-query";
-import "../styling/playerLeagueStats.css"
+import styles from "../styling/playerLeagueStats.module.css"
 import Image from "next/image";
 
 export default function PlayerLeagueStats({leagueId}) {
@@ -20,63 +20,60 @@ export default function PlayerLeagueStats({leagueId}) {
     
 
     return (
-        <div className="leagueStats-container">
-            {leagueStats && (   
-                <>
-                    <div className="goals">
-                    <h2>Most goals</h2>
-                    {mostGoals.map((player, i) => (
-                        <li key={i} className={i === 0 ? 'first-player' : 'player'}>
-                        <Image src={player.player.photo}
-                            alt="player photo"
-                            width={50}
-                            height={50}
-                            priority={true} />
-                            <div className="player-details">
-                                <h3>{player.player.name}</h3>
-                                <div className="team-info">
-                                    <Image src={player.statistics[0].team.logo}
-                                    alt="team logo"
-                                    width={15}
-                                    height={15}
-                                    priority={true} />
-                                    <h4>{player.statistics[0].team.name}</h4>
-                                </div>
-                            </div>
-                            <div className="player-stats">
-                                {player.statistics[0].goals.total}
-                            </div>
-                        </li>
-                    ))}
+<div className={styles.leagueStatsContainer}>
+    <div className={styles.goals}>
+        <h2>Most goals</h2>
+        {mostGoals.map((player, i) => (
+            <li key={i} className={i === 0 ? styles.firstPlayer : styles.player}>
+                <Image src={player.player.photo}
+                    alt="player photo"
+                    width={50}
+                    height={50}
+                    priority={true} />
+                <div className={styles.playerDetails}>
+                    <h3>{player.player.name}</h3>
+                    <div className={styles.teamInfo}>
+                        <Image src={player.statistics[0].team.logo}
+                        alt="team logo"
+                        width={15}
+                        height={15}
+                        priority={true} />
+                        <h4>{player.statistics[0].team.name}</h4>
                     </div>
-                    <div className="assists">
-                    <h2>Most Assists</h2>
-                    {mostAssists.map((player, i) => (
-                        <li key={i} className={i === 0 ? 'first-player' : 'player'}>
-                            <Image src={player.player.photo}
-                            alt="player photo"
-                            width={50}
-                            height={50}
-                            priority={true} />
-                            <div className="player-details">
-                                <h3>{player.player.name}</h3>
-                                <div className="team-info">
-                                    <Image src={player.statistics[0].team.logo}
-                                    alt="team logo"
-                                    width={15}
-                                    height={15}
-                                    priority={true} />
-                                    <h4>{player.statistics[0].team.name}</h4>
-                                </div>
-                            </div>
-                            <div className="player-stats">
-                                {player.statistics[0].goals.assists}
-                            </div>
-                        </li>
-                    ))}
+                </div>
+                <div className={styles.playerStats}>
+                    {player.statistics[0].goals.total}
+                </div>
+            </li>
+        ))}
+    </div>
+    <div className={styles.assists}>
+        <h2>Most Assists</h2>
+        {mostAssists.map((player, i) => (
+            <li key={i} className={i === 0 ? styles.firstPlayer : styles.player}>
+                <Image src={player.player.photo}
+                    alt="player photo"
+                    width={50}
+                    height={50}
+                    priority={true} />
+                <div className={styles.playerDetails}>
+                    <h3>{player.player.name}</h3>
+                    <div className={styles.teamInfo}>
+                        <Image src={player.statistics[0].team.logo}
+                        alt="team logo"
+                        width={15}
+                        height={15}
+                        priority={true} />
+                        <h4>{player.statistics[0].team.name}</h4>
                     </div>
-                </>
-            )}
-        </div>
+                </div>
+                <div className={styles.playerStats}>
+                    {player.statistics[0].goals.assists}
+                </div>
+            </li>
+        ))}
+    </div>
+</div>
+
     )
 }
