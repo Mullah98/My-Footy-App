@@ -11,10 +11,6 @@ const nextConfig = {
         ],
         minimumCacheTTL: 60 * 60 * 24,
     },
-    webpackDevMiddleware: (config) => {
-        config.hot = false;
-        return config;
-    },
 };
 
 export default nextConfig;

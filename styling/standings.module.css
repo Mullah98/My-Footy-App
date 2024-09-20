@@ -36,6 +36,11 @@
     background-color: rgb(52, 50, 50);
 }
 
+.tr:hover {
+    background-color: rgb(87, 87, 87);
+    cursor: pointer;
+}
+
 .loading {
     position: relative;
     text-align: center;

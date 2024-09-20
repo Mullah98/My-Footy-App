@@ -62,7 +62,7 @@ export default function Standings({ leagueId }) {
                             <th className={styles.th}>W</th>
                             <th className={styles.th}>D</th>
                             <th className={styles.th}>L</th>
-                            <th className={styles.th}>+-</th>
+                            <th className={styles.th}>+/-</th>
                             <th className={styles.th}>GD</th>
                             <th className={styles.th}>Points</th>
                             <th className={`${styles.th} ${styles.formHead}`}>Form</th>

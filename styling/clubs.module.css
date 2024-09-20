@@ -1,4 +1,4 @@
-.clubs-container {
+.clubsContainer {
     padding: 10px;
     margin: 0 auto;
     text-align: center;
@@ -9,10 +9,10 @@
 .form {
     text-align: center;
     padding: 20px;
-    margin-top: 80px;
+    margin-top: 100px;
 }
 
-input {
+.input {
     font-size: 28px;
     border-radius: 10px;
     box-shadow: 0px 0px 8px rgb(162, 159, 159);
@@ -20,7 +20,7 @@ input {
     margin: 10px 0;
 }
 
-.form-li {
+.formLi {
     list-style: none;
     font-size: 23px;
     padding: 5px 0;
@@ -32,16 +32,16 @@ input {
     cursor: pointer;
 }
 
-.hide-li {
+.hideLi {
     display: none;
 }
 
-.form-li:hover {
+.formLi:hover {
     background-color: rgb(72, 71, 71);
     color: white;
 }
 
-.form-ul {
+.formUl {
     display: inline;
 }
 
@@ -50,7 +50,7 @@ input {
     padding: 10px;
 }
 
-.club-main {
+.clubMain {
     display: flex;
     font-size: larger;
     padding: 20px;
@@ -58,33 +58,33 @@ input {
     border-radius: 20px;
 }
 
-.club-main h1 {
+.clubMain h1 {
     font-size: 45px;
 }
 
-.club-main h4{
+.clubMain h4{
     color: rgb(52, 52, 52);
     margin: 10px auto;
 }
 
-.club-main img {
+.clubMain img {
     margin: 0 20px;
 }
 
-.club-logo, .club-info {
+.clubLogo, .clubInfo {
     margin: 30px 0;
 }
 
-.club-venue, .club-logo {
+.clubVenue, .clubLogo {
     flex: 1;
     text-align: end;
 }  
 
-.club-venue span {
+.clubVenue span {
     color: grey
 }
 
-.club-venue img {
+.clubVenue img {
     margin: 0 auto;
     border-radius: 20px;
 }
@@ -93,7 +93,7 @@ input {
     display: flex;
 }
 
-.club-current {
+.clubCurrent {
     flex: 1;
     border: 5px solid grey;
     padding: 20px;
@@ -101,11 +101,11 @@ input {
     width: auto;
 }
 
-.button-container {
+.buttonContainer {
     padding: 10px;
 }
 
-.button-container button {
+.buttonContainer button {
     padding: 10px;
     margin: 0 10px;
     background-color: green;
@@ -117,7 +117,7 @@ input {
 }
 
 @media (max-width: 768px) {
-    .clubs-container {
+    .clubsContainer {
         padding: 5px;
         margin: 0 auto;
         text-align: center;
@@ -131,7 +131,7 @@ input {
         margin-top: 50px; 
     }
 
-    input {
+    .input {
         font-size: 20px;
         border-radius: 8px;
         box-shadow: 0px 0px 6px rgb(162, 159, 159);
@@ -139,7 +139,7 @@ input {
         margin: 8px 0;
     }
 
-    .form-li {
+    .formLi {
         font-size: 18px; 
         padding: 4px 0;
         margin: 4px auto;
@@ -148,36 +148,36 @@ input {
         font-weight: 700;
     }
 
-    .club-main {
+    .clubMain {
         flex-direction: column; 
         font-size: 1.2em; 
         padding: 10px;
         border: 4px solid grey; 
     }
 
-    .club-main h1 {
+    .clubMain h1 {
         font-size: 30px; 
     }
 
-    .club-main h4 {
+    .clubMain h4 {
         font-size: 16px; 
     }
 
-    .club-main img {
+    .clubMain img {
         margin: 10px 30px; 
         width: 200px; 
         height: auto; 
     }
 
-    .club-logo, .club-info {
+    .clubLogo, .clubInfo {
         margin: 15px 0; 
     }
 
-    .club-venue {
+    .clubVenue {
         text-align: center; 
     }
 
-    .club-venue img {
+    .clubVenue img {
         width: 150px; 
         border-radius: 10px; 
     }
@@ -192,14 +192,14 @@ input {
         border-radius: 10px; 
     }
 
-    .button-container {
+    .buttonContainer {
         padding: 10px;
         display: flex;
         justify-content: center; 
         gap: 10px; 
     }
     
-    .button-container button {
+    .buttonContainer button {
         padding: 10px;
         background-color: green;
         border: none;
