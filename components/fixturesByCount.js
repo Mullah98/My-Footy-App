@@ -2,6 +2,7 @@ import { getClubFixtures } from "@/utils/apiFootball";
 import { useQuery } from "react-query";
 import "../styling/fixturesByCount.css"
 import Image from "next/image";
+import { Commet } from "react-loading-indicators";
 
 export default function FixturesByCount({teamId}) {
 
@@ -47,6 +48,10 @@ export default function FixturesByCount({teamId}) {
         } else if (isAway && !awayWin) {
             return 'fixture-loss'
         }
+    }
+
+    if (isLoading) {
+        return <div><Commet color="#32cd32" size="medium" text="" textColor="" /></div>
     }
 
     return (

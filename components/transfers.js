@@ -3,7 +3,9 @@ import { useQuery } from "react-query";
 import "../styling/transfers.css"
 import Image from "next/image";
 import { FaArrowRight } from 'react-icons/fa';
-import { FaArrowLeft } from 'react-icons/fa'
+import { FaArrowLeft } from 'react-icons/fa';
+import { Commet } from "react-loading-indicators";
+
 
 
 export default function Transfers({teamId}) {
@@ -33,8 +35,12 @@ export default function Transfers({teamId}) {
         return transfersIn
     }
     
-    const playersIn = filterPlayersIn(transferData)
-    const playersOut = filterPlayersOut(transferData)
+    const playersIn = filterPlayersIn(transferData);
+    const playersOut = filterPlayersOut(transferData);
+
+    if (isLoading) {
+        return <div><Commet color="#32cd32" size="medium" text="" textColor="" /></div>
+    }
 
     return (
         <div className="transfers-container">
