@@ -4,7 +4,10 @@
     font-size: x-small;
     gap: 12px;
     padding: 10px;
+}
 
+.loading {
+    text-align: center;
 }
 
 .most-goals, .most-conceded, .most-wins, .most-losses {

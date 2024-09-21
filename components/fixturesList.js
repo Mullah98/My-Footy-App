@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import styles from "../styling/fixturesList.module.css"
 import Image from "next/image";
 import { PiArrowSquareLeftFill, PiArrowSquareRightFill } from "react-icons/pi";
-import { Mosaic } from 'react-loading-indicators';
+import { OrbitProgress } from 'react-loading-indicators';
 
 export default function FixturesList({ leagueId }) {
     const [round, setRound] = useState(1);
@@ -58,30 +58,31 @@ export default function FixturesList({ leagueId }) {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 1000);
+        }, 1500);
 
         return () => clearTimeout(timer);
     }, []);
 
-    if (loading) {
-        return <div className={styles.loading}><Mosaic color="#32cd32" size="large" textColor="" /></div>;
-    }
-
+    
     const handlePrevRound = () => {
         if (round > 1) {
             setManualChangeRound(true);
             setRound(currentRound => currentRound - 1);
         }
     };
-
+    
     const handleNextRound = () => {
         if (round < maxRounds) {
             setManualChangeRound(true);
             setRound(currentRound => currentRound + 1);
         }
     };
-
+    
     const fixtureList = filterFixtures(fixturesList);
+    
+    if (loading) {
+        return <div className={styles.loading}><OrbitProgress variant="track-disc" color="#32cd32" size="medium" /></div>;
+    }
 
     return (
         <>

@@ -11,7 +11,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false); 
 
   const handleSelectedLeague = (leagueId) => {
-    setSelectedLeague(leagueId)
+    setSelectedLeague(leagueId);
   }
 
   useEffect(() => {

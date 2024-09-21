@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 import { getStandings } from "@/utils/apiFootball";
 import Image from "next/image";
 import styles from "../styling/miniStandings.module.css";
-import { Mosaic } from 'react-loading-indicators';
+import { OrbitProgress } from 'react-loading-indicators';
 
 
 export default function MiniStandings({ leagueId }) {
@@ -24,7 +24,7 @@ export default function MiniStandings({ leagueId }) {
     const miniStandings = filterStandings(standingsData);
 
     if (isLoading) {
-        return <div className={styles.loading}><Mosaic color="#32cd32" size="large" textColor="" /></div>;
+        return <div className={styles.loading}><OrbitProgress variant="track-disc" color="#32cd32" size="medium" /></div>;
     }
 
     return (

@@ -20,10 +20,10 @@ export default function PlayerLeagueStats({leagueId}) {
     
 
     return (
-<div className={styles.leagueStatsContainer}>
-    <div className={styles.goals}>
-        <h2>Most goals</h2>
-        {mostGoals.map((player, i) => (
+        <div className={styles.leagueStatsContainer}>
+         <div className={styles.goals}>
+            <h2>Most goals</h2>
+            {mostGoals.map((player, i) => (
             <li key={i} className={i === 0 ? styles.firstPlayer : styles.player}>
                 <Image src={player.player.photo}
                     alt="player photo"
@@ -46,8 +46,8 @@ export default function PlayerLeagueStats({leagueId}) {
                 </div>
             </li>
         ))}
-    </div>
-    <div className={styles.assists}>
+        </div>
+        <div className={styles.assists}>
         <h2>Most Assists</h2>
         {mostAssists.map((player, i) => (
             <li key={i} className={i === 0 ? styles.firstPlayer : styles.player}>
@@ -72,8 +72,7 @@ export default function PlayerLeagueStats({leagueId}) {
                 </div>
             </li>
         ))}
+        </div>
     </div>
-</div>
-
     )
 }

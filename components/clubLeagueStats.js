@@ -1,7 +1,9 @@
 import { useQuery } from "react-query";
 import { getStandings } from "@/utils/apiFootball";
 import Image from "next/image";
-import "../styling/clubLeagueStats.css"
+import "../styling/clubLeagueStats.css";
+import { OrbitProgress } from 'react-loading-indicators';
+
 
 export default function ClubLeagueStats({leagueId}) {
     const { data: clubStats, error, isLoading } = useQuery(
@@ -43,6 +45,10 @@ export default function ClubLeagueStats({leagueId}) {
     const mostConceded = findClubWithMostConceded(standings);
     const mostWins = findClubWithMostWins(standings);
     const mostLosses = findClubWithMostLosses(standings);
+
+    if (isLoading) {
+        return <div className='loading'><OrbitProgress variant="track-disc" color="#32cd32" size="medium" /></div>;
+    }
     
     return (
         <div className="clubLeagueStats-container">
