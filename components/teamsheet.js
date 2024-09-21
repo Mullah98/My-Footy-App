@@ -2,7 +2,8 @@ import { getTeamsheet } from "@/utils/apiFootball";
 import Image from "next/image";
 import { useQuery } from "react-query";
 import "../styling/teamsheet.css"
-import { useState } from "react";
+import { Commet } from "react-loading-indicators";
+
 
 export default function Teamsheet({teamId}) {
     const {data: teamSheet, isLoading} = useQuery(
@@ -17,6 +18,10 @@ export default function Teamsheet({teamId}) {
     const defenders = fullSquad?.filter(player => player.position === 'Defender')
     const midfielders = fullSquad?.filter(player => player.position === 'Midfielder')
     const attackers = fullSquad?.filter(player => player.position === 'Attacker')
+
+    if (isLoading) {
+        return <div><Commet color="#32cd32" size="medium" text="" textColor="" /></div>
+    }
          
     return (
         <div className="teamsheet-container">

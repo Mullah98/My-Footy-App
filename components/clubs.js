@@ -8,6 +8,7 @@ import Image from "next/image";
 import FixturesByCount from "./fixturesByCount";
 import Teamsheet from "./teamsheet";
 import Transfers from "./transfers";
+import {motion} from 'framer-motion';
 
 export default function Clubs({team}) {
     const [club, setClub] = useState('');
@@ -56,6 +57,19 @@ export default function Clubs({team}) {
         const filteredByCountry = teamsData.filter(club => countries.includes(club.team.country) && club.team.id < 600);
         return filteredByCountry;
     }
+      
+    const itemVariants = {
+        hidden: { opacity: 0, x: -50 },
+        visible: {
+          opacity: 1,
+          x: 0,
+          transition: {
+            duration: 1,
+            ease: "easeOut"
+          }
+        }
+      };
+
 
     const clubs = filterData(teamsData);
     
@@ -93,58 +107,70 @@ export default function Clubs({team}) {
             </div>
 
             
-            {selectedClub && (
-            <div className={styles.selected}>
-            
-                <div className={styles.clubMain}>
-                    <div className={styles.clubLogo}>
-                    <Image src={selectedClub.team.logo} 
+        {selectedClub && (
+         <motion.div 
+         key={selectedClub.team.id} 
+         variants={itemVariants} 
+         initial="hidden" 
+         animate="visible">
+
+
+        <div className={styles.clubMain}>
+            <div className={styles.clubLogo}>
+                <Image src={selectedClub.team.logo} 
                     alt="icon for club" 
                     height={200} 
                     width={200} 
                     priority={true} />
-                    </div>
-                    <div className={styles.clubInfo}>
-                    <h1>{selectedClub.team.name}</h1>
-                    <h4>{selectedClub.team.country}</h4>
-                    <h4>Founded {selectedClub.team.founded}</h4>
-                    </div>
-                    <div className={styles.clubVenue}>
-                    <h3><span>Stadium: </span>{selectedClub.venue.name}</h3>
-                    <h4><span>Capacity: </span>{selectedClub.venue.capacity}</h4>
-                    <h4><span>Surface: </span>{selectedClub.venue.surface}</h4>
-                    <Image src={selectedClub.venue.image} 
+            </div>
+            <div className={styles.clubInfo}>
+                <h1>{selectedClub.team.name}</h1>
+                <h4>{selectedClub.team.country}</h4>
+                <h4>Founded {selectedClub.team.founded}</h4>
+            </div>
+            <div className={styles.clubVenue}>
+                <h3><span>Stadium: </span>{selectedClub.venue.name}</h3>
+                <h4><span>Capacity: </span>{selectedClub.venue.capacity}</h4>
+                <h4><span>Surface: </span>{selectedClub.venue.surface}</h4>
+                <Image src={selectedClub.venue.image} 
                     alt="stadium for club" 
                     height={150} 
                     width={250} 
                     priority={true} />
-                    </div>
-                </div>
+            </div>
+        </div>
 
-                <div className={styles.buttonContainer}>
-                <button onClick={handleOverviewButton}>Overview</button>
-                <button onClick={handleTeamsheetButton}>Squad</button>
-                <button onClick={handleTransfersButton}>Transfers</button>
-                </div>
+        <div className={styles.buttonContainer}>
+            <button onClick={handleOverviewButton}>Overview</button>
+            <button onClick={handleTeamsheetButton}>Squad</button>
+            <button onClick={handleTransfersButton}>Transfers</button>
+        </div>
 
-                {showTeamsheet && (
-                <Teamsheet teamId={selectedClub.team.id}/>
-                )}
-
-                {showOverview && (
+        {showOverview && (
+            <motion.div variants={itemVariants} initial="hidden" animate="visible">
                 <div className={styles.bottom}>
                     <div className={styles.clubCurrent}>
-                    <h1>Team form</h1>
-                    <FixturesByCount teamId={selectedClub.team.id}/>
+                        <h1>Team form</h1>
+                        <FixturesByCount teamId={selectedClub.team.id}/>
                     </div>
                 </div>
-                )}
-                {showTransfers && (
-                    <Transfers teamId={selectedClub.team.id} />
-                )}
-            </div>
-            )}
+            </motion.div>
+        )}
 
+        {showTeamsheet && (
+            <motion.div variants={itemVariants} initial="hidden" animate="visible">
+                <Teamsheet teamId={selectedClub.team.id}/>
+            </motion.div>
+        )}
+
+        
+        {showTransfers && (
+            <motion.div variants={itemVariants} initial="hidden" animate="visible">
+                <Transfers teamId={selectedClub.team.id} />
+            </motion.div>
+        )}
+            </motion.div>
+        )}
         </div>
     )
 }

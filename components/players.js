@@ -9,6 +9,7 @@ import Image from "next/image";
 import Trophies from "./trophies";
 import { FaTrophy } from "react-icons/fa6";
 import { TbRectangleVerticalFilled } from "react-icons/tb";
+import {motion} from 'framer-motion';
 
 
 
@@ -41,6 +42,11 @@ export default function Players() {
         }
         return stats;
     };
+
+    const variants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    };
         
     return (
         <div className="players-container">
@@ -56,6 +62,11 @@ export default function Players() {
             </div>
 
             {selectedPlayer && (
+                <motion.div 
+                key={selectedPlayer.player.id} 
+                initial='hidden' 
+                animate='visible' 
+                variants={variants}>
             <div className="players-main">
             <div className="players-name">
                 <Image src={selectedPlayer.player.photo}
@@ -167,6 +178,7 @@ export default function Players() {
             <Trophies playerId={selectedPlayer.player.id} />
             </div>
             </div>
+            </motion.div>
             )}
         </div>
     )

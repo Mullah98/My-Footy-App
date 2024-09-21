@@ -8,7 +8,7 @@ import LeagueDashboard from "@/components/leagueDashboard";
 
 export default function Home() {
   const [selectedLeague, setSelectedLeague] = useState(39);
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(true); 
 
   const handleSelectedLeague = (leagueId) => {
     setSelectedLeague(leagueId);

@@ -7,6 +7,7 @@ import Image from 'next/image';
 import styles from '../styling/standings.module.css';
 import Dropdown from "./dropdown";
 import { Mosaic } from 'react-loading-indicators';
+import { motion } from "framer-motion";
 
 export default function Standings({ leagueId }) {
     const [selectSeason, setSelectSeason] = useState('2024');
@@ -53,6 +54,11 @@ export default function Standings({ leagueId }) {
                         textColor="" />
                 </div>
             ) : (
+                <motion.div 
+                initial={{opacity: 0, x: -100}}
+                animate={{opacity: 1, x: 0}}
+                transition={{ type: 'spring', stiffness: 50, damping: 20, duration: 0.8}}
+                >
                 <table className={styles.table}>
                     <thead>
                         <tr className={styles.rowHeader}>
@@ -88,6 +94,7 @@ export default function Standings({ leagueId }) {
                         ))}
                     </tbody>
                 </table>
+                </motion.div>
             )}
         </div>
     )
