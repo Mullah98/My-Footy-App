@@ -67,6 +67,7 @@ export default function FixturesList({ leagueId }) {
     const handlePrevRound = () => {
         if (round > 1) {
             setManualChangeRound(true);
+            setLoading(true);
             setRound(currentRound => currentRound - 1);
         }
     };
@@ -74,13 +75,14 @@ export default function FixturesList({ leagueId }) {
     const handleNextRound = () => {
         if (round < maxRounds) {
             setManualChangeRound(true);
+            setLoading(true);
             setRound(currentRound => currentRound + 1);
         }
     };
     
     const fixtureList = filterFixtures(fixturesList);
     
-    if (loading) {
+    if (isLoading) {
         return <div className={styles.loading}><OrbitProgress variant="track-disc" color="#32cd32" size="medium" /></div>;
     }
 
