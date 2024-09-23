@@ -145,8 +145,10 @@
     }
 
     .cards h3 {
-        font-size: 16px;
+        font-size: 12px;
         margin: 5px 0;
+        padding: 5px 0;
+        white-space: nowrap;
     }
 
     .h4-wrapper {
@@ -160,7 +162,7 @@
     }
 
     .information {
-        font-size: 14px; 
+        font-size: 11px;
     }
 
     .cards img {
@@ -170,7 +172,7 @@
 
     .cards .home-logo,
     .cards .away-logo {
-        margin: 20px auto; 
+        margin: 30px auto; 
     }
 
     .scores-wrapper {
