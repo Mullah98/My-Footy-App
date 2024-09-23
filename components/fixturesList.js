@@ -81,6 +81,8 @@ export default function FixturesList({ leagueId }) {
     };
     
     const fixtureList = filterFixtures(fixturesList);
+    console.log(fixtureList);
+    
     
     if (isLoading) {
         return <div className={styles.loading}><OrbitProgress variant="track-disc" color="#32cd32" size="medium" /></div>;
@@ -104,6 +106,17 @@ export default function FixturesList({ leagueId }) {
                     {fixtureList.map((fixture, i) => (
                         <li key={i} className={styles.fixture}>
                             <div className={styles.fixtureTeams}>
+
+                            <div className={styles.fixtureStatus}>
+                            {fixture.fixture.status.elapsed >= 90 ? (
+                                <h3 className={styles.finished}><span>FT</span></h3>
+                            ) : fixture.fixture.status.short === 'HT' ? (
+                                <h3><span>HT</span></h3>
+                            ) : fixture.fixture.status.elapsed !== null ? (
+                                <h3 className={styles.live}><span>{fixture.fixture.status.elapsed}</span></h3>
+                            ) : null}
+                            </div>
+
                                 <h4 className={styles.teamName}>{fixture.teams.home.name}</h4>
                                 <div className={styles.centerContent}>
                                     <Image

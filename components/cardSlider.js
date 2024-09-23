@@ -76,6 +76,7 @@ export default function CardSlider({ fixtures }) {
             ) : fixture.fixture.status.elapsed !== null ? (
                 <h3 className="live">{fixture.fixture.status.elapsed}{"'"}</h3>
             ) : null}
+            
                  <Image src={fixture.teams.away.logo} 
                  className="away-logo" 
                  alt="icon for away team" 

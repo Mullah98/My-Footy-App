@@ -46,6 +46,29 @@
     cursor: pointer;
 }
 
+.fixtureStatus {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.finished, .live {
+    color: white;
+    font-size: 11px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: rgb(67, 67, 67);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.live {
+    color: green;
+    animation: blink 1s infinite;
+}
+
 .fixtureTeams {
     display: flex;
     justify-content: space-between;
@@ -98,6 +121,18 @@
         padding: 8px;
         white-space: nowrap;
         border-radius: 6px;
+    }
+
+    .finished, .live {
+        color: white;
+        font-size: 7px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: rgb(67, 67, 67);
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .fixtureTeams {
