@@ -2,9 +2,11 @@ import { getLeaguePlayerStats } from "@/utils/apiFootball";
 import { useQuery } from "react-query";
 import styles from "../styling/playerLeagueStats.module.css"
 import Image from "next/image";
+import { OrbitProgress } from "react-loading-indicators";
+import { MdErrorOutline } from "react-icons/md";
 
 export default function PlayerLeagueStats({leagueId}) {
-    const {data: leagueStats, isLoading} = useQuery(
+    const {data: leagueStats, error, isLoading} = useQuery(
         ['leagueStats', leagueId], () => getLeaguePlayerStats(leagueId), {
             staleTime: Infinity,
             cacheTime: Infinity
@@ -15,9 +17,25 @@ export default function PlayerLeagueStats({leagueId}) {
         return []
     }
 
-    const mostGoals = leagueStats.topScorer.slice(0,3);
+    const mostGoals = leagueStats.topScorer.slice(0,3); //Only show the top 3 players
     const mostAssists = leagueStats.topAssist.slice(0, 3);
-    
+
+    if (isLoading) {
+        return <div className={styles.loading}>
+        <OrbitProgress 
+        variant="track-disc" 
+        color="#32cd32" 
+        size="medium" />
+        </div>;
+    }
+
+    if (error) {
+        return <div className={styles.loading}>
+            <h2>Error fetching data 😟</h2>
+            <MdErrorOutline size={60} color="red" />
+            <p>Please refresh the page or try again later.</p>
+        </div>
+    }
 
     return (
         <div className={styles.leagueStatsContainer}>
@@ -60,7 +78,7 @@ export default function PlayerLeagueStats({leagueId}) {
                     <h3>{player.player.name}</h3>
                     <div className={styles.teamInfo}>
                         <Image src={player.statistics[0].team.logo}
-                        alt="team logo"
+                        alt="player's team logo"
                         width={15}
                         height={15}
                         priority={true} />

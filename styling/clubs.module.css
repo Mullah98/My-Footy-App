@@ -116,6 +116,10 @@
     cursor: pointer;
 }
 
+.loading {
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     .clubsContainer {
         padding: 5px;

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useQuery } from "react-query";
 import "../styling/teamsheet.css"
 import { Commet } from "react-loading-indicators";
-
+import { MdErrorOutline } from "react-icons/md";
 
 export default function Teamsheet({teamId}) {
     const {data: teamSheet, isLoading} = useQuery(
@@ -20,7 +20,19 @@ export default function Teamsheet({teamId}) {
     const attackers = fullSquad?.filter(player => player.position === 'Attacker')
 
     if (isLoading) {
-        return <div><Commet color="#32cd32" size="medium" text="" textColor="" /></div>
+        return <div>
+        <Commet 
+        color="#32cd32" 
+        size="medium" />
+        </div>
+    }
+
+    if (error) {
+        return <div className="loading">
+            <h2>Error fetching data 😟</h2>
+            <MdErrorOutline size={60} color="red" />
+            <p>Please refresh the page or try again later.</p>
+        </div>
     }
          
     return (
@@ -39,7 +51,7 @@ export default function Teamsheet({teamId}) {
             <h2>Defenders</h2>
             {defenders?.map((player, i) => (
                 <div className="players" key={i}>
-                <Image src={player.photo} alt="Image for players" height={75} width={75} priority={true} />
+                <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
                 <p className="player-name">{player.name}</p>
                 <p className="player-number">{player.number}</p>
                 </div>
@@ -49,7 +61,7 @@ export default function Teamsheet({teamId}) {
             <h2>Midfielders</h2>
             {midfielders?.map((player, i) => (
                 <div className="players" key={i}>
-                <Image src={player.photo} alt="Image for players" height={75} width={75} priority={true} />
+                <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
                 <p className="player-name">{player.name}</p>
                 <p className="player-number">{player.number}</p>
                 </div>
@@ -59,7 +71,7 @@ export default function Teamsheet({teamId}) {
             <h2>Attackers</h2>
             {attackers?.map((player, i) => (
                 <div className="players" key={i}>
-                <Image src={player.photo} alt="Image for players" height={75} width={75} priority={true} />
+                <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
                 <p className="player-name">{player.name}</p>
                 <p className="player-number">{player.number}</p>
                 </div>

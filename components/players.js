@@ -78,7 +78,7 @@ export default function Players() {
                 <h1>{selectedPlayer.player.name}</h1>
                 <h2>
                 <Image src={selectedPlayer.statistics[0].team.logo}
-                alt="image for player"
+                alt="player's team logo"
                 width={30}
                 height={30}
                 priority={true} />

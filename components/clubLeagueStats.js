@@ -3,7 +3,7 @@ import { getStandings } from "@/utils/apiFootball";
 import Image from "next/image";
 import "../styling/clubLeagueStats.css";
 import { OrbitProgress } from 'react-loading-indicators';
-
+import { MdErrorOutline } from "react-icons/md";
 
 export default function ClubLeagueStats({leagueId}) {
     const { data: clubStats, error, isLoading } = useQuery(
@@ -47,9 +47,22 @@ export default function ClubLeagueStats({leagueId}) {
     const mostLosses = findClubWithMostLosses(standings);
 
     if (isLoading) {
-        return <div className='loading'><OrbitProgress variant="track-disc" color="#32cd32" size="medium" /></div>;
+        return <div className="loading">
+            <OrbitProgress 
+            variant="track-disc" 
+            color="#32cd32" 
+            size="medium" />
+        </div>;
     }
-    
+
+    if (error) {
+        return <div className="loading">
+            <h2>Error fetching data 😟</h2>
+            <MdErrorOutline size={60} color="red" />
+            <p>Please refresh the page or try again later.</p>
+        </div>
+    }
+
     return (
         <div className="clubLeagueStats-container">
             {clubStats && (

@@ -44,6 +44,11 @@
     transition: transform 0.3s ease-in-out;
 }
 
+.loading {
+    text-align: center;
+    margin: auto;
+}
+
 @media (max-width: 768px) {
     .leagues-container {
         margin: 5em 1em;

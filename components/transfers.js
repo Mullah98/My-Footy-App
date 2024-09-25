@@ -52,13 +52,13 @@ export default function Transfers({teamId}) {
                         <p>{player.transfers[0].type}</p>
                         <div className="transfer-logo">
                         <Image src={player.transfers[0].teams.out.logo} 
-                        alt="image for players" 
+                        alt="club logo" 
                         height={75} 
                         width={75} 
                         priority={true} />
                         <FaArrowRight className="arrow-icon-right" />
                         <Image src={player.transfers[0].teams.in.logo} 
-                        alt="image for players" 
+                        alt="club logo" 
                         height={75} 
                         width={75} 
                         priority={true} />
@@ -74,13 +74,13 @@ export default function Transfers({teamId}) {
                         <p>{player.transfers[0].type}</p>
                         <div className="transfer-logo">
                         <Image src={player.transfers[0].teams.out.logo}
-                        alt="image for players"
+                        alt="club logo"
                         height={75}
                         width={75}
                         priority={true} />
                         <FaArrowRight className="arrow-icon-left" />
                         <Image src={player.transfers[0].teams.in.logo}
-                        alt="image for players"
+                        alt="club logo"
                         height={75}
                         width={75}
                         priority={true} />

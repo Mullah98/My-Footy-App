@@ -8,6 +8,7 @@ import styles from '../styling/standings.module.css';
 import Dropdown from "./dropdown";
 import { Mosaic } from 'react-loading-indicators';
 import { motion } from "framer-motion";
+import { MdErrorOutline } from "react-icons/md";
 
 export default function Standings({ leagueId }) {
     const [selectSeason, setSelectSeason] = useState('2024');
@@ -33,12 +34,21 @@ export default function Standings({ leagueId }) {
         setSelectSeason(value)
     }
 
+    //Team form will be in letters (W / D / L). Split each letter and reverse it so can render the form in order
     const renderTeamForm = (form) => {
         return form.split('').reverse().map((result, index) => (
             <span key={index} className={`${styles.formResult} ${styles[result]}`}>
                 {result}
             </span>
         ));
+    }
+
+    if (error) {
+        return <div className={styles.loading}>
+            <h2>Error fetching data 😟</h2>
+            <MdErrorOutline size={60} color="red" />
+            <p>Please refresh the page or try again later.</p>
+        </div>
     }
     
     return (
