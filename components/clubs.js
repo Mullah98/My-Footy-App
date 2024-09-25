@@ -8,7 +8,7 @@ import Image from "next/image";
 import FixturesByCount from "./fixturesByCount";
 import Teamsheet from "./teamsheet";
 import Transfers from "./transfers";
-import { OrbitProgress } from "react-loading-indicators";
+import { ThreeDot } from "react-loading-indicators";
 import { MdErrorOutline } from "react-icons/md";
 import {motion} from 'framer-motion';
 
@@ -83,6 +83,14 @@ export default function Clubs({team}) {
         </div>
     }
 
+    // if (isLoading && selectedClub) {
+    //     return <div className={styles.loading}>
+    //     <ThreeDot 
+    //     variant="pulsate" 
+    //     color="#32cd32" />
+    //     </div>
+    // }
+
     return (
         <div className={styles.clubsContainer}>
             <div className={styles.form}>
@@ -93,7 +101,14 @@ export default function Clubs({team}) {
                 onClick={handleClick}
                 className={styles.input} />
                 
-                {clubs && Array.isArray(clubs) && (
+                {isLoading ? (
+                    <div className={styles.loading}>
+                    <ThreeDot
+                    variant="pulsate"
+                    color="#32cd32" />
+                    </div>
+                ) : (
+                    clubs && Array.isArray(clubs) && (
                     <ul className={styles.formUl}>
                         {clubs.map((club) => (
                             <li className={isClicked ? styles.hideLi : styles.formLi} 
@@ -112,19 +127,11 @@ export default function Clubs({team}) {
                             </li>
                         ))}
                     </ul>
-                )}
+                ))}
             </div>
 
             
-        {isLoading ? (
-        <div className={styles.loading}>
-            <OrbitProgress 
-            variant="split-disc" 
-            dense color="#32cd32"
-            size="smaller" />
-        </div>
-        ) : (
-            selectedClub && (
+        {selectedClub && (
          <motion.div 
          key={selectedClub.team.id} 
          variants={itemVariants} 
@@ -185,7 +192,6 @@ export default function Clubs({team}) {
             </motion.div>
         )}
             </motion.div>
-        )
         )}
         </div>
     )

@@ -9,17 +9,13 @@ import Image from "next/image";
 import Trophies from "./trophies";
 import { FaTrophy } from "react-icons/fa6";
 import { TbRectangleVerticalFilled } from "react-icons/tb";
-import { OrbitProgress } from "react-loading-indicators";
 import { MdErrorOutline } from "react-icons/md";
 import {motion} from 'framer-motion';
 
-
-
 export default function Players() {
-    const [query, setQuery] = useState('')
-    const [selectedLeague, setSelectedLeague] = useState(39)
-    const [selectedPlayer, setSelectedPlayer] = useState(null)
-
+    const [query, setQuery] = useState('');
+    const [selectedLeague, setSelectedLeague] = useState(39);
+    const [selectedPlayer, setSelectedPlayer] = useState(null);
 
     const { data: playersData, error, isLoading } = useQuery(['players', selectedLeague, query], () => searchPlayer(selectedLeague, query), {
         cacheTime: Infinity,
@@ -68,22 +64,17 @@ export default function Players() {
             setLeague={setSelectedLeague} 
             playersData={players} 
             selectedPlayer={handleSelectedPlayer}
+            loading={isLoading}
             />
             </div>
 
-            {isLoading ? (
-            <div className="loading">
-                <OrbitProgress 
-                variant="split-disc" 
-                dense color="#32cd32" />
-            </div>
-            ) : (
-                selectedPlayer && (
-                <motion.div 
-                key={selectedPlayer.player.id} 
-                initial='hidden' 
-                animate='visible' 
-                variants={variants}>
+            
+            {selectedPlayer && (
+            <motion.div 
+            key={selectedPlayer.player.id} 
+            initial='hidden' 
+            animate='visible' 
+            variants={variants}>
             <div className="players-main">
             <div className="players-name">
                 <Image src={selectedPlayer.player.photo}
@@ -196,7 +187,6 @@ export default function Players() {
             </div>
             </div>
             </motion.div>
-            )
             )}
         </div>
     )
