@@ -9,6 +9,8 @@ import Image from "next/image";
 import Trophies from "./trophies";
 import { FaTrophy } from "react-icons/fa6";
 import { TbRectangleVerticalFilled } from "react-icons/tb";
+import { OrbitProgress } from "react-loading-indicators";
+import { MdErrorOutline } from "react-icons/md";
 import {motion} from 'framer-motion';
 
 
@@ -19,7 +21,7 @@ export default function Players() {
     const [selectedPlayer, setSelectedPlayer] = useState(null)
 
 
-    const { data: playersData, isLoading } = useQuery(['players', selectedLeague, query], () => searchPlayer(selectedLeague, query), {
+    const { data: playersData, error, isLoading } = useQuery(['players', selectedLeague, query], () => searchPlayer(selectedLeague, query), {
         cacheTime: Infinity,
         staleTime: Infinity
     });
@@ -47,6 +49,14 @@ export default function Players() {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
     };
+
+
+    if (error) {
+        return <div className="error">
+            <MdErrorOutline size={60} color="red" />
+            <p>Please refresh the page or try again later.</p>
+        </div>
+    }
         
     return (
         <div className="players-container">
@@ -61,7 +71,14 @@ export default function Players() {
             />
             </div>
 
-            {selectedPlayer && (
+            {isLoading ? (
+            <div className="loading">
+                <OrbitProgress 
+                variant="split-disc" 
+                dense color="#32cd32" />
+            </div>
+            ) : (
+                selectedPlayer && (
                 <motion.div 
                 key={selectedPlayer.player.id} 
                 initial='hidden' 
@@ -179,6 +196,7 @@ export default function Players() {
             </div>
             </div>
             </motion.div>
+            )
             )}
         </div>
     )

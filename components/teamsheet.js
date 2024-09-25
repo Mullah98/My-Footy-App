@@ -6,7 +6,7 @@ import { Commet } from "react-loading-indicators";
 import { MdErrorOutline } from "react-icons/md";
 
 export default function Teamsheet({teamId}) {
-    const {data: teamSheet, isLoading} = useQuery(
+    const {data: teamSheet, error, isLoading} = useQuery(
         ['teamSheet', teamId], () => getTeamsheet(teamId), {
             staleTime: Infinity,
             cacheTime: Infinity,

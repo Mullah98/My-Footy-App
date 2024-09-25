@@ -51,18 +51,19 @@ export default function FixturesList({ leagueId }) {
     };
 
     useEffect(() => {
-        if (isRoundComplete(fixturesList) && !manualChangeRound) { //Automatically go to the current round
-            setRound(prevRound => prevRound + 1);
-        }
-    }, [fixturesList, manualChangeRound]);
-
-    useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
         }, 1500);
 
         return () => clearTimeout(timer);
     }, []);
+    
+    useEffect(() => {
+        if (isRoundComplete(fixturesList) && !manualChangeRound) { //Automatically go to the current round
+            setRound(prevRound => prevRound + 1);
+        }
+    }, [fixturesList, manualChangeRound]);
+
 
     
     const handlePrevRound = () => {

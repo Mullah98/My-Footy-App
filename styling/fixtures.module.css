@@ -38,6 +38,10 @@
     align-items: center;
 }
 
+.loading {
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     .roundText {
         font-size: 12px;

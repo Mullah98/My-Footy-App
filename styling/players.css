@@ -10,6 +10,15 @@
     margin-right: 30px;
 }
 
+.loading {
+  text-align: center;
+}
+
+.error {
+  text-align: center;
+  margin-top: 120px;
+}
+
 .players-main {
     border: 6px solid grey;
     border-radius: 20px;

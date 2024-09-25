@@ -77,8 +77,7 @@ export default function Clubs({team}) {
     const clubs = filterData(teamsData);
 
     if (error) {
-        return <div className={styles.loading}>
-            <h2>Error fetching data 😟</h2>
+        return <div className={styles.error}>
             <MdErrorOutline size={60} color="red" />
             <p>Please refresh the page or try again later.</p>
         </div>
@@ -118,10 +117,11 @@ export default function Clubs({team}) {
 
             
         {isLoading ? (
-            <div className={styles.loading}>
+        <div className={styles.loading}>
             <OrbitProgress 
             variant="split-disc" 
-            dense color="#32cd32" />
+            dense color="#32cd32"
+            size="smaller" />
         </div>
         ) : (
             selectedClub && (

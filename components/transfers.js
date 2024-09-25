@@ -3,13 +3,13 @@ import { useQuery } from "react-query";
 import "../styling/transfers.css"
 import Image from "next/image";
 import { FaArrowRight } from 'react-icons/fa';
-import { FaArrowLeft } from 'react-icons/fa';
 import { Commet } from "react-loading-indicators";
+import { MdErrorOutline } from "react-icons/md";
 
 
 
 export default function Transfers({teamId}) {
-    const {data: transferData, isLoading} = useQuery(
+    const {data: transferData, error, isLoading} = useQuery(
         ['transferData', teamId], () => getTransfers(teamId), {
             staleTime: Infinity,
             cacheTime: Infinity,
@@ -39,7 +39,19 @@ export default function Transfers({teamId}) {
     const playersOut = filterPlayersOut(transferData);
 
     if (isLoading) {
-        return <div><Commet color="#32cd32" size="medium" text="" textColor="" /></div>
+        return <div>
+        <Commet 
+        color="#32cd32" 
+        size="medium" />
+        </div>
+    }
+
+    if (error) {
+        return <div className="loading">
+            <h2>Error fetching data 😟</h2>
+            <MdErrorOutline size={60} color="red" />
+            <p>Please refresh the page or try again later.</p>
+        </div>
     }
 
     return (
