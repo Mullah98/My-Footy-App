@@ -3,7 +3,7 @@
 import { useQuery } from "react-query";
 import { getLeagues } from "@/utils/apiFootball";
 import Image from 'next/image';
-import '../styling/leagues.css'
+import '../styling/leagues.css';
 import { BlinkBlur } from "react-loading-indicators";
 import { MdErrorOutline } from "react-icons/md";
 

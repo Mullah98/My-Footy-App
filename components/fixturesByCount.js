@@ -9,8 +9,8 @@ export default function FixturesByCount({teamId}) {
 
     const {data: fixtures, error, isLoading} = useQuery(
         ['fixtures', teamId], () => getClubFixtures(teamId), {
-            staleTime: Infinity,
-            cacheTime: Infinity,
+            staleTime: 1000 * 60 * 60,
+            cacheTime: 1000 * 60 * 60 * 24
         }
     );
     
@@ -26,10 +26,10 @@ export default function FixturesByCount({teamId}) {
     });
 
     const lastFive = fixtures?.last5Games;
-    const nextGame = fixtures?.nextGame[0];    
+    const nextGame = fixtures?.nextGame[0]; 
 
-    const fixtureDate = nextGame?.fixture?.date ? dateFormatter.format(new Date(nextGame.fixture.date)) : 'Date not available'
-    const fixtureTime = nextGame?.fixture.date ? timeFormatter.format(new Date(nextGame.fixture.date)) : 'Time not available'
+    const fixtureDate = nextGame?.fixture?.date ? dateFormatter.format(new Date(nextGame.fixture.date)) : 'Date not available';
+    const fixtureTime = nextGame?.fixture.date ? timeFormatter.format(new Date(nextGame.fixture.date)) : 'Time not available';
     
 
     const findWinner = (fixture) => {
@@ -52,7 +52,7 @@ export default function FixturesByCount({teamId}) {
     }
 
     if (isLoading) {
-        return <div>
+        return <div className="loading">
             <Commet 
             color="#32cd32" 
             size="medium" />

@@ -8,8 +8,8 @@ import { MdErrorOutline } from "react-icons/md";
 export default function PlayerLeagueStats({leagueId}) {
     const {data: leagueStats, error, isLoading} = useQuery(
         ['leagueStats', leagueId], () => getLeaguePlayerStats(leagueId), {
-            staleTime: Infinity,
-            cacheTime: Infinity
+            staleTime: 1000 * 60 * 60,
+            cacheTime: 1000 * 60 * 60 * 24
         }
     );
 

@@ -1,7 +1,6 @@
 import "../styling/playersSearchForm.css"
-import Image from "next/image"
+import Image from "next/image";
 import { ThreeDot } from "react-loading-indicators";
-
 
 export default function PlayersSearchForm({ query, setQuery, league, setLeague, playersData, selectedPlayer, loading }) {
 
@@ -19,8 +18,6 @@ export default function PlayersSearchForm({ query, setQuery, league, setLeague, 
     }
 
     const playersList = playersData || [];
-        
-    
 
     return (
         <div className="form-container">

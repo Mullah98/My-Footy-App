@@ -15,8 +15,8 @@ export default function Fixtures({ leagueId }) {
 
     const { data: fixturesData, error, isLoading } = useQuery(
         ['fixtures', leagueId, round], () => getFixtures(leagueId, round), {
-            staleTime: Infinity,
-            cacheTime: Infinity,
+            staleTime: 1000 * 60 * 60,
+            cacheTime: 1000 * 60 * 60 * 24
         }
     );
 
@@ -76,7 +76,10 @@ export default function Fixtures({ leagueId }) {
             <h1 className={styles.h1}>Fixtures</h1>
             {isLoading ? (
                 <div className={styles.loading}>
-                    <Mosaic color="#32cd32" size="large" text="Loading" textColor="" />
+                    <Mosaic 
+                    color="#32cd32" 
+                    size="large" 
+                    text="Loading" />
                 </div>
             ) : (
                 <>

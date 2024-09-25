@@ -58,10 +58,10 @@ export default function Standings({ leagueId }) {
             {isLoading ? (
                 <div className={styles.loading}>
                     <Mosaic 
-                        color="#32cd32" 
-                        size="large" 
-                        text="Loading" 
-                        textColor="" />
+                    color="#32cd32" 
+                    size="large" 
+                    text="Loading" 
+                    textColor="" />
                 </div>
             ) : (
                 <motion.div 

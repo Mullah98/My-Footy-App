@@ -1,18 +1,16 @@
 import { getTransfers } from "@/utils/apiFootball";
 import { useQuery } from "react-query";
-import "../styling/transfers.css"
+import "../styling/transfers.css";
 import Image from "next/image";
 import { FaArrowRight } from 'react-icons/fa';
 import { Commet } from "react-loading-indicators";
 import { MdErrorOutline } from "react-icons/md";
 
-
-
 export default function Transfers({teamId}) {
     const {data: transferData, error, isLoading} = useQuery(
         ['transferData', teamId], () => getTransfers(teamId), {
-            staleTime: Infinity,
-            cacheTime: Infinity,
+            staleTime: 1000 * 60 * 60,
+            cacheTime: 1000 * 60 * 60 * 24
         }
     );
 
@@ -56,6 +54,7 @@ export default function Transfers({teamId}) {
 
     return (
         <div className="transfers-container">
+
             <div className="transfers">
                 <h2>Players In</h2>
                 {playersIn.map((player, i) => (
@@ -63,21 +62,22 @@ export default function Transfers({teamId}) {
                         <h3>{player.player.name}</h3>
                         <p>{player.transfers[0].type}</p>
                         <div className="transfer-logo">
-                        <Image src={player.transfers[0].teams.out.logo} 
-                        alt="club logo" 
-                        height={75} 
-                        width={75} 
-                        priority={true} />
-                        <FaArrowRight className="arrow-icon-right" />
-                        <Image src={player.transfers[0].teams.in.logo} 
-                        alt="club logo" 
-                        height={75} 
-                        width={75} 
-                        priority={true} />
+                            <Image src={player.transfers[0].teams.out.logo} 
+                            alt="club logo" 
+                            height={75} 
+                            width={75} 
+                            priority={true} />
+                            <FaArrowRight className="arrow-icon-right" />
+                            <Image src={player.transfers[0].teams.in.logo} 
+                            alt="club logo" 
+                            height={75} 
+                            width={75} 
+                            priority={true} />
                         </div>
                     </div>
                 ))}
             </div>
+
             <div className="transfers">
                 <h2>Players Out</h2>
                 {playersOut.map((player, i) => (
@@ -85,21 +85,22 @@ export default function Transfers({teamId}) {
                         <h3>{player.player.name}</h3>
                         <p>{player.transfers[0].type}</p>
                         <div className="transfer-logo">
-                        <Image src={player.transfers[0].teams.out.logo}
-                        alt="club logo"
-                        height={75}
-                        width={75}
-                        priority={true} />
-                        <FaArrowRight className="arrow-icon-left" />
-                        <Image src={player.transfers[0].teams.in.logo}
-                        alt="club logo"
-                        height={75}
-                        width={75}
-                        priority={true} />
+                            <Image src={player.transfers[0].teams.out.logo}
+                            alt="club logo"
+                            height={75}
+                            width={75}
+                            priority={true} />
+                            <FaArrowRight className="arrow-icon-left" />
+                            <Image src={player.transfers[0].teams.in.logo}
+                            alt="club logo"
+                            height={75}
+                            width={75}
+                            priority={true} />
                         </div>
                     </div>
                 ))}
             </div>
+
         </div>
     )
     

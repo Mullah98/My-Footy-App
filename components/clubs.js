@@ -22,8 +22,8 @@ export default function Clubs({team}) {
     const countries = ['England', 'Spain', 'France', 'Germany', 'Italy'];
 
     const { data: teamsData, error, isLoading } = useQuery(['teams', team, club], () => searchTeam(club), {
-        cacheTime: Infinity,
-        staleTime: Infinity,
+        staleTime: 1000 * 60 * 60,
+        cacheTime: 1000 * 60 * 60 * 24
     });
 
     const handleChange = (e) => {
@@ -60,7 +60,7 @@ export default function Clubs({team}) {
         return filteredByCountry;
     }
       
-    //Customing transitions and animations from framer motion
+    //Customing transitions and animations with framer motion
     const itemVariants = {
         hidden: { opacity: 0, x: -50 },
         visible: {
@@ -82,14 +82,6 @@ export default function Clubs({team}) {
             <p>Please refresh the page or try again later.</p>
         </div>
     }
-
-    // if (isLoading && selectedClub) {
-    //     return <div className={styles.loading}>
-    //     <ThreeDot 
-    //     variant="pulsate" 
-    //     color="#32cd32" />
-    //     </div>
-    // }
 
     return (
         <div className={styles.clubsContainer}>

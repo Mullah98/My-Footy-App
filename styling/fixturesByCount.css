@@ -81,6 +81,10 @@
   margin: 5px 0;
 }
 
+.loading {
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .upcoming-fixture {
     padding: 4px; 

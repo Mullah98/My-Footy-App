@@ -5,13 +5,11 @@
     gap: 20px;
 }
 
-/* Left, Middle, and Right columns */
 .dashboard-left, .dashboard-middle, .dashboard-right {
     flex: 1;
     padding: 10px;
 }
 
-/* Right section split into top and bottom */
 .dashboard-right {
     display: flex;
     flex-direction: column;
@@ -19,14 +17,14 @@
 }
 
 .dashboard-right-top {
-    padding: 10px;
+    padding: 5px;
     background-color: #f9f9f9; 
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  
 }
 
 .dashboard-right-bottom {
-    padding: 10px;
+    padding: 5px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);

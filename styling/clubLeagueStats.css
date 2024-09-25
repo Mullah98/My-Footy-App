@@ -3,7 +3,6 @@
     grid-template-columns: repeat(2, 1fr);
     font-size: x-small;
     gap: 12px;
-    padding: 10px;
 }
 
 .loading {

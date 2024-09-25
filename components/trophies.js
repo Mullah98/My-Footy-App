@@ -1,28 +1,24 @@
 import { getTrophies } from "@/utils/apiFootball";
-import { useState } from "react";
 import { useQuery } from "react-query";
 import "../styling/trophies.css"
-
 
 export default function Trophies({playerId}) {
 
     const { data: trophiesData, isLoading } = useQuery(['trophies', playerId], () => getTrophies(playerId), {
-        cacheTime: Infinity,
-        staleTime: Infinity
+        staleTime: 1000 * 60 * 60,
+        cacheTime: 1000 * 60 * 60 * 24
     })
-
     const filterTrophies = (trophyData) => {
         if (!trophyData) {
             return []
         }
+        const winningTrophies = trophyData.filter(trophy => trophy.place === 'Winner') // Only show the 1st place trophies
 
-        const winningTrophies = trophyData.filter(trophy => trophy.place === 'Winner')
         return winningTrophies.reduce((acc, trophy) => {
             const existingTrophy = acc.find(t => t.league === trophy.league)
-
-            if (existingTrophy) {
+            if (existingTrophy) {  // If the player has won the same trophy more than once, push the season to existing trophy's array
                 existingTrophy.season.push(trophy.season)
-            } else {
+            } else { // Else, create a new trophy array with the league name, country and the season
                 acc.push({
                     league: trophy.league,
                     country: trophy.country,
@@ -37,7 +33,10 @@ export default function Trophies({playerId}) {
 
     return (
         <div className="trophies-container">
-            {allTrophies && Array.isArray(allTrophies) && (
+            {isLoading ? (
+                <div>Loading...</div>
+            ) : (
+                allTrophies && Array.isArray(allTrophies) && (
                 allTrophies.map((trophy, i) => (
                     <div className="box" key={i}>
                     <div className="trophy-info">
@@ -51,7 +50,7 @@ export default function Trophies({playerId}) {
                     </ul>
                     </div>
                 ))
-            )}
+            ))}
         </div>
     )   
 }

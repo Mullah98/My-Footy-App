@@ -1,15 +1,15 @@
 import { getTeamsheet } from "@/utils/apiFootball";
 import Image from "next/image";
 import { useQuery } from "react-query";
-import "../styling/teamsheet.css"
+import "../styling/teamsheet.css";
 import { Commet } from "react-loading-indicators";
 import { MdErrorOutline } from "react-icons/md";
 
 export default function Teamsheet({teamId}) {
     const {data: teamSheet, error, isLoading} = useQuery(
         ['teamSheet', teamId], () => getTeamsheet(teamId), {
-            staleTime: Infinity,
-            cacheTime: Infinity,
+            staleTime: 1000 * 60 * 60,
+            cacheTime: 1000 * 60 * 60 * 24
         }
     );
 
@@ -37,46 +37,51 @@ export default function Teamsheet({teamId}) {
          
     return (
         <div className="teamsheet-container">
+
             <div className="goalkeeper">
             <h2>Goalkeepers</h2>
             {goalkeepers?.map((player, i) => (
                 <div className="players" key={i}>
-                <Image src={player.photo} alt="Image for players" height={75} width={75} priority={true} />
-                <p className="player-name">{player.name}</p>
-                <p className="player-number">{player.number}</p>
+                    <Image src={player.photo} alt="Image for players" height={75} width={75} priority={true} />
+                    <p className="player-name">{player.name}</p>
+                    <p className="player-number">{player.number}</p>
                 </div>
             ))}
             </div>
+
             <div className="defenders">
             <h2>Defenders</h2>
             {defenders?.map((player, i) => (
                 <div className="players" key={i}>
-                <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
-                <p className="player-name">{player.name}</p>
-                <p className="player-number">{player.number}</p>
+                    <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
+                    <p className="player-name">{player.name}</p>
+                    <p className="player-number">{player.number}</p>
                 </div>
             ))}
             </div>
+
             <div className="midfielders">
             <h2>Midfielders</h2>
             {midfielders?.map((player, i) => (
                 <div className="players" key={i}>
-                <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
-                <p className="player-name">{player.name}</p>
-                <p className="player-number">{player.number}</p>
+                    <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
+                    <p className="player-name">{player.name}</p>
+                    <p className="player-number">{player.number}</p>
                 </div>
             ))}
             </div>
+
             <div className="attackers">
             <h2>Attackers</h2>
             {attackers?.map((player, i) => (
                 <div className="players" key={i}>
-                <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
-                <p className="player-name">{player.name}</p>
-                <p className="player-number">{player.number}</p>
+                    <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
+                    <p className="player-name">{player.name}</p>
+                    <p className="player-number">{player.number}</p>
                 </div>
             ))}
             </div>
+
         </div>
     )
     
