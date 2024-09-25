@@ -3,12 +3,11 @@
 import Leagues from "@/components/leagues";
 import { useState, useEffect } from "react";
 import LoadingScreen from "../components/loadingScreen";
-import styles from "./page.module.css"
 import LeagueDashboard from "@/components/leagueDashboard";
 
 export default function Home() {
   const [selectedLeague, setSelectedLeague] = useState(39);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(false); 
 
   const handleSelectedLeague = (leagueId) => {
     setSelectedLeague(leagueId);
@@ -23,13 +22,12 @@ export default function Home() {
   }, []);
 
 
-
   return (
     <>
     {loading ? (
       <LoadingScreen />
     ) : (
-      <div className={styles.main}>
+      <div>
         <Leagues handleSelectedLeague={handleSelectedLeague} />
         <LeagueDashboard league={selectedLeague} />
       </div>

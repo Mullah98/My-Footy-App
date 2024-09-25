@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import styles from "../styling/fixturesList.module.css"
 import Image from "next/image";
 import { PiArrowSquareLeftFill, PiArrowSquareRightFill } from "react-icons/pi";
+import { MdErrorOutline } from "react-icons/md";
 import { OrbitProgress } from 'react-loading-indicators';
 
 export default function FixturesList({ leagueId }) {
@@ -12,7 +13,7 @@ export default function FixturesList({ leagueId }) {
     const [loading, setLoading] = useState(true);
     const maxRounds = 38;
 
-    const { data: fixturesList, isLoading } = useQuery(
+    const { data: fixturesList, error, isLoading } = useQuery(
         ['fixturesList', leagueId, round], () => getFixtures(leagueId, round), {
         staleTime: Infinity,
         cacheTime: Infinity,
@@ -36,8 +37,8 @@ export default function FixturesList({ leagueId }) {
 
         const result = fixturesList.map(fixture => {
             const fixtureDate = new Date(fixture.fixture.date);
-            const formattedDate = dateFormatter.format(fixtureDate);
-            const formattedTime = timeFormatter.format(fixtureDate);
+            const formattedDate = dateFormatter.format(fixtureDate); //Date will show as Mon 31
+            const formattedTime = timeFormatter.format(fixtureDate); //Time will show as 12:00pm
             return { ...fixture, fixtureDate, formattedDate, formattedTime };
         });
 
@@ -50,18 +51,19 @@ export default function FixturesList({ leagueId }) {
     };
 
     useEffect(() => {
-        if (isRoundComplete(fixturesList) && !manualChangeRound) {
-            setRound(prevRound => prevRound + 1);
-        }
-    }, [fixturesList, manualChangeRound]);
-
-    useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
         }, 1500);
 
         return () => clearTimeout(timer);
     }, []);
+    
+    useEffect(() => {
+        if (isRoundComplete(fixturesList) && !manualChangeRound) { //Automatically go to the current round
+            setRound(prevRound => prevRound + 1);
+        }
+    }, [fixturesList, manualChangeRound]);
+
 
     
     const handlePrevRound = () => {
@@ -81,11 +83,22 @@ export default function FixturesList({ leagueId }) {
     };
     
     const fixtureList = filterFixtures(fixturesList);
-    console.log(fixtureList);
-    
-    
+        
     if (isLoading) {
-        return <div className={styles.loading}><OrbitProgress variant="track-disc" color="#32cd32" size="medium" /></div>;
+        return <div className={styles.loading}>
+            <OrbitProgress 
+            variant="track-disc" 
+            color="#32cd32" 
+            size="medium" />
+        </div>;
+    }
+
+    if (error) {
+        return <div className={styles.loading}>
+            <h2>Error fetching data 😟</h2>
+            <MdErrorOutline size={60} color="red" />
+            <p>Please refresh the page or try again later.</p>
+        </div>
     }
 
     return (

@@ -1,5 +1,5 @@
 import {Mosaic} from 'react-loading-indicators';
-import "../styling/loadingScreen.css"
+import "../styling/loadingScreen.css";
 
 export default function LoadingScreen() {
 

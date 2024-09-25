@@ -3,7 +3,7 @@ import { getStandings } from "@/utils/apiFootball";
 import Image from "next/image";
 import styles from "../styling/miniStandings.module.css";
 import { OrbitProgress } from 'react-loading-indicators';
-
+import { MdErrorOutline } from "react-icons/md";
 
 export default function MiniStandings({ leagueId }) {
     const { data: standingsData, error, isLoading } = useQuery(
@@ -24,8 +24,22 @@ export default function MiniStandings({ leagueId }) {
     const miniStandings = filterStandings(standingsData);
 
     if (isLoading) {
-        return <div className={styles.loading}><OrbitProgress variant="track-disc" color="#32cd32" size="medium" /></div>;
+        return <div className={styles.loading}>
+            <OrbitProgress 
+            variant="track-disc" 
+            color="#32cd32"
+            size="medium" />
+        </div>;
     }
+
+    if (error) {
+        return <div className={styles.loading}>
+            <h2>Error fetching data 😟</h2>
+            <MdErrorOutline size={60} color="red" />
+            <p>Please refresh the page or try again later.</p>
+        </div>
+    }
+    
 
     return (
         <table className={styles.table}>
@@ -46,7 +60,7 @@ export default function MiniStandings({ leagueId }) {
                     <tr key={i} className={styles.tr}>
                         <td className={`${styles.td} ${styles.teamRank}`}>{team.rank}</td>
                         <td className={`${styles.td} ${styles.teamCell}`}>
-                            <Image src={team.team.logo} alt="logo for team" height={25} width={25} priority={true} /> {team.team.name}
+                            <Image src={team.team.logo} alt="team logo" height={25} width={25} priority={true} /> {team.team.name}
                         </td>
                         <td className={styles.td}>{team.all.played}</td>
                         <td className={styles.td}>{team.all.win}</td>

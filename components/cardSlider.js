@@ -56,7 +56,7 @@ export default function CardSlider({ fixtures }) {
             <h3>{fixture.teams.home.name}<br /> vs <br /> {fixture.teams.away.name}</h3>
                 <Image src={fixture.teams.home.logo}
                  className="home-logo"
-                 alt="icon for home team" 
+                 alt="home team logo" 
                  height={150} 
                  width={140} 
                  priority={true} />
@@ -79,7 +79,7 @@ export default function CardSlider({ fixtures }) {
             
                  <Image src={fixture.teams.away.logo} 
                  className="away-logo" 
-                 alt="icon for away team" 
+                 alt="away team logo" 
                  height={150} 
                  width={140} 
                  priority={true} />

@@ -8,6 +8,8 @@ import Image from "next/image";
 import FixturesByCount from "./fixturesByCount";
 import Teamsheet from "./teamsheet";
 import Transfers from "./transfers";
+import { ThreeDot } from "react-loading-indicators";
+import { MdErrorOutline } from "react-icons/md";
 import {motion} from 'framer-motion';
 
 export default function Clubs({team}) {
@@ -19,9 +21,9 @@ export default function Clubs({team}) {
     const [showTransfers, setShowTransfers] = useState(false);
     const countries = ['England', 'Spain', 'France', 'Germany', 'Italy'];
 
-    const { data: teamsData, isLoading } = useQuery(['teams', team, club], () => searchTeam(club), {
-        cacheTime: Infinity,
-        staleTime: Infinity,
+    const { data: teamsData, error, isLoading } = useQuery(['teams', team, club], () => searchTeam(club), {
+        staleTime: 1000 * 60 * 60,
+        cacheTime: 1000 * 60 * 60 * 24
     });
 
     const handleChange = (e) => {
@@ -58,6 +60,7 @@ export default function Clubs({team}) {
         return filteredByCountry;
     }
       
+    //Customing transitions and animations with framer motion
     const itemVariants = {
         hidden: { opacity: 0, x: -50 },
         visible: {
@@ -72,7 +75,13 @@ export default function Clubs({team}) {
 
 
     const clubs = filterData(teamsData);
-    
+
+    if (error) {
+        return <div className={styles.error}>
+            <MdErrorOutline size={60} color="red" />
+            <p>Please refresh the page or try again later.</p>
+        </div>
+    }
 
     return (
         <div className={styles.clubsContainer}>
@@ -84,7 +93,14 @@ export default function Clubs({team}) {
                 onClick={handleClick}
                 className={styles.input} />
                 
-                {clubs && Array.isArray(clubs) && (
+                {isLoading ? (
+                    <div className={styles.loading}>
+                    <ThreeDot
+                    variant="pulsate"
+                    color="#32cd32" />
+                    </div>
+                ) : (
+                    clubs && Array.isArray(clubs) && (
                     <ul className={styles.formUl}>
                         {clubs.map((club) => (
                             <li className={isClicked ? styles.hideLi : styles.formLi} 
@@ -95,7 +111,7 @@ export default function Clubs({team}) {
                             setShowOverview(true) & 
                             setShowTeamsheet(false)}>
                             <Image src={club.team.logo} 
-                            alt="logo for club" 
+                            alt="Club logo" 
                             height={50} 
                             width={50} 
                             priority={true} />
@@ -103,7 +119,7 @@ export default function Clubs({team}) {
                             </li>
                         ))}
                     </ul>
-                )}
+                ))}
             </div>
 
             
@@ -113,8 +129,6 @@ export default function Clubs({team}) {
          variants={itemVariants} 
          initial="hidden" 
          animate="visible">
-
-
         <div className={styles.clubMain}>
             <div className={styles.clubLogo}>
                 <Image src={selectedClub.team.logo} 
@@ -133,7 +147,7 @@ export default function Clubs({team}) {
                 <h4><span>Capacity: </span>{selectedClub.venue.capacity}</h4>
                 <h4><span>Surface: </span>{selectedClub.venue.surface}</h4>
                 <Image src={selectedClub.venue.image} 
-                    alt="stadium for club" 
+                    alt="club stadium" 
                     height={150} 
                     width={250} 
                     priority={true} />

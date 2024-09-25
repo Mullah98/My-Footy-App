@@ -1,8 +1,8 @@
-import { useState } from "react"
 import "../styling/playersSearchForm.css"
-import Image from "next/image"
+import Image from "next/image";
+import { ThreeDot } from "react-loading-indicators";
 
-export default function PlayersSearchForm({ query, setQuery, league, setLeague, playersData, selectedPlayer }) {
+export default function PlayersSearchForm({ query, setQuery, league, setLeague, playersData, selectedPlayer, loading }) {
 
     const handleSearchQuery = (e) => {
         setQuery(e.target.value)
@@ -18,8 +18,6 @@ export default function PlayersSearchForm({ query, setQuery, league, setLeague, 
     }
 
     const playersList = playersData || [];
-        
-    
 
     return (
         <div className="form-container">
@@ -40,7 +38,14 @@ export default function PlayersSearchForm({ query, setQuery, league, setLeague, 
                 </input>
                 {playersList && (
                     <ul className="form-ul">
-                        {playersList.map((player, i) => (
+                        {loading ? (
+                            <div className="loading">
+                            <ThreeDot
+                            variant="pulsate"
+                            color="#32cd32" />
+                            </div>
+                        ) : (
+                            playersList.map((player, i) => (
                             <li key={player.id || i} className="form-li" onClick={() => handleClick(player)}>
                             <Image src={player.statistics[0].team.logo} 
                             alt="logo for club" 
@@ -51,7 +56,7 @@ export default function PlayersSearchForm({ query, setQuery, league, setLeague, 
                             {player.player.name}
                             </span>
                             </li>
-                        ))}
+                        )))}
                     </ul>
                 )}
             </div>

@@ -5,6 +5,7 @@ import { useQuery } from "react-query";
 import styles from "../styling/fixtures.module.css";
 import CardSlider from "@/components/cardSlider";
 import { Mosaic } from 'react-loading-indicators';
+import { MdErrorOutline } from "react-icons/md";
 import { useEffect, useState } from "react";
 
 export default function Fixtures({ leagueId }) {
@@ -12,10 +13,10 @@ export default function Fixtures({ leagueId }) {
     const [manualChangeRound, setManualChangeRound] = useState(false);
     const maxRounds = 38;
 
-    const { data: fixturesData, isLoading } = useQuery(
+    const { data: fixturesData, error, isLoading } = useQuery(
         ['fixtures', leagueId, round], () => getFixtures(leagueId, round), {
-            staleTime: Infinity,
-            cacheTime: Infinity,
+            staleTime: 1000 * 60 * 60,
+            cacheTime: 1000 * 60 * 60 * 24
         }
     );
 
@@ -45,7 +46,7 @@ export default function Fixtures({ leagueId }) {
     }
 
     useEffect(() => {
-        if (isRoundComplete(fixturesData) && !manualChangeRound) {
+        if (isRoundComplete(fixturesData) && !manualChangeRound) { //Automatically select the current round
             setRound(prevRound => prevRound + 1);
         }
     }, [fixturesData, manualChangeRound]);
@@ -62,12 +63,23 @@ export default function Fixtures({ leagueId }) {
 
     const fixtures = filterFixtures(fixturesData);
 
+    if (error) {
+        return <div className={styles.loading}>
+            <h2>Error fetching data 😟</h2>
+            <MdErrorOutline size={60} color="red" />
+            <p>Please refresh the page or try again later.</p>
+        </div>
+    }
+
     return (
         <div className={styles.fixturesContainer}>
             <h1 className={styles.h1}>Fixtures</h1>
             {isLoading ? (
                 <div className={styles.loading}>
-                    <Mosaic color="#32cd32" size="large" text="Loading" textColor="" />
+                    <Mosaic 
+                    color="#32cd32" 
+                    size="large" 
+                    text="Loading" />
                 </div>
             ) : (
                 <>

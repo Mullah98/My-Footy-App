@@ -5,7 +5,7 @@ import Navbar from './navbar/component';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Footy app",
+  title: "My Footy App",
   description: "Football app bringing you real-time data from all leagues",
 };
 

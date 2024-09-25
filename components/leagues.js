@@ -3,8 +3,9 @@
 import { useQuery } from "react-query";
 import { getLeagues } from "@/utils/apiFootball";
 import Image from 'next/image';
-import '../styling/leagues.css'
+import '../styling/leagues.css';
 import { BlinkBlur } from "react-loading-indicators";
+import { MdErrorOutline } from "react-icons/md";
 
 export default function Leagues({ handleSelectedLeague }) {
     const countries = ['England', 'Spain', 'France', 'Germany', 'Italy']
@@ -24,23 +25,38 @@ export default function Leagues({ handleSelectedLeague }) {
         return filterByLeague
     }
 
-    const leagues = filterLeagues(leaguesData)
+    const leagues = filterLeagues(leaguesData);
+
+    if (error) {
+        return <div className="loading">
+            <h2>Error fetching data 😟</h2>
+            <MdErrorOutline size={30} color="red" />
+        </div>
+    }
 
     return (
         <>
         <div className="leagues-container">
             <ul>
-                {Array.isArray(leagues) && leagues.map((item, i) => (
+                {isLoading ? (
+                    <div className="loading">
+                    <BlinkBlur 
+                    color="#32cd32" 
+                    size="medium" />
+                    </div>
+                ) : (
+                    
+                    Array.isArray(leagues) && leagues.map((item, i) => (
                     <li key={i}>
                     <button onClick={() => handleSelectedLeague(item.league.id)}>
                     <Image src={item.league.logo} 
-                    alt="icons for leagues" 
+                    alt="league logo" 
                     height={100} 
                     width={100} 
                     priority={true} />
                     </button>
                     </li>
-                ))}
+                )))}
             </ul>
         </div>
         </>

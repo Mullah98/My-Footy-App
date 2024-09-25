@@ -19,7 +19,7 @@ export default function LeagueDashboard({league}) {
                 <ClubLeagueStats leagueId={league} />
             </div>
             <div className="dashboard-right-bottom">
-            <PlayerLeagueStats leagueId={league}/>
+                <PlayerLeagueStats leagueId={league}/>
             </div>
             </div>
         </div>
