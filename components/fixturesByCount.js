@@ -25,7 +25,7 @@ export default function FixturesByCount({teamId}) {
         hour12: true, 
     });
 
-    const lastFive = fixtures?.last5Games;
+    const lastFive = fixtures?.last5Games    
     const nextGame = fixtures?.nextGame[0]; 
 
     const fixtureDate = nextGame?.fixture?.date ? dateFormatter.format(new Date(nextGame.fixture.date)) : 'Date not available';

@@ -57,8 +57,8 @@ export const getFixtures = async (leagueId, round) => {
 }
 
 
-export const searchTeam = async (team) => {
-    const url = `${BASE_URL}/teams?search=${team}`;
+export const searchTeam = async (league) => {
+    const url = `${BASE_URL}/teams?league=${league}&season=2024`;
     const options = {
         method: 'GET',
         headers: HEADERS,
@@ -67,9 +67,9 @@ export const searchTeam = async (team) => {
     try {
         const response = await fetch(url, options);
         const result = await response.json();
+        console.log(result);
+        
         return result.response;
-        
-        
     } catch(error) {
         console.log('Error fetch teams', error);
         throw error;
@@ -94,7 +94,6 @@ export const getClubFixtures = async (teamId) => {
         if (!firstResp.ok || !secondResp.ok) {
             throw new Error('Failed to fetch data')
         }
-
         const last5Games = await firstResp.json();
         const nextGame = await secondResp.json();
         return {
@@ -203,6 +202,24 @@ export const getLeaguePlayerStats = async (leagueId) => {
             topScorer: leagueTopScorer.response, 
             topAssist: leagueTopAssist.response
         }
+    } catch (error) {
+        console.log('Error fetching data', error);
+        throw error;
+    }
+}
+
+export const getClubStats = async (leagueId, teamId) => {
+    const url = `${BASE_URL}/teams/statistics?league=${leagueId}&season=2024&team=${teamId}`;
+
+    const options = {
+        method: 'GET',
+        headers: HEADERS,
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();        
+        return result.response;
     } catch (error) {
         console.log('Error fetching data', error);
         throw error;
