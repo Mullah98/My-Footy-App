@@ -11,17 +11,19 @@ import Transfers from "./transfers";
 import { ThreeDot } from "react-loading-indicators";
 import { MdErrorOutline } from "react-icons/md";
 import {motion} from 'framer-motion';
+import ClubStatistics from "./clubStatistics";
 
 export default function Clubs({team}) {
     const [club, setClub] = useState('');
     const [selectedClub, setSelectedClub] = useState(null);
+    const [league, setLeague] = useState(39)
     const [isClicked, setIsClicked] = useState(false);
     const [showOverview, setShowOverview] = useState(true);
     const [showTeamsheet, setShowTeamsheet] = useState(false);
     const [showTransfers, setShowTransfers] = useState(false);
     const countries = ['England', 'Spain', 'France', 'Germany', 'Italy'];
 
-    const { data: teamsData, error, isLoading } = useQuery(['teams', team, club], () => searchTeam(club), {
+    const { data: teamsData, error, isLoading } = useQuery(['teams', league], () => searchTeam(league), {
         staleTime: 1000 * 60 * 60,
         cacheTime: 1000 * 60 * 60 * 24
     });
@@ -56,10 +58,14 @@ export default function Clubs({team}) {
         if (!teamsData) {
             return [];
         }
-        const filteredByCountry = teamsData.filter(club => countries.includes(club.team.country) && club.team.id < 600);
+        const filteredByCountry = teamsData.filter(club => countries.includes(club.team.country));
         return filteredByCountry;
     }
-      
+
+    const handleDropdown = (e) => {
+        setLeague(e.target.value)
+    }
+
     //Customing transitions and animations with framer motion
     const itemVariants = {
         hidden: { opacity: 0, x: -50 },
@@ -73,8 +79,8 @@ export default function Clubs({team}) {
         }
       };
 
-
     const clubs = filterData(teamsData);
+    const filtered = clubs.filter(c => c.team.name.toLowerCase().includes(club.toLowerCase()))
 
     if (error) {
         return <div className={styles.error}>
@@ -86,6 +92,13 @@ export default function Clubs({team}) {
     return (
         <div className={styles.clubsContainer}>
             <div className={styles.form}>
+            <select className={styles.select} value={league} onChange={handleDropdown}>
+                <option value={39}>Premier League</option>
+                <option value={61}>Ligue 1</option>
+                <option value={78}>Bundesliga</option>
+                <option value={135}>Serie A</option>
+                <option value={140}>La Liga</option>
+                </select>
                 <input type="text"
                 placeholder="search for team..." 
                 value={club} 
@@ -100,9 +113,9 @@ export default function Clubs({team}) {
                     color="#32cd32" />
                     </div>
                 ) : (
-                    clubs && Array.isArray(clubs) && (
+                    club.length > 2 && filtered && Array.isArray(filtered) && (
                     <ul className={styles.formUl}>
-                        {clubs.map((club) => (
+                        {filtered.map((club) => (
                             <li className={isClicked ? styles.hideLi : styles.formLi} 
                             key={club.team.id} 
                             onClick={() => 
@@ -166,6 +179,7 @@ export default function Clubs({team}) {
                     <div className={styles.clubCurrent}>
                         <h1>Team form</h1>
                         <FixturesByCount teamId={selectedClub.team.id}/>
+                        <ClubStatistics leagueId={league} teamId={selectedClub.team.id} />
                     </div>
                 </div>
             </motion.div>

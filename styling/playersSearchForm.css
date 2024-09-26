@@ -1,6 +1,12 @@
 .form-container {
     display: flex;
     justify-content: center;
+    margin: 0 auto;
+}
+
+.players-form {
+    text-align: center;
+    margin: 0 0 0 30px;
 }
 
 select {
@@ -24,7 +30,7 @@ input {
     border-left: none;
     box-shadow: 0px 0px 8px rgb(162, 159, 159);
     padding: 10px 5px;
-    margin: 10px 5px;
+    margin: 10px 0;
 }
 
 .form-li {
@@ -62,29 +68,35 @@ input {
 }
 
 @media (max-width: 768px) {
-    .form {
-      margin-top: 40px; 
-      margin-right: 0; 
-      padding: 15px; 
-      text-align: center; 
+    .form-container {
+        flex-direction: column;
+    }
+
+    .players-form {
+      margin: 0 0 5px 0; 
+      padding: 10px; 
     }
 
     .players-form select {
         font-size: 14px;
+        margin-left: 14px;
     }
   
     input {
-      font-size: 18px;
-      border-radius: 8px;
-      box-shadow: 0px 0px 6px rgb(162, 159, 159); 
-      padding: 10px; 
-      margin: 10px 0; 
-      width: calc(100% - 20px);
+        font-size: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 6px rgb(162, 159, 159);
+        padding: 8px 4px;
+        margin: 8px 0;
     }
 
     .form-li {
-        font-size: 14px;
-        width: 100%;
+        font-size: 18px; 
+        padding: 4px 0;
+        margin: 4px auto;
+        width: 100%; 
+        align-items: center;
+        font-weight: 700;
     }
 
     .player-name {

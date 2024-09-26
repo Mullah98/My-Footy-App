@@ -15,8 +15,8 @@ export default function FixturesList({ leagueId }) {
 
     const { data: fixturesList, error, isLoading } = useQuery(
         ['fixturesList', leagueId, round], () => getFixtures(leagueId, round), {
-        staleTime: Infinity,
-        cacheTime: Infinity,
+            staleTime: 1000 * 60 * 60,
+            cacheTime: 1000 * 60 * 60 * 24
     });
 
     const filterFixtures = (fixturesList) => {
@@ -58,13 +58,21 @@ export default function FixturesList({ leagueId }) {
         return () => clearTimeout(timer);
     }, []);
     
+    // useEffect(() => {
+    //     if (isRoundComplete(fixturesList) && !manualChangeRound) { //Automatically go to the current round
+    //         setRound(prevRound => prevRound + 1);
+    //     }
+    // }, [fixturesList, manualChangeRound]);
+
     useEffect(() => {
-        if (isRoundComplete(fixturesList) && !manualChangeRound) { //Automatically go to the current round
-            setRound(prevRound => prevRound + 1);
+        if (fixturesList && !manualChangeRound) {
+            if (isRoundComplete(fixturesList)) {
+                setRound(prevRound => prevRound + 1)
+            } else {
+                setRound(prevRound => prevRound)
+            }
         }
     }, [fixturesList, manualChangeRound]);
-
-
     
     const handlePrevRound = () => {
         if (round > 1) {

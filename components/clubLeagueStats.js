@@ -44,7 +44,7 @@ export default function ClubLeagueStats({leagueId}) {
     const mostGoals = findClubWithMostGoals(standings);
     const mostConceded = findClubWithMostConceded(standings);
     const mostWins = findClubWithMostWins(standings);
-    const mostLosses = findClubWithMostLosses(standings);
+    const mostLosses = findClubWithMostLosses(standings);    
 
     if (isLoading) {
         return <div className="loading">

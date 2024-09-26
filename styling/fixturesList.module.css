@@ -65,8 +65,21 @@
 }
 
 .live {
-    color: green;
-    animation: blink 1s infinite;
+    color: white;
+    background-color: green;
+    animation: blink 1.5    s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 2;
+    }
 }
 
 .fixtureTeams {
