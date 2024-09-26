@@ -1,0 +1,130 @@
+.statsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 3px solid grey;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+    align-items: center;
+    color: #333;
+    margin: auto;
+}
+
+.box {
+    width: 50%;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    border: 3px solid #555;
+    border-radius: 20px;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #e0e0e0;
+}
+
+.left, .middle, .right {
+    padding: 15px;
+    border: 3px solid #666;
+    background-color: #444;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    width: 30%;
+    margin: 25px auto;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+.left:hover, .middle:hover, .right:hover {
+    background-color: #aaa;
+}
+
+.box h1 {
+    font-size: 25px;
+}
+
+.box h2 {
+    font-size: 28px;
+    margin: 0;
+    border-bottom: 1px solid #33333374;
+    color: #333;
+}
+
+.box h3 {
+    font-size: 18px;
+    color: white;
+}
+
+.box span {
+    font-size: 27px;
+    font-weight: 800;
+    color: white; 
+}
+
+.box:has(.left):has(.right):not(:has(.middle)) {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+@media (max-width: 768px) {
+    .statsContainer {
+        width: 100%;
+        margin: 0 -10px;
+        padding: 10px;
+        border: none;
+    }
+
+    .box {
+        width: 70%;
+        grid-template-columns: 1fr;
+        padding: 15px;
+        border: none;
+    }
+
+    .left, .middle, .right {
+        width: 50%;
+        margin: 10px auto;
+        padding: 10px;
+        border: none;
+    }
+
+    .box h1 {
+        font-size: 35px;
+    }
+
+    .box h2 {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+
+    .box h3 {
+        font-size: 16px;
+    }
+
+    .box span {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .box h1 {
+        font-size: 28px;
+    }
+
+    .box h2 {
+        font-size: 20px;
+    }
+
+    .box h3 {
+        font-size: 14px;
+    }
+
+    .box span {
+        font-size: 18px;
+    }
+
+    .left, .middle, .right {
+        width: 100%;
+    }
+}

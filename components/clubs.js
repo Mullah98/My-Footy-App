@@ -14,7 +14,7 @@ import {motion} from 'framer-motion';
 import ClubStatistics from "./clubStatistics";
 
 export default function Clubs({team}) {
-    const [query, setQuery] = useState('');
+    const [club, setClub] = useState('');
     const [selectedClub, setSelectedClub] = useState(null);
     const [league, setLeague] = useState(39)
     const [isClicked, setIsClicked] = useState(false);
@@ -29,11 +29,11 @@ export default function Clubs({team}) {
     });
 
     const handleChange = (e) => {
-        setQuery(e.target.value);
+        setClub(e.target.value);
     }
 
     const handleClick = (e) => {
-        setQuery('');
+        setClub('');
         setIsClicked(false);
     }
 
@@ -58,13 +58,14 @@ export default function Clubs({team}) {
         if (!teamsData) {
             return [];
         }
-        const filteredByCountry = teamsData.filter(club => countries.includes(club.team.country) && club.team.id < 600);
+        const filteredByCountry = teamsData.filter(club => countries.includes(club.team.country));
         return filteredByCountry;
     }
 
     const handleDropdown = (e) => {
         setLeague(e.target.value)
-    }      
+    }
+
     //Customing transitions and animations with framer motion
     const itemVariants = {
         hidden: { opacity: 0, x: -50 },
@@ -79,10 +80,8 @@ export default function Clubs({team}) {
       };
 
     const clubs = filterData(teamsData);
-    const filtered = clubs.filter(club => club.team.name.toLowerCase().includes(query.toLowerCase()))
-    console.log(filtered);
-    
-    
+    const filtered = clubs.filter(c => c.team.name.toLowerCase().includes(club.toLowerCase()))
+
     if (error) {
         return <div className={styles.error}>
             <MdErrorOutline size={60} color="red" />
@@ -102,7 +101,7 @@ export default function Clubs({team}) {
                 </select>
                 <input type="text"
                 placeholder="search for team..." 
-                value={query} 
+                value={club} 
                 onChange={handleChange} 
                 onClick={handleClick}
                 className={styles.input} />
@@ -114,7 +113,7 @@ export default function Clubs({team}) {
                     color="#32cd32" />
                     </div>
                 ) : (
-                    query.length > 2 && filtered && Array.isArray(filtered) && (
+                    club.length > 2 && filtered && Array.isArray(filtered) && (
                     <ul className={styles.formUl}>
                         {filtered.map((club) => (
                             <li className={isClicked ? styles.hideLi : styles.formLi} 
@@ -180,7 +179,7 @@ export default function Clubs({team}) {
                     <div className={styles.clubCurrent}>
                         <h1>Team form</h1>
                         <FixturesByCount teamId={selectedClub.team.id}/>
-                        <ClubStatistics />
+                        <ClubStatistics leagueId={league} teamId={selectedClub.team.id} />
                     </div>
                 </div>
             </motion.div>
