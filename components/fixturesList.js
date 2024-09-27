@@ -8,7 +8,7 @@ import { MdErrorOutline } from "react-icons/md";
 import { OrbitProgress } from 'react-loading-indicators';
 
 export default function FixturesList({ leagueId }) {
-    const [round, setRound] = useState(1);
+    const [round, setRound] = useState(null);
     const [manualChangeRound, setManualChangeRound] = useState(false);
     const [loading, setLoading] = useState(true);
     const maxRounds = 38;
@@ -24,23 +24,23 @@ export default function FixturesList({ leagueId }) {
             return [];
         }
 
-        const dateFormatter = new Intl.DateTimeFormat("en-GB", {
-            weekday: 'short',
-            day: '2-digit'
-        });
+    const dateFormatter = new Intl.DateTimeFormat("en-GB", {
+        weekday: 'short',
+        day: '2-digit'
+    });
 
-        const timeFormatter = new Intl.DateTimeFormat("en-GB", {
-            hour: 'numeric',
-            minute: 'numeric',
-            hour12: true,
-        });
+    const timeFormatter = new Intl.DateTimeFormat("en-GB", {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+    });
 
-        const result = fixturesList.map(fixture => {
-            const fixtureDate = new Date(fixture.fixture.date);
-            const formattedDate = dateFormatter.format(fixtureDate); //Date will show as Mon 31
-            const formattedTime = timeFormatter.format(fixtureDate); //Time will show as 12:00pm
-            return { ...fixture, fixtureDate, formattedDate, formattedTime };
-        });
+    const result = fixturesList.map(fixture => {
+        const fixtureDate = new Date(fixture.fixture.date);
+        const formattedDate = dateFormatter.format(fixtureDate); //Date will show as Mon 31
+        const formattedTime = timeFormatter.format(fixtureDate); //Time will show as 12:00pm
+        return { ...fixture, fixtureDate, formattedDate, formattedTime };
+    });
 
         result.sort((dateA, dateB) => dateA.fixtureDate - dateB.fixtureDate);
         return result;
@@ -53,24 +53,13 @@ export default function FixturesList({ leagueId }) {
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
-        }, 1500);
-
+        }, 1000);
         return () => clearTimeout(timer);
     }, []);
     
-    // useEffect(() => {
-    //     if (isRoundComplete(fixturesList) && !manualChangeRound) { //Automatically go to the current round
-    //         setRound(prevRound => prevRound + 1);
-    //     }
-    // }, [fixturesList, manualChangeRound]);
-
     useEffect(() => {
-        if (fixturesList && !manualChangeRound) {
-            if (isRoundComplete(fixturesList)) {
-                setRound(prevRound => prevRound + 1)
-            } else {
-                setRound(prevRound => prevRound)
-            }
+        if (isRoundComplete(fixturesList) && !manualChangeRound) { //Automatically go to the current round
+            setRound(prevRound => prevRound + 1);
         }
     }, [fixturesList, manualChangeRound]);
     

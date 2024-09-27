@@ -16,11 +16,11 @@ export default function ClubStatistics({leagueId, teamId}) {
             cacheTime: 1000 * 60 * 60 * 24
         });
 
-        if (!clubCurrentStats) {
-            return []
-        }
+    if (!clubCurrentStats) {
+        return []
+    }
 
-        const clubStats = clubCurrentStats;
+    const clubStats = clubCurrentStats;
 
 
     if (error) {

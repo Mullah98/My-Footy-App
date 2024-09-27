@@ -8,6 +8,7 @@ export default function Trophies({playerId}) {
         staleTime: 1000 * 60 * 60,
         cacheTime: 1000 * 60 * 60 * 24
     })
+    
     const filterTrophies = (trophyData) => {
         if (!trophyData) {
             return []
