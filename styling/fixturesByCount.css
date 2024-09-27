@@ -29,56 +29,47 @@
 }
 
 .upcoming-fixture {
-  width: 100%;
-  max-width: 800px; 
-  margin: 20px auto;
-  padding: 22px 40px;
+  border: 1px solid black;
+  width: 50%;
+  text-align: center;
+  margin: 10px auto;
   border: 3px solid grey;
   border-radius: 20px;
   background-color: #f9f9f9;
-  text-align: center;
 }
 
 .upcoming-fixture h3 {
   color: grey;
-  margin-bottom: 20px;
 }
 
 .next-fixture {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  width: 100%;
   align-items: center;
-  padding-left: 40px;
+  margin: 0 auto;
 }
 
-.team {
+.team-home, .team-away {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-  margin-left: 20px; 
-}
-
-.team-name {
-  font-weight: bold;
-  font-size: 28px;
-  text-align: center;
-  white-space: normal;
-  word-wrap: break-word;
+  flex-direction: column;
 }
 
 .fixture-date-time {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-left: 40px;
+  text-align: center;
   font-weight: 700;
   font-size: 28px;
 }
 
-.fixture-time, .fixture-date {
-  margin: 5px 0;
+.team-home img, .team-away img {
+  margin-bottom: 8px;
+}
+
+.team-name {
+  margin: 12px;
+  font-weight: bold;
+  font-size: 28px;
 }
 
 .loading {
@@ -87,7 +78,7 @@
 
 @media (max-width: 768px) {
   .upcoming-fixture {
-    padding: 4px; 
+    width: 100%; 
     border: none;
   }
 

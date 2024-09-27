@@ -19,6 +19,9 @@ export default function Teamsheet({teamId}) {
     const midfielders = fullSquad?.filter(player => player.position === 'Midfielder')
     const attackers = fullSquad?.filter(player => player.position === 'Attacker')
 
+    console.log(fullSquad);
+    
+
     if (isLoading) {
         return <div>
         <Commet 
@@ -44,7 +47,7 @@ export default function Teamsheet({teamId}) {
                 <div className="players" key={i}>
                     <Image src={player.photo} alt="Image for players" height={75} width={75} priority={true} />
                     <p className="player-name">{player.name}</p>
-                    <p className="player-number">{player.number}</p>
+                    <p className="player-number">{player.number ? player.number : 'NA'}</p>
                 </div>
             ))}
             </div>
@@ -55,7 +58,7 @@ export default function Teamsheet({teamId}) {
                 <div className="players" key={i}>
                     <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
                     <p className="player-name">{player.name}</p>
-                    <p className="player-number">{player.number}</p>
+                    <p className="player-number">{player.number ? player.number : 'NA'}</p>
                 </div>
             ))}
             </div>
@@ -66,7 +69,7 @@ export default function Teamsheet({teamId}) {
                 <div className="players" key={i}>
                     <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
                     <p className="player-name">{player.name}</p>
-                    <p className="player-number">{player.number}</p>
+                    <p className="player-number">{player.number ? player.number : 'NA'}</p>
                 </div>
             ))}
             </div>
@@ -77,7 +80,7 @@ export default function Teamsheet({teamId}) {
                 <div className="players" key={i}>
                     <Image src={player.photo} alt="photo of player" height={75} width={75} priority={true} />
                     <p className="player-name">{player.name}</p>
-                    <p className="player-number">{player.number}</p>
+                    <p className="player-number">{player.number ? player.number : 'NA'}</p>
                 </div>
             ))}
             </div>
