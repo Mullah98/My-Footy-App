@@ -19,9 +19,6 @@ export default function Teamsheet({teamId}) {
     const midfielders = fullSquad?.filter(player => player.position === 'Midfielder')
     const attackers = fullSquad?.filter(player => player.position === 'Attacker')
 
-    console.log(fullSquad);
-    
-
     if (isLoading) {
         return <div>
         <Commet 
