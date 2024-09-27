@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Footy App Project
+This is a live football stats app built using **NextJs**, with the data provided by [**API-Football Services**](https://www.api-football.com/).
 
-## Getting Started
+# Features
+- Display live football fixtures, standings, top scorers and assist leaders
+- View detailed stats, squads and club transfers for each team
+- View upto date statistics for each player
+- Data fetched from **API-Football Services**
 
-First, run the development server:
+# Getting started
+- `Clone the repository` git clone repository_link
+- `Install dependencies` npm install
+- `Set up the environment variables by creating a .env.local file with your API key from api-football.com` API_FOOTBALL_KEY=your_api_key_here
+- `Run the development server` npm run dev
+- `View the app`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# API Integration
+This project uses the [**API-Football**](https://www.api-football.com/) to fetch football data. Ensure you have an API key by signing up on their platform.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Project structure
+- /components: Contains reusable components such as Player, Team and Fixture
+- /pages: Main pages of the app including fixtures, standings, and stats
+- /api: API calls to fetch data
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Deployment with Vercel
+- Push the project to your GitHub
+- Link your GitHub to Vercel
+- Deploy your app with a single click
+- More details on the deployment [**Next.js deployment docs**](https://nextjs.org/docs/pages/building-your-application/deploying)
