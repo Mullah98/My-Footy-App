@@ -8,9 +8,8 @@ import { MdErrorOutline } from "react-icons/md";
 import { OrbitProgress } from 'react-loading-indicators';
 
 export default function FixturesList({ leagueId }) {
-    const [round, setRound] = useState(null);
+    const [round, setRound] = useState(1);
     const [manualChangeRound, setManualChangeRound] = useState(false);
-    const [loading, setLoading] = useState(true);
     const maxRounds = 38;
 
     const { data: fixturesList, error, isLoading } = useQuery(
@@ -50,12 +49,12 @@ export default function FixturesList({ leagueId }) {
         return fixturesList && fixturesList.every(fixture => fixture.fixture.status.short === 'FT');
     };
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 1000);
-        return () => clearTimeout(timer);
-    }, []);
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setLoading(false);
+    //     }, 1000);
+    //     return () => clearTimeout(timer);
+    // }, []);
     
     useEffect(() => {
         if (isRoundComplete(fixturesList) && !manualChangeRound) { //Automatically go to the current round
