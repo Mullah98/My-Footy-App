@@ -48,13 +48,6 @@ export default function FixturesList({ leagueId }) {
     const isRoundComplete = (fixturesList) => {
         return fixturesList && fixturesList.every(fixture => fixture.fixture.status.short === 'FT');
     };
-
-    // useEffect(() => {
-    //     const timer = setTimeout(() => {
-    //         setLoading(false);
-    //     }, 1000);
-    //     return () => clearTimeout(timer);
-    // }, []);
     
     useEffect(() => {
         if (isRoundComplete(fixturesList) && !manualChangeRound) { //Automatically go to the current round
@@ -65,7 +58,6 @@ export default function FixturesList({ leagueId }) {
     const handlePrevRound = () => {
         if (round > 1) {
             setManualChangeRound(true);
-            setLoading(true);
             setRound(currentRound => currentRound - 1);
         }
     };
@@ -73,7 +65,6 @@ export default function FixturesList({ leagueId }) {
     const handleNextRound = () => {
         if (round < maxRounds) {
             setManualChangeRound(true);
-            setLoading(true);
             setRound(currentRound => currentRound + 1);
         }
     };

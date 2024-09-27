@@ -91,16 +91,16 @@ export default function FixturesByCount({teamId}) {
             {nextGame ? (
             <>
                 <div className="next-fixture">
-                <div className="team">
-                    <Image src={nextGame.teams.home.logo} alt="home team logo" height={140} width={140} priority={true} />
+                <div className="team-home">
+                    <Image src={nextGame.teams.home.logo} alt="home team logo" height={160} width={160} priority={true} />
                     <span className="team-name">{nextGame.teams.home.name}</span>
                 </div>
                 <div className="fixture-date-time">
                 <p className="fixture-time">{fixtureTime}</p>
                 <p className="fixture-date">{fixtureDate}</p>
                 </div>
-                <div className="team">
-                    <Image src={nextGame.teams.away.logo} alt="away team logo" height={140} width={140} priority={true} />
+                <div className="team-away">
+                    <Image src={nextGame.teams.away.logo} alt="away team logo" height={160} width={160} priority={true} />
                     <span className="team-name">{nextGame.teams.away.name}</span>
                 </div>
                 </div>
