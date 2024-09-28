@@ -18,9 +18,9 @@ This is a live football stats app built using **NextJs**, with the data provided
 This project uses the [**API-Football**](https://www.api-football.com/) to fetch football data. Ensure you have an API key by signing up on their platform.
 
 # Project structure
-- /components: Contains reusable components such as Player, Team and Fixture
-- /pages: Main pages of the app including fixtures, standings, and stats
-- /api: API calls to fetch data
+- `/components:` Contains reusable components such as Player, Team and Fixture
+- `/pages:` Main pages of the app including fixtures, standings, and stats
+- `/api:` API calls to fetch data
 
 # Deployment with Vercel
 - Push the project to your GitHub
