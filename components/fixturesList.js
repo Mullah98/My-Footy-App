@@ -5,17 +5,22 @@ import styles from "../styling/fixturesList.module.css"
 import Image from "next/image";
 import { PiArrowSquareLeftFill, PiArrowSquareRightFill } from "react-icons/pi";
 import { MdErrorOutline } from "react-icons/md";
+import { IoMdRefreshCircle } from "react-icons/io";
 import { OrbitProgress } from 'react-loading-indicators';
 
 export default function FixturesList({ leagueId }) {
     const [round, setRound] = useState(1);
     const [manualChangeRound, setManualChangeRound] = useState(false);
+    const [isRefreshing, setIsRefreshing] = useState(false);
     const maxRounds = 38;
 
-    const { data: fixturesList, error, isLoading } = useQuery(
+    const { data: fixturesList, error, isLoading, refetch } = useQuery(
         ['fixturesList', leagueId, round], () => getFixtures(leagueId, round), {
             staleTime: 1000 * 60 * 60,
-            cacheTime: 1000 * 60 * 60 * 24
+            cacheTime: 1000 * 60 * 60 * 24,
+            onSettled: () => {
+                setIsRefreshing(false);
+            }
     });
 
     const filterFixtures = (fixturesList) => {
@@ -68,10 +73,14 @@ export default function FixturesList({ leagueId }) {
             setRound(currentRound => currentRound + 1);
         }
     };
+
+    const handleRefresh = () => { // For live games, refresh button will refetch the latest data
+        setIsRefreshing(true);
+    }
     
     const fixtureList = filterFixtures(fixturesList);
         
-    if (isLoading) {
+    if (isLoading || isRefreshing) {
         return <div className={styles.loading}>
             <OrbitProgress 
             variant="track-disc" 
@@ -102,6 +111,9 @@ export default function FixturesList({ leagueId }) {
                             onClick={handleNextRound}
                             className={styles.arrowRight}
                         />
+                        <button onClick={refetch} className={styles.refreshBtn}>
+                        <IoMdRefreshCircle onClick={handleRefresh}/>
+                        </button>
                     </div>
                     {fixtureList.map((fixture, i) => (
                         <li key={i} className={styles.fixture}>
