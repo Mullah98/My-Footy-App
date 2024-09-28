@@ -67,7 +67,7 @@
 .live {
     color: white;
     background-color: green;
-    animation: blink 1.5    s infinite;
+    animation: blink 1.5s infinite;
 }
 
 @keyframes blink {
