@@ -6,17 +6,22 @@ import styles from "../styling/fixtures.module.css";
 import CardSlider from "@/components/cardSlider";
 import { Mosaic } from 'react-loading-indicators';
 import { MdErrorOutline } from "react-icons/md";
+import { IoMdRefreshCircle } from "react-icons/io";
 import { useEffect, useState } from "react";
 
 export default function Fixtures({ leagueId }) {
     const [round, setRound] = useState(1);
     const [manualChangeRound, setManualChangeRound] = useState(false);
+    const [isRefreshing, setIsRefreshing] = useState(false);
     const maxRounds = 38;
 
-    const { data: fixturesData, error, isLoading } = useQuery(
+    const { data: fixturesData, error, isLoading, refetch } = useQuery(
         ['fixtures', leagueId, round], () => getFixtures(leagueId, round), {
             staleTime: 1000 * 60 * 60,
-            cacheTime: 1000 * 60 * 60 * 24
+            cacheTime: 1000 * 60 * 60 * 24,
+            onSettled: () => {
+                setIsRefreshing(false);
+            }
         }
     );
 
@@ -61,6 +66,10 @@ export default function Fixtures({ leagueId }) {
         setRound(currentRound => currentRound + 1);
     }
 
+    const handleRefresh = () => { // For live games, refresh button will refetch the latest data
+        setIsRefreshing(true);
+    }
+
     const fixtures = filterFixtures(fixturesData);
 
     if (error) {
@@ -74,7 +83,7 @@ export default function Fixtures({ leagueId }) {
     return (
         <div className={styles.fixturesContainer}>
             <h1 className={styles.h1}>Fixtures</h1>
-            {isLoading ? (
+            {isLoading | isRefreshing ? (
                 <div className={styles.loading}>
                     <Mosaic 
                     color="#32cd32" 
@@ -87,6 +96,7 @@ export default function Fixtures({ leagueId }) {
                         <button className={styles.roundBtn} onClick={handlePrevRound} disabled={round === 1}>Prev</button>
                         <span className={styles.roundText}>Round {round}</span>
                         <button className={styles.roundBtn} onClick={handleNextRound} disabled={round === maxRounds}>Next</button>
+                        <button className={styles.refreshBtn} onClick={refetch}><IoMdRefreshCircle onClick={handleRefresh} /></button>
                     </div>
                     <CardSlider fixtures={fixtures} />
                 </>

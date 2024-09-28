@@ -111,7 +111,7 @@ export default function FixturesList({ leagueId }) {
                             onClick={handleNextRound}
                             className={styles.arrowRight}
                         />
-                        <button onClick={refetch} className={styles.refreshBtn}>
+                        <button className={styles.refreshBtn} onClick={refetch}>
                         <IoMdRefreshCircle onClick={handleRefresh}/>
                         </button>
                     </div>

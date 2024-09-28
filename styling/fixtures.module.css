@@ -42,6 +42,21 @@
     text-align: center;
 }
 
+.refreshBtn {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    font-size: 30px;
+    margin: 0;
+}
+
+.refreshBtn:hover {
+    color: green;
+}
+
 @media (max-width: 768px) {
     .roundText {
         font-size: 12px;
