@@ -27,3 +27,9 @@ This project uses the [**API-Football**](https://www.api-football.com/) to fetch
 - Link your GitHub to Vercel
 - Deploy your app with a single click
 - More details on the deployment [**Next.js deployment docs**](https://nextjs.org/docs/pages/building-your-application/deploying)
+
+# Challenges
+-`Handling Real-Time Data-` Managing and updating live football data for fixtures and stats in real time was challenging. I implemented efficient caching techniques using React Query to reduce API calls and improve performance by automatically caching and syncing data.
+- `API Rate Limits and Testing-` API-Football's rate limits initially restricted the number of requests I could make, making thorough testing difficult. To overcome this, I opted to purchase a membership, which provided a higher request limit, allowing me to perform more extensive tests
+- `Loading the Current Fixture List-` Ensuring the current fixure list was displayed correctly was a challenge. I had to ensure all fixtures were complete before moving onto the next round which required handling data dependencies and making sure the state was updated after each map result.
+- `Deployment Issues-` During deployment on Vercel for the first time, I faced multiple build errors due to environment variable configuration. This was resolved by properly setting up .env.local and configuring the variables in Vercel's dashboard.
