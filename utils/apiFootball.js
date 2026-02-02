@@ -155,7 +155,7 @@ export const searchPlayer = async (leagueId, player) => {
         const result = await response.json();
         return result.response;
     } catch(error) {
-        console.log('Error fetching player'. error);
+        console.log('Error fetching player', error);
         throw error
     }
 }
