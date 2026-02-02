@@ -8,11 +8,11 @@ This is a live football stats app built using **NextJs**, with the data provided
 - Data fetched from **API-Football Services**
 
 # Getting started
-- `Clone the repository` git clone repository_link
-- `Install dependencies` npm install
-- `Set up the environment variables by creating a .env.local file with your API key from api-football.com` API_FOOTBALL_KEY=your_api_key_here
-- `Run the development server` npm run dev
-- `View the app`
+- **Clone the repository ->** `git clone repository_link`
+- **Install dependencies ->** `npm install`
+- **Set up the environment variables by creating a .env.local file with your API key from api-football.com ->** `API_FOOTBALL_KEY=your_api_key_here`
+- **Run the development server ->** `npm run dev`
+- **View the app**
 
 # API Integration
 This project uses the [**API-Football**](https://www.api-football.com/) to fetch football data. Ensure you have an API key by signing up on their platform.
